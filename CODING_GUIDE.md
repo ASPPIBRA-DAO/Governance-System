@@ -4,6 +4,62 @@
 
 Este documento serve como um guia para desenvolvedores que trabalham neste projeto, que é baseado no [Material Dashboard 2 PRO React TS](https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts). O objetivo é fornecer uma compreensão clara da estrutura do projeto, como customizar e otimizar o kit de UI e onde fazer alterações para implementar novas funcionalidades.
 
+## Tecnologias Utilizadas
+
+Com base na análise do projeto, as seguintes tecnologias são utilizadas:
+
+### **Tecnologias Principais (Core)**
+
+*   **React:** A biblioteca principal para a construção da interface de usuário.
+*   **TypeScript:** Utilizado para adicionar tipagem estática ao JavaScript, aumentando a robustez do código.
+
+### **Framework de UI e Estilização**
+
+*   **Material-UI (MUI):** O framework de componentes UI principal, que fornece a base para a aparência de toda a aplicação. O projeto é baseado no template "Material Dashboard 2 PRO React TS".
+*   **Emotion:** A biblioteca de estilização (CSS-in-JS) utilizada pelo Material-UI para customização de componentes.
+*   **Chroma.js:** Usado para manipulações de cores.
+*   **Stylis:** Um pré-processador de CSS leve.
+
+### **Roteamento**
+
+*   **React Router:** Utilizado para gerenciar a navegação e as rotas da aplicação.
+
+### **Gerenciamento de Estado**
+
+*   **React Context API:** O guia de codificação indica o uso de Contextos para gerenciamento de estado global, como no caso da autenticação.
+
+### **Formulários**
+
+*   **Formik:** Usado para construir e gerenciar formulários.
+*   **Yup:** Utilizado em conjunto com o Formik para a validação de schemas de formulários.
+
+### **Visualização de Dados e Gráficos**
+
+*   **Chart.js:** Biblioteca para a criação de gráficos.
+*   **react-chartjs-2:** Wrapper do Chart.js para fácil integração com o React.
+*   **FullCalendar:** Para a criação de calendários interativos.
+*   **React Jvectormap:** Para a criação de mapas vetoriais.
+
+### **Comunicação com API**
+
+*   **Axios:** Cliente HTTP para realizar requisições a APIs externas.
+
+### **Outras Bibliotecas e Componentes Específicos**
+
+*   **React Table:** Para a criação de tabelas de dados complexas e paginadas.
+*   **Asseinfo React Kanban:** Para a funcionalidade de quadros Kanban.
+*   **Dropzone:** Para funcionalidades de arrastar e soltar (drag-and-drop) de arquivos.
+*   **React Quill:** Um editor de texto rico (Rich Text Editor).
+*   **Flatpickr:** Um seletor de data e hora (datepicker).
+
+### **Ferramentas de Desenvolvimento e Build**
+
+*   **React Scripts:** O conjunto de scripts e configurações do Create React App, usado para iniciar, testar e construir a aplicação.
+*   **ESLint:** Para análise estática de código e identificação de problemas.
+*   **Prettier:** Para formatação automática de código.
+*   **Jest e React Testing Library:** Para a escrita de testes unitários e de componentes.
+*   **Express:** Incluído nas dependências, provavelmente para rodar um servidor de desenvolvimento ou mock.
+
 ## Estrutura de Diretórios
 
 A estrutura de diretórios foi projetada para ser modular e escalável. Abaixo está uma descrição de cada diretório principal e seu propósito.
