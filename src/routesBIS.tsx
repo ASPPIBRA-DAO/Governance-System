@@ -64,6 +64,7 @@ import SignInCover from "layouts/authentication/sign-in/cover";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
 import SignUpCover from "layouts/authentication/sign-up/cover";
 import ResetCover from "layouts/authentication/reset-password/cover";
+import Home from "layouts/pages/home"; // Import the new Home page
 
 // Material Dashboard 2 PRO React TS components
 import MDAvatar from "components/MDAvatar";
@@ -80,6 +81,11 @@ import SearchPerson from "layouts/pages/person/division";
 import ReportPage from "layouts/pages/reports";
 
 const routesBIS = [
+  { // This is the new route for the Home page
+    key: "home",
+    route: "/",
+    component: <Home />,
+  },
   {
     type: "collapse",
     name: "Visitantes",

@@ -27,6 +27,54 @@ A estrutura de diretórios foi projetada para ser modular e escalável. Abaixo e
 └── package.json          # Dependências e scripts do projeto.
 ```
 
+## Estrutura de Páginas e Rotas
+
+Abaixo está a lista completa de todas as páginas disponíveis no aplicativo, com seus respectivos caminhos (rotas), que são definidos no arquivo `src/routes.tsx`.
+
+### Visitantes
+*   **Pré-Cadastro de Visitantes**: `/pages/profile/pre/visitor`
+*   **Painel de Visitantes**: `/pages/profile/main/visitor`
+
+### Colaboradores
+*   **Alterar Divisão de Colaboradores**: `/pages/profile/person/changedivision`
+
+### Dashboards
+*   **Dashboard de Analytics**: `/dashboards/analytics`
+*   **Dashboard de Vendas**: `/dashboards/sales`
+
+### Páginas Gerais
+*   **Visão Geral do Perfil**: `/pages/profile/profile-overview`
+*   **Todos os Projetos**: `/pages/profile/all-projects`
+*   **Formulário de Novo Usuário**: `/pages/users/new-user`
+*   **Configurações da Conta**: `/pages/account/settings`
+*   **Faturamento**: `/pages/account/billing`
+*   **Fatura**: `/pages/account/invoice`
+*   **Linha do Tempo de Projetos**: `/pages/projects/timeline`
+*   **Página de Preços**: `/pages/pricing-page`
+*   **Widgets**: `/pages/widgets`
+*   **Gráficos**: `/pages/charts`
+*   **Notificações**: `/pages/notifications`
+
+### Aplicações
+*   **Quadro Kanban**: `/applications/kanban`
+*   **Assistente (Wizard)**: `/applications/wizard`
+*   **Tabelas de Dados**: `/applications/data-tables`
+*   **Calendário**: `/applications/calendar`
+
+### E-commerce
+*   **Novo Produto**: `/ecommerce/products/new-product`
+*   **Editar Produto**: `/ecommerce/products/edit-product`
+*   **Página do Produto**: `/ecommerce/products/product-page`
+*   **Lista de Pedidos**: `/ecommerce/orders/order-list`
+*   **Detalhes do Pedido**: `/ecommerce/orders/order-details`
+
+### Autenticação
+*   **Login (Básico)**: `/authentication/sign-in/basic`
+*   **Login (Capa)**: `/authentication/sign-in/cover`
+*   **Login (Ilustração)**: `/authentication/sign-in/illustration`
+*   **Cadastro (Capa)**: `/authentication/sign-up/cover`
+*   **Resetar Senha (Capa)**: `/authentication/reset-password/cover`
+
 ## Onde Fazer Alterações
 
 Para otimizar e customizar o kit de UI, é importante saber onde fazer as alterações. A seguir, detalhamos os principais pontos de modificação:

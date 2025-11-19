@@ -44,7 +44,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
 // Material Dashboard 2 PRO React TS routes
-// import routes from "routesBIS";
+import routesBIS from "routesBIS";
 
 // Material Dashboard 2 PRO React TS contexts
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -52,8 +52,6 @@ import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "co
 // Images
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
-import routesBIS from "routesBIS";
-import pageRoutes from "page.routes";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -177,7 +175,6 @@ export default function App() {
         {layout === "vr" && <Configurator />}
         <Routes>
           {getRoutes(routesBIS)}
-          <Route path="*" element={<Navigate to="/dashboards/analytics" />} />
         </Routes>
       </ThemeProvider>
     </CacheProvider>
@@ -201,7 +198,6 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routesBIS)}
-        <Route path="*" element={<Navigate to="/dashboards/analytics" />} />
       </Routes>
     </ThemeProvider>
   );
