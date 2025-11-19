@@ -1,12 +1,11 @@
 import axios from "axios";
 import { PersonInfo } from "Classes/PersonInfo";
-import configapp from "../config.json";
 
 const api = axios.create({
   // baseURL: 'http://201.48.119.97:10112/api'
   // baseURL: 'http://172.16.0.86:10112/api'
   // baseURL: 'http://172.17.0.200:9090/api'
-  baseURL: configapp.APIServer,
+  baseURL: process.env.REACT_APP_APIServer,
 });
 
 const headers = {
