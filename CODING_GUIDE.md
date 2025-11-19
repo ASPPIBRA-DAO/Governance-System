@@ -88,6 +88,34 @@ Para otimizar e customizar o kit de UI, é importante saber onde fazer as altera
     -   **Outros estados globais:** Crie novos contextos em `src/context/` para gerenciar outros estados globais, como informações do usuário, preferências, etc.
     -   **Hooks para API:** Crie hooks customizados (ex: `useApi.ts`) para encapsular a lógica de comunicação com suas APIs.
 
+### 7. **Sistema de Roteamento e Página Principal**
+
+O sistema de roteamento da aplicação é fundamental para entender como as páginas são exibidas e como o usuário navega entre elas.
+
+A lógica principal está dividida em três arquivos:
+
+1.  **`src/routes.tsx`**: Este arquivo é o "mapa" do site. Ele exporta um array de objetos onde cada objeto define uma rota, seu caminho (URL), o componente a ser renderizado e metadados para a barra de navegação (Sidenav), como nome e ícone.
+
+2.  **`src/App.tsx`**: Este é o componente que orquestra tudo. Ele lê o array de rotas do `routes.tsx` e as renderiza usando a função `getRoutes`. Mais importante, é aqui que a rota principal é definida.
+
+3.  **`src/index.tsx`**: O ponto de entrada da aplicação, que renderiza o componente `<App />` e o envolve com o `<BrowserRouter>` para habilitar o roteamento.
+
+#### A Página "Index"
+
+Você pode notar que no arquivo `routes.tsx` não há uma rota definida para o caminho raiz (`/`). A mágica que define a página inicial acontece no arquivo `src/App.tsx` com a seguinte linha:
+
+```jsx
+<Route path="*" element={<Navigate to="/dashboards/analytics" />} />
+```
+
+**Como funciona:**
+
+*   **Rota Coringa (`path="*"`):** Este é um "wildcard" ou rota coringa do `react-router-dom`. Ela corresponde a **qualquer URL** que não tenha encontrado uma correspondência nas rotas definidas em `routes.tsx`.
+*   **Redirecionamento:** Quando um usuário acessa uma URL não mapeada (incluindo a raiz `/`), essa rota coringa é ativada e o componente `<Navigate>` redireciona automaticamente o usuário para a página `/dashboards/analytics`.
+
+Portanto, a página que funciona como **página principal (index)** é, na prática, o dashboard de `Analytics`, que é renderizado pelo componente `<Analytics />`.
+
+
 ## Dicas de Otimização
 
 1.  **Code Splitting:** O React.lazy e o Suspense já estão sendo usados no `App.tsx` para carregar as rotas sob demanda. Mantenha essa prática ao adicionar novas rotas para garantir que o bundle inicial da sua aplicação seja o menor possível.
