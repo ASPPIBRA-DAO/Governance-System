@@ -66,9 +66,13 @@ export const useApi = () => ({
       console.log("vinfo", body);
       // A configuração do QRCODE também é lida a partir das variáveis de ambiente
       await api
-        .post("/Visitors/SaveVisitors/" + process.env.REACT_APP_QRCODE + "/", JSON.stringify(body), {
-          headers: headers,
-        })
+        .post(
+          "/Visitors/SaveVisitors/" + process.env.REACT_APP_QRCODE + "/",
+          JSON.stringify(body),
+          {
+            headers: headers,
+          }
+        )
         .then((response) => {
           retval = response;
         })
