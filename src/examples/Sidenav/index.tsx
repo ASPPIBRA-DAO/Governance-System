@@ -298,7 +298,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }: Props): JSX.Eleme
             sx={(theme: any) => sidenavLogoLabel(theme, { miniSidenav })}
           >
             <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>
-              {brandName}
+              DEXWORLD
             </MDTypography>
           </MDBox>
         </MDBox>

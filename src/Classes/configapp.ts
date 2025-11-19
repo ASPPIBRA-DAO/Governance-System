@@ -1,6 +1,6 @@
 export class configapp {
-    APIServer: string;
-    constructor() {
-        this.APIServer = '';
-    }
+  APIServer: string;
+  constructor() {
+    this.APIServer = "";
+  }
 }

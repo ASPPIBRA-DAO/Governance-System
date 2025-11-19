@@ -1,10 +1,10 @@
 export class RegisterModel {
-    USERNAME: string;
-    EMAIL: string;
-    PASSWORD: string;
-    constructor() {
-        this.USERNAME = '';
-        this.EMAIL = '';
-        this.PASSWORD = '';
-    }
+  USERNAME: string;
+  EMAIL: string;
+  PASSWORD: string;
+  constructor() {
+    this.USERNAME = "";
+    this.EMAIL = "";
+    this.PASSWORD = "";
+  }
 }
