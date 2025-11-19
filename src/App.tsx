@@ -173,9 +173,7 @@ export default function App() {
           </>
         )}
         {layout === "vr" && <Configurator />}
-        <Routes>
-          {getRoutes(routesBIS)}
-        </Routes>
+        <Routes>{getRoutes(routesBIS)}</Routes>
       </ThemeProvider>
     </CacheProvider>
   ) : (
@@ -196,9 +194,7 @@ export default function App() {
         </>
       )}
       {layout === "vr" && <Configurator />}
-      <Routes>
-        {getRoutes(routesBIS)}
-      </Routes>
+      <Routes>{getRoutes(routesBIS)}</Routes>
     </ThemeProvider>
   );
 }

@@ -1,4 +1,3 @@
-
 // @mui material components
 import { Grid, Icon } from "@mui/material";
 
@@ -64,10 +63,20 @@ function ValueFlowDiagram() {
         </MDTypography>
       </MDBox>
 
-      <Grid container alignItems="center" justifyContent="center" rowSpacing={{ xs: 4, md: 0 }} sx={{ px: 2 }}>
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        rowSpacing={{ xs: 4, md: 0 }}
+        sx={{ px: 2 }}
+      >
         {/* Step 1 */}
         <Grid item xs={12} md="auto">
-          <FlowStep icon={<Person />} title="1. Associado" text="Adquire a Credencial (CAD) e contribui com o fundo." />
+          <FlowStep
+            icon={<Person />}
+            title="1. Associado"
+            text="Adquire a Credencial (CAD) e contribui com o fundo."
+          />
         </Grid>
 
         {/* Arrow */}
@@ -79,12 +88,32 @@ function ValueFlowDiagram() {
 
         {/* Step 2 & 3 Group */}
         <Grid item xs={12} md="auto">
-          <MDBox display="flex" flexDirection={{ xs: "column", md: "row" }} alignItems="center" gap={2}>
-            <FlowStep icon={<GppGood />} title="2. Tesouro Seguro" text="Recursos auditáveis via Smart Contract." />
-            <MDTypography color="white" sx={{ opacity: 0.5, fontSize: "2rem", transform: { xs: "rotate(90deg)", md: "none" } }}>
+          <MDBox
+            display="flex"
+            flexDirection={{ xs: "column", md: "row" }}
+            alignItems="center"
+            gap={2}
+          >
+            <FlowStep
+              icon={<GppGood />}
+              title="2. Tesouro Seguro"
+              text="Recursos auditáveis via Smart Contract."
+            />
+            <MDTypography
+              color="white"
+              sx={{
+                opacity: 0.5,
+                fontSize: "2rem",
+                transform: { xs: "rotate(90deg)", md: "none" },
+              }}
+            >
               ⬇
             </MDTypography>
-            <FlowStep icon={<HowToVote />} title="3. Votação DAO" text="Associados decidem o destino dos fundos." />
+            <FlowStep
+              icon={<HowToVote />}
+              title="3. Votação DAO"
+              text="Associados decidem o destino dos fundos."
+            />
           </MDBox>
         </Grid>
 
@@ -97,7 +126,11 @@ function ValueFlowDiagram() {
 
         {/* Step 4 */}
         <Grid item xs={12} md="auto">
-          <FlowStep icon={<RocketLaunch />} title="4. Aceleração RWA" text="Financiamento de REURB e Startups selecionadas." />
+          <FlowStep
+            icon={<RocketLaunch />}
+            title="4. Aceleração RWA"
+            text="Financiamento de REURB e Startups selecionadas."
+          />
         </Grid>
       </Grid>
 

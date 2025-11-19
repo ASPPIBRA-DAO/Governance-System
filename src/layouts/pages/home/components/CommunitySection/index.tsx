@@ -1,4 +1,3 @@
-
 // @mui material components
 import { Card, CardContent, Container, Grid, Icon } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -75,7 +74,15 @@ function CommunitySection() {
                   border: "1px solid rgba(255, 255, 255, 0.3)",
                 }}
               >
-                <CardContent sx={{ pt: 3, display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
+                <CardContent
+                  sx={{
+                    pt: 3,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    height: "100%",
+                  }}
+                >
                   <MDBox>
                     {item.icon && <MDBox mb={2}>{item.icon}</MDBox>}
                     <MDTypography variant="h5" fontWeight="bold">

@@ -1,4 +1,3 @@
-
 // Custom components
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";

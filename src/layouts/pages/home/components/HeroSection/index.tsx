@@ -1,4 +1,3 @@
-
 // @mui material components
 import { Container, Grid, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -39,12 +38,26 @@ function HeroSection() {
             </MDBox>
           </MDTypography>
 
-          <MDTypography variant="h5" fontWeight="regular" color="text" mb={5} sx={{ maxWidth: "800px", margin: "auto" }}>
+          <MDTypography
+            variant="h5"
+            fontWeight="regular"
+            color="text"
+            mb={5}
+            sx={{ maxWidth: "800px", margin: "auto" }}
+          >
             Muito mais que uma associação: somos um ecossistema de aceleração. Unimos{" "}
-            <MDTypography component="strong" variant="h5" fontWeight="bold">segurança jurídica</MDTypography>,{" "}
-            <MDTypography component="strong" variant="h5" fontWeight="bold">blockchain</MDTypography> e{" "}
-            <MDTypography component="strong" variant="h5" fontWeight="bold">IA</MDTypography> para
-            transformar propriedades e empresas tradicionais em ativos do Mundo Digital.
+            <MDTypography component="strong" variant="h5" fontWeight="bold">
+              segurança jurídica
+            </MDTypography>
+            ,{" "}
+            <MDTypography component="strong" variant="h5" fontWeight="bold">
+              blockchain
+            </MDTypography>{" "}
+            e{" "}
+            <MDTypography component="strong" variant="h5" fontWeight="bold">
+              IA
+            </MDTypography>{" "}
+            para transformar propriedades e empresas tradicionais em ativos do Mundo Digital.
           </MDTypography>
 
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ margin: "auto" }}>

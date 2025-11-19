@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -57,10 +56,12 @@ function Header() {
     <AppBar position="sticky" sx={header}>
       <Toolbar>
         <MDBox component={Link} to="#" sx={brand}>
-           {/* You can place an <img> tag here if you have a logo */}
-           <MDTypography variant="h6" fontWeight="bold">ASPPIBRA-DAO</MDTypography>
+          {/* You can place an <img> tag here if you have a logo */}
+          <MDTypography variant="h6" fontWeight="bold">
+            ASPPIBRA-DAO
+          </MDTypography>
         </MDBox>
-        
+
         <MDBox sx={navLinksContainer}>
           {navLinksData.map((link) => (
             <MDTypography

@@ -80,7 +80,8 @@ import { Search } from "react-router-dom";
 import SearchPerson from "layouts/pages/person/division";
 
 const routes = [
-  { // This is the new route for the Home page
+  {
+    // This is the new route for the Home page
     key: "home",
     route: "/",
     component: <Home />,

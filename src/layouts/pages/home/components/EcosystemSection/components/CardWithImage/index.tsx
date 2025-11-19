@@ -1,4 +1,3 @@
-
 // @mui material components
 import { Card, CardContent } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -17,7 +16,15 @@ interface CardWithImageProps {
 function CardWithImage({ title, text, linkUrl, imageUrl }: CardWithImageProps) {
   return (
     <Card sx={{ height: "100%", backgroundColor: "#1A1A1A", border: "1px solid #30363D" }}>
-      <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%", p: 2.5 }}>
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
+          p: 2.5,
+        }}
+      >
         <MDBox>
           <MDTypography variant="h5" color="white" fontWeight="bold" mb={1}>
             {title}
@@ -27,7 +34,10 @@ function CardWithImage({ title, text, linkUrl, imageUrl }: CardWithImageProps) {
           </MDTypography>
         </MDBox>
 
-        <MDBox my={3} sx={{ flexGrow: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <MDBox
+          my={3}
+          sx={{ flexGrow: 1, display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
           <MDBox
             component="img"
             src={imageUrl}

@@ -1,9 +1,9 @@
 // Material-UI Components
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from "@mui/material";
 
 function EcosystemSection() {
   return (
-    <Box sx={{ p: 4, my: 4, backgroundColor: 'grey.200' }}>
+    <Box sx={{ p: 4, my: 4, backgroundColor: "grey.200" }}>
       <Typography variant="h4" component="h2" gutterBottom>
         Nosso Ecossistema
       </Typography>
@@ -12,6 +12,6 @@ function EcosystemSection() {
       </Typography>
     </Box>
   );
-};
+}
 
 export default EcosystemSection;
