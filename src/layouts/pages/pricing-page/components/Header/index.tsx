@@ -49,9 +49,9 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
       <DefaultNavbar
         routes={pageRoutes}
         action={{
-          type: "external",
-          route: "https://creative-tim.com/product/material-dashboard-2-pro-react-ts",
-          label: "buy now",
+          type: "internal",
+          route: "/authentication/sign-in/cover",
+          label: "login",
           color: "light",
         }}
         transparent
