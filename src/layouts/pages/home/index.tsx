@@ -13,6 +13,8 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+import { useState } from "react";
+
 // @mui material components
 import Container from "@mui/material/Container";
 
@@ -28,9 +30,14 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
 function HomePage(): JSX.Element {
+  const [tabValue, setTabValue] = useState(0);
+  const handleSetTabValue = (event: any, newValue: number) => {
+    setTabValue(newValue);
+  };
+
   return (
     <PageLayout>
-      <Header>
+      <Header tabValue={tabValue} tabHandler={handleSetTabValue}>
         <Container>
           <MDBox pt={6} pb={3} textAlign="center">
             <MDBox mb={3}>
