@@ -14,46 +14,22 @@ Coded by www.creative-tim.com
 */
 
 import { useState, useEffect, useMemo, JSXElementConstructor, Key, ReactElement } from "react";
-
-// react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-
-// @mui material components
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Button,
-} from "@mui/material";
-
-// Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
-
-// Material Dashboard 2 PRO React TS exampless
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
-
-// Material Dashboard 2 PRO React TS themes
 import theme from "assets/theme";
-
-// Material Dashboard 2 PRO React TS Dark Mode themes
 import themeDark from "assets/theme-dark";
-
-// Material Dashboard 2 PRO React TS routes
 import routes from "routes";
-
-// Material Dashboard 2 PRO React TS contexts
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
-
-// Images
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
 import routesBIS from "routesBIS";
+import DefaultNavbar from "examples/Navbars/DefaultNavbar";
+import pageRoutes from "./page.routes";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -68,10 +44,8 @@ export default function App() {
     darkMode,
   } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
-  const [open, setOpen] = useState(true);
   const { pathname } = useLocation();
 
-  // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
       setMiniSidenav(dispatch, false);
@@ -79,7 +53,6 @@ export default function App() {
     }
   };
 
-  // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
     if (onMouseEnter) {
       setMiniSidenav(dispatch, true);
@@ -87,15 +60,12 @@ export default function App() {
     }
   };
 
-  // Change the openConfigurator state
   const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
 
-  // Setting the dir attribute for the body element
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
 
-  // Setting page scroll to 0 when changing the route
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -158,36 +128,7 @@ export default function App() {
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
-      <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        PaperProps={{
-          sx: {
-            background: "rgba(255, 255, 255, 0.2)",
-            borderRadius: "16px",
-            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-            backdropFilter: "blur(5px)",
-            "-webkit-backdrop-filter": "blur(5px)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-          },
-        }}
-      >
-        <DialogTitle sx={{ color: "#344767", fontWeight: "bold" }}>
-          Comunicado Importante
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText sx={{ color: "#344767" }}>
-            O app está passando por atualizações e o lançamento oficial está previsto para o 1° de
-            dezembro de 2025.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} sx={{ color: "#344767" }}>
-            Fechar
-          </Button>
-        </DialogActions>
-      </Dialog>
-      {layout === "dashboard" && (
+      {layout === "dashboard" ? (
         <>
           <Sidenav
             color={sidenavColor}
@@ -200,6 +141,16 @@ export default function App() {
           <Configurator />
           {configsButton}
         </>
+      ) : (
+        <DefaultNavbar
+          routes={pageRoutes}
+          action={{
+            type: "internal",
+            route: "/authentication/sign-up/cover",
+            label: "Juntar-se",
+            color: "info",
+          }}
+        />
       )}
       {layout === "vr" && <Configurator />}
       <Routes>

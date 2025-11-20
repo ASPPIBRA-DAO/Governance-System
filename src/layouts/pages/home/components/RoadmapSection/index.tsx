@@ -63,8 +63,15 @@ function RoadmapSection(): JSX.Element {
   return (
     <Box sx={{ py: 6, background: "#0a0f1f" }}>
       <Container>
-        <Grid container justifyContent="center" sx={{ textAlign: "center", mb: 6 }}>
-          <Grid item xs={12} md={8}>
+        <Grid
+          container
+          item
+          xs={12}
+          lg={8}
+          justifyContent="center"
+          sx={{ mx: "auto", textAlign: "center", mb: 6 }}
+        >
+          <Grid item xs={12}>
             <Typography
               variant="h3"
               sx={{
