@@ -49,8 +49,6 @@ function BasicLayout({ image, children }: Props): JSX.Element {
           label: "buy now",
           color: "info",
         }}
-        transparent
-        light
       />
       <MDBox
         position="absolute"

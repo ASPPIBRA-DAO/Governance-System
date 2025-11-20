@@ -46,9 +46,9 @@ function HeroSection(): JSX.Element {
               </MDTypography>
             </MDTypography>
             <MDTypography variant="body1" color="white" opacity={0.85}>
-              Muito mais que uma associação: somos um ecossistema de aceleração. Unimos{" "}
-              segurança jurídica, blockchain e IA para transformar propriedades e empresas{" "}
-              tradicionais em ativos do Mundo Digital.
+              Muito mais que uma associação: somos um ecossistema de aceleração. Unimos segurança
+              jurídica, blockchain e IA para transformar propriedades e empresas tradicionais em
+              ativos do Mundo Digital.
             </MDTypography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center">
               <MDButton color="primary" variant="contained" size="large">

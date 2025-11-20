@@ -54,8 +54,6 @@ function Header({ tabValue, tabHandler, children }: Props): JSX.Element {
           label: "login",
           color: "light",
         }}
-        transparent
-        light
       />
       <MDBox
         position="relative"
