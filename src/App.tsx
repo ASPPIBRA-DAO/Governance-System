@@ -92,6 +92,16 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
+  useEffect(() => {
+    const handleContextmenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextmenu);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextmenu);
+    };
+  }, []);
+
   const getRoutes = (allRoutes: any[]): any =>
     allRoutes.map(
       (route: {
