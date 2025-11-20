@@ -7,6 +7,8 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
 import DefaultNavbarMobile from "./DefaultNavbarMobile";
+// Corrected logo path to the user's custom icon
+const brandLogo = "/images/apple-touch-icon.png";
 
 interface Props {
   routes: {
@@ -14,7 +16,6 @@ interface Props {
     route: string;
     [key: string]: any;
   }[];
-  brand?: string;
   action?: {
     type: "external" | "internal";
     route: string;
@@ -23,7 +24,7 @@ interface Props {
   };
 }
 
-function DefaultNavbar({ routes, brand, action }: Props): JSX.Element {
+function DefaultNavbar({ routes, action }: Props): JSX.Element {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -55,7 +56,7 @@ function DefaultNavbar({ routes, brand, action }: Props): JSX.Element {
       position="sticky"
       top={0}
       zIndex={50}
-      py={2}
+      py={1}
       sx={{
         width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.95)",
@@ -64,16 +65,17 @@ function DefaultNavbar({ routes, brand, action }: Props): JSX.Element {
     >
       <Container>
         <MDBox display="flex" justifyContent="space-between" alignItems="center">
-          <MDBox component={Link} to="/" lineHeight={1} sx={{ textDecoration: "none" }}>
-            <MDTypography variant="button" fontWeight="bold" color="dark">
-              {brand}
+          <MDBox component={Link} to="/" lineHeight={1} sx={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+            <img src={brandLogo} alt="Custom Logo" height="40" />
+            <MDTypography variant="button" fontWeight="bold" color="dark" sx={{ ml: 1, display: { xs: 'none', sm: 'inline-block' } }}>
+              ASPPIBRA-DAO
             </MDTypography>
           </MDBox>
           <MDBox
             color="inherit"
             display={{ xs: "none", md: "flex" }}
             alignItems="center"
-            mr={2} // Margin to separate nav items from the button
+            mr={2}
           >
             {renderNavbarItems}
           </MDBox>
@@ -115,9 +117,6 @@ function DefaultNavbar({ routes, brand, action }: Props): JSX.Element {
   );
 }
 
-DefaultNavbar.defaultProps = {
-  brand: "ASPPIBRA-DAO",
-  action: false,
-};
+DefaultNavbar.defaultProps = {};
 
 export default DefaultNavbar;
