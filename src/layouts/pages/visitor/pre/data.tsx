@@ -9,7 +9,6 @@ import { Item } from "../common/Item";
 import initialValues from "./Schemas/initialValues";
 import form from "./Schemas/form";
 import { useState } from "react";
-import BEFormField from "layouts/ecommerce/products/product-page/components/BeSX/BEFormField";
 import MDButton from "components/MDButton";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
@@ -44,7 +43,7 @@ function DataVisitor(): JSX.Element {
               <Grid container spacing={5}>
                 <Grid item xs={2} display="flex">
                   <Item sx={{ boxShadow: 0, verticalAlign: "center" }}>
-                    <BEFormField
+                    <FormField
                       type={formField.passportno.type}
                       id={formField.passportno.id}
                       label={formField.passportno.label}
@@ -59,7 +58,7 @@ function DataVisitor(): JSX.Element {
                 </Grid>
                 <Grid item xs={10}>
                   <Item sx={{ boxShadow: 0 }}>
-                    <BEFormField
+                    <FormField
                       type={formField.name.type}
                       id={formField.name.id}
                       label={formField.name.label}

@@ -1,12 +1,10 @@
 ![version](https://img.shields.io/badge/version-1.0.1-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-material-dashboard-pro-react.svg)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-material-dashboard-pro-react.svg)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aissue+is%3Aclosed)
 
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/594/original/material-dashboard-pro-react-typescript.jpg)
+
 
 **Documentation built by Developers**
 
-Each element is well presented in very complex documentation.
 
-You can read more about the [documentation here](https://www.creative-tim.com/learning-lab/react/overview/material-dashboard/).
 
 **Example Pages**
 
@@ -14,44 +12,6 @@ If you want to get inspiration or just show something directly to your clients, 
 
 View [example pages here](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics).
 
-**HELPFUL LINKS**
-
-- View [Github Repository](https://github.com/creativetimofficial/ct-material-dashboard-pro-react)
-- Check [FAQ Page](https://www.creative-tim.com/faq)
-
-#### Special thanks
-
-During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-
-- [MUI](https://mui.com/) - The React UI library for faster and easier web development.
-- [React Table](https://react-table.tanstack.com/) - Lightweight and extensible data tables for React.
-- [React Flatpickr](https://github.com/haoxins/react-flatpickr) - Useful library used to select date.
-- [React ChartJS 2](http://reactchartjs.github.io/react-chartjs-2/#/) - Simple yet flexible React charting for designers & developers.
-- [Full Calendar](https://fullcalendar.io/) - Full-sized drag & drop event calendar.
-- [Dropzone](https://www.dropzonejs.com/) - An open source library that provides drag & drop file uploads with image previews.
-- [React Kanban](https://github.com/asseinfo/react-kanban) - Kanban/Trello board lib for React.
-- [React Images Viewer](https://guonanci.github.io/react-images-viewer/) - A simple, responsive images viewer component for ReactJS.
-- [React Quill](https://github.com/zenoamaro/react-quill) - A free, open source WYSIWYG editor built for the modern web.
-- [Formik](https://formik.org/) - Formik is the world's most popular open source form library for React and React Native.
-- [ChromaJS](https://gka.github.io/chroma.js/) - A small-ish zero-dependency JavaScript library for all kinds of color conversions and color scales.
-- [UUID](https://github.com/uuidjs/uuid) - JavaScript library for generating random id numbers.
-- [HTML React Parser](https://github.com/remarkablemark/html-react-parser) - A utility for converting HTML strings into React components.
-
-Let us know your thoughts below. And good luck with development!
-
-## Table of Contents
-
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
 
 ## Configuração do Ambiente e Variáveis
 
@@ -119,36 +79,6 @@ A configuração está no arquivo `d1-api-worker/wrangler.jsonc`:
 *   **`binding`: "DB"**: Este é o "apelido" que o código do worker usa para se referir ao banco de dados. A plataforma Cloudflare injeta automaticamente a conexão no worker com este nome. Não é necessário cadastrar isso como uma variável de ambiente.
 
 ---
-
-## Versions
-
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react-logo.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro-react?ref=readme-mdpr)
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/typescript.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts?ref=readme-mdpr)
-
-| React                                                                                                                                                                                                                                  | TypeScript                                                                                                                                                                                                                                                 |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Material Dashboard 2 PRO React](https://s3.amazonaws.com/creativetim_bucket/products/80/thumb/material-dashboard-pro-react.jpg)](http://demos.creative-tim.com/material-dashboard-pro-react/#/dashboards/analytics?ref=readme-mdpr) | [![Material Dashboard 2 PRO React TS](https://s3.amazonaws.com/creativetim_bucket/products/594/thumb/material-dashboard-pro-react-typescript.jpg)](http://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics?ref=readme-mdpr) |
-
-## Demo
-
-- [Dashboard](http://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics?ref=readme-mdpr)
-- [Sales](http://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/sales?ref=readme-mdpr)
-- [Profile](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/pages/profile/profile-overview?ref=readme-mdpr)
-- [Account](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/pages/account/settings?ref=readme-mdpr)
-- [RTL](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/pages/rtl?ref=readme-mdpr)
-- [Applications](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/applications/kanban?ref=readme-mdpr)
-- [Ecommerce](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/ecommerce/products/product-page?ref=readme-mdpr)
-- [Sign In](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/authentication/sign-in/basic?ref=readme-mdpr)
-- [Sign Up](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/authentication/sign-up/cover?ref=readme-mdpr)
-
-[View More](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics?ref=readme-mdpr).
-
-## Quick start
-
-Quick start options:
-
-- Buy React Version from [Creative Tim](https://www.creative-tim.com/product/material-dashboard-pro-react?ref=readme-mdpr).
-- Buy React + TypeScript Version from [Creative Tim](https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts?ref=readme-mdpr).
 
 ## Terminal Commands
 
