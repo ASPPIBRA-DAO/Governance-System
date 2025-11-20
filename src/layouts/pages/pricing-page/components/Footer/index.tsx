@@ -36,62 +36,18 @@ function Footer(): JSX.Element {
             <MDBox mr={{ xs: 2, lg: 3, xl: 6 }}>
               <MDTypography
                 component="a"
-                href="#"
+                href="/pages/home"
                 variant="body2"
                 fontWeight="regular"
                 color="secondary"
               >
-                Company
-              </MDTypography>
-            </MDBox>
-            <MDBox mr={{ xs: 2, lg: 3, xl: 6 }}>
-              <MDTypography
-                component="a"
-                href="#"
-                variant="body2"
-                fontWeight="regular"
-                color="secondary"
-              >
-                About Us
-              </MDTypography>
-            </MDBox>
-            <MDBox mr={{ xs: 0, lg: 3, xl: 6 }}>
-              <MDTypography
-                component="a"
-                href="#"
-                variant="body2"
-                fontWeight="regular"
-                color="secondary"
-              >
-                Team
-              </MDTypography>
-            </MDBox>
-            <MDBox mr={{ xs: 2, lg: 3, xl: 6 }}>
-              <MDTypography
-                component="a"
-                href="#"
-                variant="body2"
-                fontWeight="regular"
-                color="secondary"
-              >
-                Product
-              </MDTypography>
-            </MDBox>
-            <MDBox mr={{ xs: 2, lg: 3, xl: 6 }}>
-              <MDTypography
-                component="a"
-                href="#"
-                variant="body2"
-                fontWeight="regular"
-                color="secondary"
-              >
-                Blog
+                Home
               </MDTypography>
             </MDBox>
             <MDBox>
               <MDTypography
                 component="a"
-                href="#"
+                href="/pages/pricing-page"
                 variant="body2"
                 fontWeight="regular"
                 color="secondary"

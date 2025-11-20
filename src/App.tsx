@@ -166,7 +166,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routesBIS)}
-        <Route path="*" element={<Navigate to="/pages/pricing-page" />} />
+        <Route path="*" element={<Navigate to="/pages/home" />} />
       </Routes>
     </ThemeProvider>
   );

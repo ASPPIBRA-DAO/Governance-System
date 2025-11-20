@@ -46,6 +46,7 @@ import Billing from "layouts/pages/account/billing";
 import Invoice from "layouts/pages/account/invoice";
 import Timeline from "layouts/pages/projects/timeline";
 import PricingPage from "layouts/pages/pricing-page";
+import HomePage from "layouts/pages/home";
 import SignInBasic from "layouts/authentication/sign-in/basic";
 import SignInCover from "layouts/authentication/sign-in/cover";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
@@ -112,6 +113,12 @@ const routesBIS = [
     key: "pages",
     icon: <Icon fontSize="medium">image</Icon>,
     collapse: [
+      {
+        name: "Home",
+        key: "home",
+        route: "/pages/home",
+        component: <HomePage />,
+      },
       {
         name: "Profile",
         key: "profile",
