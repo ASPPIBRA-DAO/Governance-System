@@ -22,6 +22,14 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
+} from "@mui/material";
 
 // Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
@@ -60,6 +68,7 @@ export default function App() {
     darkMode,
   } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [open, setOpen] = useState(true);
   const { pathname } = useLocation();
 
   // Open sidenav when mouse enter on mini sidenav
@@ -149,6 +158,35 @@ export default function App() {
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            background: "rgba(255, 255, 255, 0.2)",
+            borderRadius: "16px",
+            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+            backdropFilter: "blur(5px)",
+            "-webkit-backdrop-filter": "blur(5px)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+          },
+        }}
+      >
+        <DialogTitle sx={{ color: "#344767", fontWeight: "bold" }}>
+          Comunicado Importante
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText sx={{ color: "#344767" }}>
+            O app está passando por atualizações e o lançamento oficial está previsto para o 1° de
+            dezembro de 2025.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)} sx={{ color: "#344767" }}>
+            Fechar
+          </Button>
+        </DialogActions>
+      </Dialog>
       {layout === "dashboard" && (
         <>
           <Sidenav
