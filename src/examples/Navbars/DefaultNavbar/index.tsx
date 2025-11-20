@@ -115,13 +115,11 @@ function DefaultNavbar({ routes, brand, transparent, light, action }: Props): JS
     return () => window.removeEventListener("resize", displayMobileNavbar);
   }, []);
 
-  const renderNavbarItems = routes.map(({ name, icon, href, route, collapse }: any) => (
+  const renderNavbarItems = routes.map(({ name, icon, collapse }: any) => (
     <DefaultNavbarDropdown
       key={name}
       name={name}
       icon={icon}
-      href={href}
-      route={route}
       collapse={Boolean(collapse)}
       onMouseEnter={({ currentTarget }: any) => {
         if (collapse) {
@@ -548,9 +546,11 @@ function DefaultNavbar({ routes, brand, transparent, light, action }: Props): JS
             {brand}
           </MDTypography>
         </MDBox>
+        {/* 
         <MDBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
           {renderNavbarItems}
         </MDBox>
+        */}
         {action &&
           (action.type === "internal" ? (
             <MDBox display={{ xs: "none", lg: "inline-block" }}>
@@ -580,6 +580,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }: Props): JS
               </MDButton>
             </MDBox>
           ))}
+        {/*
         <MDBox
           display={{ xs: "inline-block", lg: "none" }}
           lineHeight={0}
@@ -591,9 +592,12 @@ function DefaultNavbar({ routes, brand, transparent, light, action }: Props): JS
         >
           {mobileView && <DefaultNavbarMobile routes={routes} open={mobileNavbar} />}
         </MDBox>
+        */}
       </MDBox>
+      {/*
       {dropdownMenu}
       {nestedDropdownMenu}
+      */}
     </Container>
   );
 }
