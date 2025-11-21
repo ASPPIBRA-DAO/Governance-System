@@ -18,7 +18,7 @@ const uploadFileToR2 = async (file) => {
     Key: key,
     Body: file.buffer,
     ContentType: file.mimetype,
-    ACL: 'public-read',
+    ACL: "public-read",
   });
 
   await s3Client.send(command);

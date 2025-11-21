@@ -1,4 +1,3 @@
-
 /**
 =========================================================
 * Material Dashboard 2 PRO React TS - v1.0.1
@@ -130,7 +129,7 @@ export default function App() {
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
-      <ClientOnly /> 
+      <ClientOnly />
       {layout === "dashboard" ? (
         <>
           <Sidenav

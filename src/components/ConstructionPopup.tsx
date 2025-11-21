@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
@@ -27,7 +26,7 @@ function useInterval(callback: () => void, delay: number | null) {
 
 const ConstructionPopup: React.FC = () => {
   const [visible, setVisible] = useState(true);
-  
+
   const calculateCountdown = () => {
     const launchDate = new Date("2024-12-01T00:00:00");
     const now = new Date();
@@ -124,11 +123,7 @@ const ConstructionPopup: React.FC = () => {
             <MDTypography variant="overline">Segundos</MDTypography>
           </MDBox>
         </MDBox>
-        <MDButton
-          variant="gradient"
-          color="dark"
-          onClick={() => setVisible(false)}
-        >
+        <MDButton variant="gradient" color="dark" onClick={() => setVisible(false)}>
           Fechar
         </MDButton>
       </MDBox>
