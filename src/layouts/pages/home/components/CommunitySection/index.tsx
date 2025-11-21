@@ -6,6 +6,7 @@ import Link from "@mui/material/Link";
 import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
+import { Box } from "@mui/material";
 
 // Definição da estrutura de dados para cada card da comunidade
 interface Community {
@@ -18,43 +19,43 @@ interface Community {
   color: string;
 }
 
-// Dados da comunidade
+// Dados da comunidade (ATUALIZADOS)
 const communityData: Community[] = [
   {
-    platform: "ASPPIBRA-DAO no X",
-    icon: "public", // Ícone genérico, pode ser trocado por um ícone de 'X' se disponível
-    stats: "[Número de seguidores]",
+    platform: "Siga-nos no X",
+    icon: "twitter", // Ícone do Twitter/X
+    stats: "[Número]",
     statsLabel: "seguidores",
     action: "Seguir",
-    link: "#",
-    color: "rgba(0, 0, 0, 0.2)", // Fundo escuro semi-transparente
+    link: "#", // TODO: Adicionar link real
+    color: "#000000", // Cor do X
   },
   {
-    platform: "LinkedIn da ASPPIBRA",
+    platform: "Conecte-se no LinkedIn",
     icon: "linkedin",
-    stats: "[Número de conexões]",
+    stats: "[Número]",
     statsLabel: "conexões",
     action: "Conectar",
-    link: "#",
-    color: "rgba(10, 102, 194, 0.2)", // Azul do LinkedIn semi-transparente
+    link: "#", // TODO: Adicionar link real
+    color: "#0A66C2", // Cor do LinkedIn
   },
   {
-    platform: "Comunidade no Discord",
+    platform: "Junte-se ao Discord",
     icon: "discord",
-    stats: "[Número de membros]",
+    stats: "[Número]",
     statsLabel: "membros",
     action: "Entrar",
-    link: "#",
-    color: "rgba(88, 101, 242, 0.2)", // Roxo do Discord semi-transparente
+    link: "#", // TODO: Adicionar link real
+    color: "#5865F2", // Cor do Discord
   },
   {
-    platform: "Canal no Telegram",
+    platform: "Acesse nosso Telegram",
     icon: "telegram",
-    stats: "[Número de inscritos]",
+    stats: "[Número]",
     statsLabel: "inscritos",
     action: "Entrar",
-    link: "#",
-    color: "rgba(36, 151, 211, 0.2)", // Azul do Telegram semi-transparente
+    link: "#", // TODO: Adicionar link real
+    color: "#2497D3", // Cor do Telegram
   },
 ];
 
@@ -62,74 +63,63 @@ function CommunitySection(): JSX.Element {
   return (
     <MDBox component="section" py={6} id="community">
       <Container>
-        <Grid container item xs={12} lg={8} sx={{ mx: "auto", textAlign: "center" }}>
+        <Box sx={{ maxWidth: "700px", mx: "auto", textAlign: "center", mb: 8 }}>
           <MDTypography variant="h3" mb={1}>
             Construído pela Comunidade
           </MDTypography>
-          <MDTypography variant="body1" color="text">
-            Nossa força reside em nossos membros. Junte-se a nós em nossas plataformas.
+          <MDTypography variant="body1" color="secondary">
+            Nossa força reside em nossos membros. Junte-se a nós em nossas plataformas e faça parte
+            da construção do futuro.
           </MDTypography>
-        </Grid>
-        <Grid container spacing={3} mt={6}>
+        </Box>
+        <Grid container spacing={3}>
           {communityData.map((item, index) => (
             <Grid key={index} item xs={12} md={6} lg={3}>
               <Card
                 sx={{
-                  backdropFilter: "blur(12px)",
-                  backgroundColor: item.color,
-                  border: ({ borders: { borderWidth }, palette: { white } }) =>
-                    `${borderWidth[1]} solid ${white.main}20`,
-                  borderRadius: "xl",
-                  boxShadow: "lg",
+                  p: 3,
                   height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "center",
+                  alignItems: "center",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-8px)",
+                    boxShadow: 8,
+                  },
                 }}
               >
-                <MDBox p={3} display="flex" flexDirection="column" height="100%">
-                  <MDTypography variant="h3" color="white">
-                    <Icon fontSize="large">{item.icon}</Icon>
-                  </MDTypography>
-                  <MDTypography variant="h5" color="white" mt={2} mb={1} fontWeight="bold">
-                    {item.platform}
-                  </MDTypography>
-                  <MDTypography variant="body2" color="white" opacity={0.8}>
-                    {item.stats} {item.statsLabel}
-                  </MDTypography>
-                  <MDBox mt="auto" pt={2}>
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        color: "white",
-                        textDecoration: "none",
-                        transition: "all 0.2s ease-in-out",
-                        "&:hover": {
-                          color: ({ palette: { primary } }) => primary.main,
-                          "& .arrow": {
-                            transform: "translateX(5px)",
-                          },
-                        },
-                      }}
-                    >
-                      <MDTypography
-                        variant="button"
-                        fontWeight="bold"
-                        color="inherit"
-                        sx={{ mr: 1 }}
-                      >
-                        {item.action}
-                      </MDTypography>
-                      <MDTypography
-                        variant="body2"
-                        className="arrow"
-                        sx={{ transition: "transform 0.2s ease-in-out" }}
-                      >
-                        →
-                      </MDTypography>
-                    </Link>
-                  </MDBox>
+                <MDBox
+                  sx={{
+                    width: 72,
+                    height: 72,
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: item.color,
+                    color: "white",
+                    mb: 3,
+                  }}
+                >
+                  <Icon fontSize="large">{item.icon}</Icon>
+                </MDBox>
+                <MDTypography variant="h5" mb={1}>
+                  {item.platform}
+                </MDTypography>
+                <MDTypography variant="body2" color="secondary" sx={{ mb: 2 }}>
+                  <MDTypography variant="h5" component="span" color="text.primary">
+                    {item.stats}
+                  </MDTypography>{" "}
+                  {item.statsLabel}
+                </MDTypography>
+                <MDBox mt="auto">
+                  <Link href={item.link} target="_blank" rel="noopener noreferrer">
+                    <MDTypography variant="button" color="primary" fontWeight="bold">
+                      {item.action} →
+                    </MDTypography>
+                  </Link>
                 </MDBox>
               </Card>
             </Grid>
