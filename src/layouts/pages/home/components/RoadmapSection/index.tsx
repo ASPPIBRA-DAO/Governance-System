@@ -61,7 +61,7 @@ function RoadmapSection(): JSX.Element {
   const [activeSlideIndex, setActiveSlideIndex] = useState(Math.floor(timelineData.length / 2));
 
   return (
-    <Box sx={{ py: 6, background: "#0a0f1f" }} id="roadmap">
+    <Box sx={{ py: 6 }} id="roadmap">
       <Container>
         <Grid
           container
@@ -75,13 +75,12 @@ function RoadmapSection(): JSX.Element {
             <Typography
               variant="h3"
               sx={{
-                color: "white",
-                textShadow: "0 0 10px #00eaff, 0 0 20px #00eaff",
+                color: "text.primary",
               }}
             >
               Roadmap Futurista
             </Typography>
-            <Typography variant="body1" sx={{ color: "rgba(255, 255, 255, 0.7)", mt: 1 }}>
+            <Typography variant="body1" sx={{ color: "text.secondary", mt: 1 }}>
               Linha do tempo com estética neon, 3D e IA
             </Typography>
           </Grid>
