@@ -1,3 +1,4 @@
+
 /**
 =========================================================
 * Material Dashboard 2 PRO React TS - v1.0.1
@@ -30,6 +31,7 @@ import brandDark from "assets/images/logo-ct-dark.png";
 import routesBIS from "routesBIS";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import pageRoutes from "./page.routes";
+import ClientOnly from "components/ClientOnly"; // Importando o componente
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -128,6 +130,7 @@ export default function App() {
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
+      <ClientOnly /> 
       {layout === "dashboard" ? (
         <>
           <Sidenav
