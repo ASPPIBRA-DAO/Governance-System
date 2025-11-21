@@ -61,7 +61,7 @@ function RoadmapSection(): JSX.Element {
   const [activeSlideIndex, setActiveSlideIndex] = useState(Math.floor(timelineData.length / 2));
 
   return (
-    <Box sx={{ py: 6, background: "#0a0f1f" }}>
+    <Box sx={{ py: 6, background: "#0a0f1f" }} id="roadmap">
       <Container>
         <Grid
           container

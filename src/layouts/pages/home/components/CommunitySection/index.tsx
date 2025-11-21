@@ -60,7 +60,7 @@ const communityData: Community[] = [
 
 function CommunitySection(): JSX.Element {
   return (
-    <MDBox component="section" py={6}>
+    <MDBox component="section" py={6} id="community">
       <Container>
         <Grid container item xs={12} lg={8} sx={{ mx: "auto", textAlign: "center" }}>
           <MDTypography variant="h3" mb={1}>

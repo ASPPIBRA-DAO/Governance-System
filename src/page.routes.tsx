@@ -1,23 +1,23 @@
 const pageRoutes = [
   {
     name: "Ecosystem",
-    route: "/ecosystem",
+    route: "#ecosystem",
   },
   {
     name: "Community",
-    route: "/community",
+    route: "#community",
   },
   {
     name: "Team",
-    route: "/team",
+    route: "#team",
   },
   {
     name: "Roadmap",
-    route: "/roadmap",
+    route: "#roadmap",
   },
   {
     name: "FAQ",
-    route: "/faq",
+    route: "#faq",
   },
 ];
 

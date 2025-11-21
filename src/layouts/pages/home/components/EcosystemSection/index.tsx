@@ -6,7 +6,7 @@ import InfoCard from "../InfoCard";
 
 function EcosystemSection(): JSX.Element {
   return (
-    <MDBox component="section" py={6}>
+    <MDBox component="section" py={6} id="ecosystem">
       <Container>
         <Grid container spacing={3} item xs={12} lg={8} sx={{ mx: "auto", textAlign: "center" }}>
           <Grid item xs={12}>

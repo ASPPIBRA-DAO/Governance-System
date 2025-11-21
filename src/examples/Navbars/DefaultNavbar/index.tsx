@@ -32,25 +32,45 @@ function DefaultNavbar({ routes, action }: Props): JSX.Element {
     setMobileOpen(!mobileOpen);
   };
 
-  const renderNavbarItems = routes.map(({ name, route }) => (
-    <MDTypography
-      key={name}
-      component={Link}
-      to={route || "#"}
-      variant="button"
-      fontWeight="regular"
-      sx={{
-        mr: 3,
-        textDecoration: "none",
-        color: "text.primary",
-        "&:hover": {
-          color: ({ palette: { info } }: Theme) => info.main,
-        },
-      }}
-    >
-      {name}
-    </MDTypography>
-  ));
+  const renderNavbarItems = routes.map(({ name, route }) => {
+    const isAnchor = route.startsWith("#");
+    const commonSx = {
+      mr: 3,
+      textDecoration: "none",
+      color: "text.primary",
+      "&:hover": {
+        color: ({ palette: { info } }: Theme) => info.main,
+      },
+    };
+
+    if (isAnchor) {
+      return (
+        <MDTypography
+          key={name}
+          component="a"
+          href={route}
+          variant="button"
+          fontWeight="regular"
+          sx={commonSx}
+        >
+          {name}
+        </MDTypography>
+      );
+    }
+
+    return (
+      <MDTypography
+        key={name}
+        component={Link}
+        to={route || "#"}
+        variant="button"
+        fontWeight="regular"
+        sx={commonSx}
+      >
+        {name}
+      </MDTypography>
+    );
+  });
 
   return (
     <MDBox

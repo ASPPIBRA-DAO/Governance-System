@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 import { useState } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -36,8 +36,36 @@ import bgImage from "assets/images/bg-sign-in-cover.jpeg";
 
 function Cover(): JSX.Element {
   const [rememberMe, setRememberMe] = useState<boolean>(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const handleSignIn = async () => {
+    const apiBaseUrl = "/api"; // Using a relative path
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/signin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.status === 200) {
+        // On successful sign-in, redirect to the main dashboard or another protected page
+        navigate("/dashboards");
+      } else {
+        const message = await response.text();
+        alert(`Sign-in failed: ${message}`);
+      }
+    } catch (error) {
+      console.error("Sign-in error:", error);
+      alert("An error occurred during sign-in. Please try again.");
+    }
+  };
 
   return (
     <CoverLayout image={bgImage}>
@@ -70,6 +98,8 @@ function Cover(): JSX.Element {
                 fullWidth
                 placeholder="john@example.com"
                 InputLabelProps={{ shrink: true }}
+                value={email}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               />
             </MDBox>
             <MDBox mb={2}>
@@ -80,6 +110,8 @@ function Cover(): JSX.Element {
                 fullWidth
                 placeholder="************"
                 InputLabelProps={{ shrink: true }}
+                value={password}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
               />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
@@ -95,7 +127,7 @@ function Cover(): JSX.Element {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <MDButton variant="gradient" color="info" fullWidth onClick={handleSignIn}>
                 sign in
               </MDButton>
             </MDBox>
@@ -111,6 +143,21 @@ function Cover(): JSX.Element {
                   textGradient
                 >
                   Sign up
+                </MDTypography>
+              </MDTypography>
+            </MDBox>
+            <MDBox mt={1} mb={1} textAlign="center">
+              <MDTypography variant="button" color="text">
+                Forgot your password?{" "}
+                <MDTypography
+                  component={Link}
+                  to="/authentication/reset-password/cover"
+                  variant="button"
+                  color="info"
+                  fontWeight="medium"
+                  textGradient
+                >
+                  Reset password
                 </MDTypography>
               </MDTypography>
             </MDBox>

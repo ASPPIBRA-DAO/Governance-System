@@ -73,7 +73,7 @@ function CoverLayout({ coverHeight, image, children }: Props): JSX.Element {
       </MDBox>
       <Footer />
     </PageLayout>
-  );L
+  );
 }
 
 // Declaring default props for CoverLayout

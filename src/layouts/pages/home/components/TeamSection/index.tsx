@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
 
 function TeamSection(): JSX.Element {
   return (
-    <MDBox component="section" py={6}>
+    <MDBox component="section" py={6} id="team">
       <Container>
         <Grid container justifyContent="center" sx={{ textAlign: "center", mb: 6 }}>
           <Grid item xs={12} md={8}>

@@ -52,6 +52,7 @@ import SignInCover from "layouts/authentication/sign-in/cover";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
 import SignUpCover from "layouts/authentication/sign-up/cover";
 import ResetCover from "layouts/authentication/reset-password/cover";
+import ResetPasswordWithToken from "layouts/authentication/reset-password-with-token";
 
 // Material Dashboard 2 PRO React TS components
 import MDAvatar from "components/MDAvatar";
@@ -244,6 +245,12 @@ const routes = [
             key: "cover",
             route: "/authentication/reset-password/cover",
             component: <ResetCover />,
+          },
+          {
+            name: "Reset With Token",
+            key: "reset-with-token",
+            route: "/authentication/reset-password-with-token",
+            component: <ResetPasswordWithToken />,
           },
         ],
       },

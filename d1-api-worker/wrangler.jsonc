@@ -3,9 +3,7 @@
 	"name": "d1-api-worker",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-11-19",
-	"compatibility_flags": [
-		"global_fetch_strictly_public"
-	],
+	"compatibility_flags": ["global_fetch_strictly_public"],
 	"assets": {
 		"directory": "./public"
 	},

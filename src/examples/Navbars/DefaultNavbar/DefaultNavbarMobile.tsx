@@ -13,24 +13,45 @@ interface Props {
 }
 
 function DefaultNavbarMobile({ open, onClose, routes }: Props): JSX.Element {
-  const renderMobileNavbarItems = routes.map(({ name, route }) => (
-    <MDTypography
-      key={name}
-      component={Link}
-      to={route || "#"}
-      variant="button"
-      fontWeight="regular"
-      onClick={onClose}
-      sx={{
-        py: 1.5,
-        display: "block",
-        textDecoration: "none",
-        color: "text.primary",
-      }}
-    >
-      {name}
-    </MDTypography>
-  ));
+  const renderMobileNavbarItems = routes.map(({ name, route }) => {
+    const isAnchor = route.startsWith("#");
+    const commonSx = {
+      py: 1.5,
+      display: "block",
+      textDecoration: "none",
+      color: "text.primary",
+    };
+
+    if (isAnchor) {
+      return (
+        <MDTypography
+          key={name}
+          component="a"
+          href={route}
+          variant="button"
+          fontWeight="regular"
+          onClick={onClose}
+          sx={commonSx}
+        >
+          {name}
+        </MDTypography>
+      );
+    }
+
+    return (
+      <MDTypography
+        key={name}
+        component={Link}
+        to={route || "#"}
+        variant="button"
+        fontWeight="regular"
+        onClick={onClose}
+        sx={commonSx}
+      >
+        {name}
+      </MDTypography>
+    );
+  });
 
   return (
     <Drawer

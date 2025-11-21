@@ -1,17 +1,12 @@
 ![version](https://img.shields.io/badge/version-1.0.1-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-material-dashboard-pro-react.svg)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-material-dashboard-pro-react.svg)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aissue+is%3Aclosed)
 
-
-
 **Documentation built by Developers**
-
-
 
 **Example Pages**
 
 If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. You will be able to quickly set up the basic structure for your web project.
 
 View [example pages here](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics).
-
 
 ## Configuração do Ambiente e Variáveis
 
@@ -34,29 +29,29 @@ Abaixo está a lista completa de todas as variáveis de ambiente que devem ser c
 
 Estas variáveis são usadas pelo front-end para se comunicar com o back-end e para configurações gerais da aplicação.
 
-*   `APIServer`
-    *   **Descrição**: A URL base do servidor da API para onde o front-end envia as requisições.
-    *   **Exemplo**: `http://201.48.119.97:10112/api`
-*   `AUTHID`
-    *   **Descrição**: Um ID de autenticação utilizado nas requisições para identificar a aplicação cliente.
-    *   **Exemplo**: `001337BDCAF1CC5F`
+- `APIServer`
+  - **Descrição**: A URL base do servidor da API para onde o front-end envia as requisições.
+  - **Exemplo**: `http://201.48.119.97:10112/api`
+- `AUTHID`
+  - **Descrição**: Um ID de autenticação utilizado nas requisições para identificar a aplicação cliente.
+  - **Exemplo**: `001337BDCAF1CC5F`
 
 #### Variáveis do Cloudflare R2 (Armazenamento de Imagens)
 
 Estas variáveis são usadas pelo servidor (`server/r2.js`) para se autenticar e interagir com o bucket de armazenamento R2.
 
-*   `R2_BUCKET_NAME`
-    *   **Descrição**: O nome exato do bucket criado no Cloudflare R2.
-    *   **Exemplo**: `governance-system-assetes`
-*   `R2_ENDPOINT`
-    *   **Descrição**: O endpoint público do seu bucket R2, fornecido pela Cloudflare.
-    *   **Exemplo**: `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`
-*   `R2_ACCESS_KEY_ID`
-    *   **Descrição**: O Access Key ID para acessar o R2. Deve ser criado nas configurações do R2.
-    *   **Tipo recomendado**: `Segredo`
-*   `R2_SECRET_ACCESS_KEY`
-    *   **Descrição**: O Secret Access Key correspondente ao Access Key ID.
-    *   **Tipo recomendado**: `Segredo`
+- `R2_BUCKET_NAME`
+  - **Descrição**: O nome exato do bucket criado no Cloudflare R2.
+  - **Exemplo**: `governance-system-assetes`
+- `R2_ENDPOINT`
+  - **Descrição**: O endpoint público do seu bucket R2, fornecido pela Cloudflare.
+  - **Exemplo**: `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`
+- `R2_ACCESS_KEY_ID`
+  - **Descrição**: O Access Key ID para acessar o R2. Deve ser criado nas configurações do R2.
+  - **Tipo recomendado**: `Segredo`
+- `R2_SECRET_ACCESS_KEY`
+  - **Descrição**: O Secret Access Key correspondente ao Access Key ID.
+  - **Tipo recomendado**: `Segredo`
 
 ### Integração com Banco de Dados D1
 
@@ -76,7 +71,7 @@ A configuração está no arquivo `d1-api-worker/wrangler.jsonc`:
 }
 ```
 
-*   **`binding`: "DB"**: Este é o "apelido" que o código do worker usa para se referir ao banco de dados. A plataforma Cloudflare injeta automaticamente a conexão no worker com este nome. Não é necessário cadastrar isso como uma variável de ambiente.
+- **`binding`: "DB"**: Este é o "apelido" que o código do worker usa para se referir ao banco de dados. A plataforma Cloudflare injeta automaticamente a conexão no worker com este nome. Não é necessário cadastrar isso como uma variável de ambiente.
 
 ---
 

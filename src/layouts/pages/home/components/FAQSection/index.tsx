@@ -26,7 +26,7 @@ const faqData = [
 
 function FAQSection(): JSX.Element {
   return (
-    <MDBox component="section" py={8}>
+    <MDBox component="section" py={8} id="faq">
       <Container>
         <Grid container justifyContent="center">
           <Grid item xs={12} sx={{ textAlign: "center", mb: 4 }}>

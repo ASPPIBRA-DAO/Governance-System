@@ -1,18 +1,11 @@
 /**
 =========================================================
-* Material Dashboard 2 PRO React TS - v1.0.1
+* New Page for Resetting Password with Token
 =========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -29,26 +22,36 @@ import CoverLayout from "layouts/authentication/components/CoverLayout";
 // Images
 import bgImage from "assets/images/bg-reset-cover.jpeg";
 
-function Cover(): JSX.Element {
-  const [email, setEmail] = useState("");
+function ResetPasswordWithToken(): JSX.Element {
+  const [token, setToken] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleRequestReset = async () => {
-    const apiBaseUrl = "/api"; // Using a relative path
+  const handleResetPassword = async () => {
+    const apiBaseUrl = "/api";
+
+    if (!token || !newPassword) {
+      alert("Please provide both the token and a new password.");
+      return;
+    }
 
     try {
-      const response = await fetch(`${apiBaseUrl}/request-password-reset`, {
+      const response = await fetch(`${apiBaseUrl}/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ token, newPassword }),
       });
 
-      // Always show a generic message to prevent email enumeration
       const message = await response.text();
       alert(message);
+
+      if (response.status === 200) {
+        navigate("/authentication/sign-in/cover");
+      }
     } catch (error) {
-      console.error("Request password reset error:", error);
+      console.error("Reset password error:", error);
       alert("An error occurred. Please try again.");
     }
   };
@@ -68,27 +71,37 @@ function Cover(): JSX.Element {
           textAlign="center"
         >
           <MDTypography variant="h3" fontWeight="medium" color="white" mt={1}>
-            Reset Password
+            Set New Password
           </MDTypography>
           <MDTypography display="block" variant="button" color="white" my={1}>
-            You will receive an e-mail in maximum 60 seconds
+            Enter the token from your email and your new password.
           </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
-            <MDBox mb={4}>
+            <MDBox mb={2}>
               <MDInput
-                type="email"
-                label="Email"
+                type="text"
+                label="Reset Token"
                 variant="standard"
                 fullWidth
-                value={email}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                value={token}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToken(e.target.value)}
+              />
+            </MDBox>
+            <MDBox mb={4}>
+              <MDInput
+                type="password"
+                label="New Password"
+                variant="standard"
+                fullWidth
+                value={newPassword}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)}
               />
             </MDBox>
             <MDBox mt={6} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth onClick={handleRequestReset}>
-                reset
+              <MDButton variant="gradient" color="info" fullWidth onClick={handleResetPassword}>
+                Set New Password
               </MDButton>
             </MDBox>
           </MDBox>
@@ -98,4 +111,4 @@ function Cover(): JSX.Element {
   );
 }
 
-export default Cover;
+export default ResetPasswordWithToken;

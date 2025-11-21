@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "React + TypeScript version of Material Dashboard 2 PRO by Creative Tim",
+  "proxy": "http://127.0.0.1:8787",
   "dependencies": {
     "@asseinfo/react-kanban": "2.2.0",
     "@emotion/cache": "11.10.1",
