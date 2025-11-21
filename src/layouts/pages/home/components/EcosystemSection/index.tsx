@@ -3,26 +3,31 @@ import Container from "@mui/material/Container";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import InfoCard from "../InfoCard";
+import { Box } from "@mui/material";
 
 function EcosystemSection(): JSX.Element {
   return (
     <MDBox component="section" py={6} id="ecosystem">
       <Container>
-        <Grid container spacing={3} item xs={12} lg={8} sx={{ mx: "auto", textAlign: "center" }}>
-          <Grid item xs={12}>
-            <MDTypography variant="h3" mb={1}>
-              Nosso Ecossistema: O Motor da Nova Economia Imobiliária
-            </MDTypography>
-          </Grid>
-          <Grid item xs={12} md={10} sx={{ mx: "auto" }}>
-            <MDTypography variant="body1" color="text">
-              Nosso ecossistema circular combina governança descentralizada, DeFi e segurança
-              jurídica para acelerar negócios na economia real. Usamos a tecnologia blockchain para
-              criar uma governança transparente e imutável, onde cada membro tem o poder de decidir
-              o futuro da nossa comunidade.
-            </MDTypography>
-          </Grid>
-        </Grid>
+        <Box
+          sx={{
+            maxWidth: "700px", // Define uma largura máxima para o texto
+            mx: "auto", // Centraliza o conteúdo
+            textAlign: "center", // Centraliza o texto
+            mb: 8, // Aumenta o espaço antes dos cards
+          }}
+        >
+          <MDTypography variant="h3" mb={1}>
+            Nosso Ecossistema: O Motor da Nova Economia Imobiliária
+          </MDTypography>
+          <MDTypography variant="body1" color="secondary">
+            Nosso ecossistema circular combina governança descentralizada, DeFi e segurança jurídica
+            para acelerar negócios na economia real. Usamos a tecnologia blockchain para criar uma
+            governança transparente e imutável, onde cada membro tem o poder de decidir o futuro da
+            nossa comunidade.
+          </MDTypography>
+        </Box>
+
         <Grid container spacing={3} mt={6}>
           <Grid item xs={12} md={6} lg={4}>
             <InfoCard
