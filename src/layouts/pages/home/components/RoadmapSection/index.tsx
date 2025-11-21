@@ -85,34 +85,34 @@ function RoadmapSection(): JSX.Element {
             </Typography>
           </Grid>
         </Grid>
+        <Swiper
+          modules={[Navigation, EffectCreative]}
+          effect="creative"
+          centeredSlides
+          slidesPerView={3} // Ajuste conforme necessário
+          loop
+          navigation
+          onSlideChange={(swiper: SwiperType) => setActiveSlideIndex(swiper.realIndex)}
+          initialSlide={Math.floor(timelineData.length / 2)}
+          creativeEffect={{
+            prev: {
+              translate: ["-120%", 0, -600],
+              scale: 0.8,
+            },
+            next: {
+              translate: ["120%", 0, -600],
+              scale: 0.8,
+            },
+          }}
+          style={{ padding: "2rem 0" }}
+        >
+          {timelineData.map((item) => (
+            <SwiperSlide key={item.id}>
+              <TimelineCard item={item} isCentered={item.id - 1 === activeSlideIndex} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Container>
-      <Swiper
-        modules={[Navigation, EffectCreative]}
-        effect="creative"
-        centeredSlides
-        slidesPerView={3} // Ajuste conforme necessário
-        loop
-        navigation
-        onSlideChange={(swiper: SwiperType) => setActiveSlideIndex(swiper.realIndex)}
-        initialSlide={Math.floor(timelineData.length / 2)}
-        creativeEffect={{
-          prev: {
-            translate: ["-120%", 0, -600],
-            scale: 0.8,
-          },
-          next: {
-            translate: ["120%", 0, -600],
-            scale: 0.8,
-          },
-        }}
-        style={{ padding: "2rem 0" }}
-      >
-        {timelineData.map((item) => (
-          <SwiperSlide key={item.id}>
-            <TimelineCard item={item} isCentered={item.id - 1 === activeSlideIndex} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </Box>
   );
 }
