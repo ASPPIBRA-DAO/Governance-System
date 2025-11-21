@@ -144,6 +144,7 @@ export default function App() {
           {configsButton}
         </>
       ) : (
+        
         <DefaultNavbar
           routes={pageRoutes}
           action={{
@@ -153,6 +154,7 @@ export default function App() {
             color: "info",
           }}
         />
+        
       )}
       {layout === "vr" && <Configurator />}
       <Routes>

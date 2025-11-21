@@ -23,7 +23,6 @@ import { Theme } from "@mui/material/styles";
 import MDBox from "components/MDBox";
 
 // Material Dashboard 2 PRO React TS examples components
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
 // Authentication layout components
@@ -42,15 +41,6 @@ interface Props {
 function CoverLayout({ coverHeight, image, children }: Props): JSX.Element {
   return (
     <PageLayout>
-      <DefaultNavbar
-        routes={pageRoutes}
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/material-dashboard-2-pro-react-ts",
-          label: "buy now",
-          color: "info",
-        }}
-      />
       <MDBox
         width="calc(100% - 2rem)"
         minHeight={coverHeight}
@@ -83,7 +73,7 @@ function CoverLayout({ coverHeight, image, children }: Props): JSX.Element {
       </MDBox>
       <Footer />
     </PageLayout>
-  );
+  );L
 }
 
 // Declaring default props for CoverLayout

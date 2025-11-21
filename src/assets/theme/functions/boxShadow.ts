@@ -1,20 +1,15 @@
 /**
-=========================================================
-* Material Dashboard 2 PRO React TS - v1.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/**
-  The boxShadow() function helps you to create a box shadow for an element
+ * =========================================================
+ * Dashboard 2 PRO React TS - v1.0.1
+ * =========================================================
+ *
+ * Updated in 2025 by ASPPIBRA-DAO
+ * Original Copyright 2022 Creative Tim
+ *
+ * =========================================================
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  */
 
 // Material Dashboard 2 PRO React TS Helper Functions
@@ -22,11 +17,11 @@ import rgba from "assets/theme/functions/rgba";
 import pxToRem from "assets/theme/functions/pxToRem";
 
 function boxShadow(
-  offset: number[],
-  radius: number[],
+  offset: [number, number] = [0, 0],
+  radius: [number, number] = [0, 0],
   color: string,
   opacity: number,
-  inset: string = ""
+  inset = ""
 ): string {
   const [x, y] = offset;
   const [blur, spread] = radius;
