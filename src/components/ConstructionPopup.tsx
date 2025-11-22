@@ -28,7 +28,7 @@ const ConstructionPopup: React.FC = () => {
   const [visible, setVisible] = useState(true);
 
   const calculateCountdown = () => {
-    const launchDate = new Date("2024-12-01T00:00:00");
+    const launchDate = new Date("2025-12-15T00:00:00");
     const now = new Date();
     const difference = launchDate.getTime() - now.getTime();
 
