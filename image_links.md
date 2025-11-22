@@ -1,40 +1,107 @@
-# Image Links
-
-This file contains a list of all images and their corresponding public URLs on Cloudflare R2.
-
-- `src/assets/images/apple-icon.png`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/apple-icon.png`
-- `src/assets/images/bg-player.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-player.jpeg`
-- `src/assets/images/bg-pricing.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-pricing.jpg`
-- `src/assets/images/bg-profile.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-profile.jpeg`
-- `src/assets/images/bg-reset-cover.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-reset-cover.jpeg`
-- `src/assets/images/bg-sign-in-basic.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-basic.jpeg`
-- `src/assets/images/bg-sign-in-cover.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-cover.jpeg`
-- `src/assets/images/bg-sign-up-cover.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-up-cover.jpeg`
-- `src/assets/images/bg-smart-home-1.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-smart-home-1.jpg`
-- `src/assets/images/bg-smart-home-2.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-smart-home-2.jpg`
-- `src/assets/images/bruce-mars.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bruce-mars.jpg`
-- `src/assets/images/down-arrow-dark.svg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/down-arrow-dark.svg`
-- `src/assets/images/down-arrow-white.svg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/down-arrow-white.svg`
-- `src/assets/images/down-arrow.svg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/down-arrow.svg`
-- `src/assets/images/drake.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/drake.jpg`
-- `src/assets/images/favicon.png`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/favicon.png`
-- `src/assets/images/home-decor-1.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-1.jpg`
-- `src/assets/images/home-decor-2.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-2.jpg`
-- `src/assets/images/home-decor-3.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-3.jpg`
-- `src/assets/images/home-decor-4.jpeg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-4.jpeg`
-- `src/assets/images/ivana-square.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivana-square.jpg`
-- `src/assets/images/ivana-squares.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivana-squares.jpg`
-- `src/assets/images/ivancik.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivancik.jpg`
-- `src/assets/images/kal-visuals-square.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/kal-visuals-square.jpg`
-- `src/assets/images/logo-ct-dark.png`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct-dark.png`
-- `src/assets/images/logo-ct.png`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct.png`
-- `src/assets/images/marie.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/marie.jpg`
-- `src/assets/images/meeting.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/meeting.jpg`
-- `src/assets/images/office-dark.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/office-dark.jpg`
-- `src/assets/images/product-12.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/product-12.jpg`
-- `src/assets/images/team-1.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg`
-- `src/assets/images/team-2.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg`
-- `src/assets/images/team-3.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg`
-- `src/assets/images/team-4.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg`
-- `src/assets/images/team-5.jpg`: `https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-5.jpg`
-... and so on for all images.
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/apple-icon.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-player.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-pricing.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-profile.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-reset-cover.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-basic.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-cover.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-up-cover.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-smart-home-1.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-smart-home-2.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bruce-mars.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/down-arrow-dark.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/down-arrow-white.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/down-arrow.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/drake.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/adidas-hoodie.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/alchimia-chair.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/bang-sound.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/black-chair.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/black-mug.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/blue-shoe.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/burberry.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/chair-pink.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/chair-steel.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/chair-wood.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/d&g-skirt.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/fendi-coat.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/gold-glasses.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/green-sofa.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/heron-tshirt.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/living-chair.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/macbook-pro.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/mcqueen-shirt.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/metro-chair.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/off-white-jacket.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/orange-sofa.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/photo-tools.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/undercover.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/wooden-table.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/yellow-chair.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/yohji-yamamoto.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/favicon.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-1.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-2.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-3.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-4.jpeg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/AU.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/BR.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/DE.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/GB.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/US.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/illustrations/illustration-lock.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/illustrations/illustration-reset.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/illustrations/illustration-verification.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/illustrations/pattern-tree.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivana-square.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivana-squares.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivancik.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/kal-visuals-square.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct-dark.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/gray-logos/logo-coinbase.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/gray-logos/logo-nasa.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/gray-logos/logo-netflix.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/gray-logos/logo-pinterest.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/gray-logos/logo-spotify.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/gray-logos/logo-vodafone.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/mastercard.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/visa.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/marie.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/meeting.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/office-dark.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/product-12.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-1-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-11.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-2-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-3-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-4-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-5-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-6-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-7-min.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-details-1.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-details-2.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-details-3.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-details-4.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-details-5.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/shapes/pattern-lines.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/shapes/waves-white.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/bootstrap.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/creative-tim.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/devto.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/github.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/google-webdev.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/icon-bulb.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/icon-sun-cloud.png
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-asana.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-atlassian.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-invision.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-jira.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-slack.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-spotify.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-xd.svg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg
+https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-5.jpg

@@ -17,7 +17,7 @@ function HeroSection(): JSX.Element {
               `${linearGradient(
                 rgba(black.main, 0.35), // Slightly darker gradient for better text contrast
                 rgba(black.main, 0.35)
-              )}, url(https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-pricing.jpg)`,
+              )}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
