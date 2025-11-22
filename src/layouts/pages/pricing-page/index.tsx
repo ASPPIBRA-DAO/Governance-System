@@ -33,7 +33,7 @@ function PricingPage(): JSX.Element {
         minHeight="50vh"
         width="100%"
         sx={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/bg-pricing.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",

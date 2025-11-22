@@ -8,8 +8,7 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
 import DefaultNavbarMobile from "./DefaultNavbarMobile";
-// Corrected logo path to use the environment variable
-const brandLogo = `${process.env.REACT_APP_R2_PUBLIC_URL}/images/apple-touch-icon.png`;
+const brandLogo = "/images/apple-touch-icon.png";
 
 interface Props {
   routes: {

@@ -45,8 +45,8 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
 
-  const brandWhite = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct.png";
-  const brandDark = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct-dark.png";
+  const brandWhite = "/images/apple-touch-icon.png";
+  const brandDark = "/images/apple-touch-icon.png";
 
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
