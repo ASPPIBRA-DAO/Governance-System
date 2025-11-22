@@ -34,7 +34,33 @@ npm install
 cd ..
 ```
 
-### 3. Configuração do Ambiente
+### 3. Frontend (Interface do Usuário)
+O frontend é uma Single-Page Application (SPA) construída com a seguinte stack:
+
+| Tecnologia | Função | Pacote(s) Chave | Orientação de Uso |
+| :--- | :--- | :--- | :--- |
+| **React** | Framework Principal | `react`, `react-dom` | Use para criar componentes de UI funcionais e gerenciar o estado local. |
+| **TypeScript** | Linguagem | `typescript` | Utilize tipagem estrita para garantir a segurança e manutenibilidade do código. |
+| **Material-UI (MUI)** | Biblioteca de Componentes | `@mui/material` | A base para a UI. Utilize seus componentes (Button, TextField, etc.) para construir as telas. |
+| **React Router**| Roteamento | `react-router-dom` | Defina as páginas e a navegação da aplicação no arquivo `src/routes.tsx`.|
+| **Create React App**| Build Tool | `react-scripts` | O motor de desenvolvimento. O comando `npm start` o utiliza para compilação e hot-reload. |
+| **Axios**| Cliente HTTP | `axios` | Para fazer requisições para a API back-end. |
+
+### Back-end
+
+| Tecnologia | Função | Pacote(s) Chave | Orientação de Uso |
+| :--- | :--- | :--- | :--- |
+| **Node.js / Express** | Servidor de API | `express` | Fornece os endpoints da API para o front-end, rodando localmente ou em um worker. |
+| **Cloudflare Workers** | Plataforma Serverless | `@cloudflare/workers-sdk`, `wrangler` | Roda a API de back-end em um ambiente serverless na borda da Cloudflare. |
+
+### Banco de Dados
+
+| Tecnologia | Função | Pacote(s) Chave | Orientação de Uso |
+| :--- | :--- | :--- | :--- |
+| **Cloudflare D1** | Banco de Dados | N/A (Binding) | Banco de dados serverless baseado em SQLite. A conexão é configurada via binding no arquivo `wrangler.jsonc`. |
+
+
+### 4. Configuração do Ambiente
 
 A aplicação necessita de variáveis de ambiente para se conectar aos serviços da Cloudflare.
 
@@ -72,7 +98,7 @@ Em produção, as variáveis devem ser configuradas na interface do Cloudflare P
 - Adicione as mesmas variáveis do `.env` (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, etc.).
 - É **altamente recomendado** que as chaves de acesso (`R2_ACCESS_KEY_ID` e `R2_SECRET_ACCESS_KEY`) sejam cadastradas com o tipo **`Segredo`**.
 
-### 4. Migração de Ativos (Imagens)
+### 5. Migração de Ativos (Imagens)
 
 Antes de iniciar a aplicação pela primeira vez, você precisa enviar as imagens locais para o seu bucket no Cloudflare R2. O projeto inclui um script para automatizar isso.
 
@@ -83,7 +109,7 @@ cd server && npm run migrate
 ```
 Este comando lerá as imagens da pasta `src/assets/images` e fará o upload para o bucket R2 configurado no seu arquivo `.env`. **Este passo só precisa ser executado uma vez.**
 
-### 5. Executando a Aplicação
+### 6. Executando a Aplicação
 
 Com tudo configurado, você pode iniciar os servidores de desenvolvimento:
 
