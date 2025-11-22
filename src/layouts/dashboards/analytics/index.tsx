@@ -63,11 +63,11 @@ function Analytics(): JSX.Element {
   );
 
   const booking1 =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-1-min.jpg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/products/product-1-min.jpg";
   const booking2 =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-2-min.jpg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/products/product-2-min.jpg";
   const booking3 =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-3-min.jpg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/products/product-3-min.jpg";
 
   return (
     <DashboardLayout>

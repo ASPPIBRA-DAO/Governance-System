@@ -71,23 +71,23 @@ function AllProjects(): JSX.Element {
     </Menu>
   );
 
-  const team1 = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg";
-  const team2 = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg";
-  const team3 = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg";
-  const team4 = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg";
-  const team5 = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-5.jpg";
+  const team1 = "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-1.jpg";
+  const team2 = "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-2.jpg";
+  const team3 = "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-3.jpg";
+  const team4 = "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-4.jpg";
+  const team5 = "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-5.jpg";
   const logoSlack =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-slack.svg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/small-logos/logo-slack.svg";
   const logoSpotify =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-spotify.svg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/small-logos/logo-spotify.svg";
   const logoXD =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-xd.svg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/small-logos/logo-xd.svg";
   const logoAsana =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-asana.svg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/small-logos/logo-asana.svg";
   const logoInvision =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-invision.svg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/small-logos/logo-invision.svg";
   const logoAtlassian =
-    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-atlassian.svg";
+    "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/small-logos/logo-atlassian.svg";
 
   return (
     <DashboardLayout>

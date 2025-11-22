@@ -18,7 +18,7 @@ type Types = any;
 
 const profileListData: Types = [
   {
-    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/kal-visuals-square.jpg",
+    image: "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/kal-visuals-square.jpg",
     name: "Sophie B.",
     description: "Hi! I need more information..",
     action: {
@@ -29,7 +29,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/marie.jpg",
+    image: "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/marie.jpg",
     name: "Anne Marie",
     description: "Awesome work, can you..",
     action: {
@@ -40,7 +40,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivana-square.jpg",
+    image: "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/ivana-square.jpg",
     name: "Ivanna",
     description: "About files I can..",
     action: {
@@ -51,7 +51,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg",
+    image: "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-4.jpg",
     name: "Peterson",
     description: "Have a great afternoon..",
     action: {
@@ -62,7 +62,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg",
+    image: "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-3.jpg",
     name: "Nick Daniel",
     description: "Hi! I need more information..",
     action: {

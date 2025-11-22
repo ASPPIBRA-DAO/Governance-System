@@ -31,7 +31,7 @@ const dataTableData = {
       product: (
         <ProductCell
           image={
-            "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/blue-shoe.jpeg"
+            "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/ecommerce/blue-shoe.jpeg"
           }
           name="Nike v22 Running"
           orders={8.232}
@@ -45,7 +45,7 @@ const dataTableData = {
       product: (
         <ProductCell
           image={
-            "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/black-mug.jpeg"
+            "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/ecommerce/black-mug.jpeg"
           }
           name="Business Kit (Mug + Notebook)"
           orders={12.821}
@@ -59,7 +59,7 @@ const dataTableData = {
       product: (
         <ProductCell
           image={
-            "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/black-chair.jpeg"
+            "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/ecommerce/black-chair.jpeg"
           }
           name="Black Chair"
           orders={2.421}
@@ -73,7 +73,7 @@ const dataTableData = {
       product: (
         <ProductCell
           image={
-            "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/bang-sound.jpeg"
+            "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/ecommerce/bang-sound.jpeg"
           }
           name="Wireless Charger"
           orders={5.921}
@@ -87,7 +87,7 @@ const dataTableData = {
       product: (
         <ProductCell
           image={
-            "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ecommerce/photo-tools.jpeg"
+            "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/ecommerce/photo-tools.jpeg"
           }
           name="Mountain Trip Kit (Camera + Backpack)"
           orders={921}

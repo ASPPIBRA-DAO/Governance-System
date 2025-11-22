@@ -65,7 +65,7 @@ function Cover(): JSX.Element {
   };
 
   return (
-    <CoverLayout image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-cover.jpeg">
+    <CoverLayout image="https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/bg-sign-in-cover.jpeg">
       <Card>
         <MDBox
           variant="gradient"

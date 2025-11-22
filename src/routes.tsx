@@ -71,7 +71,7 @@ const routes = [
     key: "visitor",
     icon: (
       <MDAvatar
-        src="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg"
+        src="https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/team-3.jpg"
         alt="Brooklyn Alice"
         size="sm"
       />

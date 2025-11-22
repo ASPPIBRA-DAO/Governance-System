@@ -70,7 +70,7 @@ function Header({ children }: { children?: ReactNode }): JSX.Element {
             `${linearGradient(
               rgba(gradients.info.main, 0.6),
               rgba(gradients.info.state, 0.6)
-            )}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-profile.jpeg)`,
+            )}, url('https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/bg-profile.jpeg')`,
           backgroundSize: "cover",
           backgroundPosition: "50%",
           overflow: "hidden",
@@ -88,7 +88,7 @@ function Header({ children }: { children?: ReactNode }): JSX.Element {
         <Grid container spacing={3} alignItems="center">
           <Grid item>
             <MDAvatar
-              src={`${process.env.REACT_APP_R2_PUBLIC_URL}/images/bruce-mars.jpg`}
+              src={'https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/bruce-mars.jpg'}
               alt="profile-image"
               size="xl"
               shadow="sm"

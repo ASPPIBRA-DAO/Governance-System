@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 const salesTableData = [
   {
     country: [
-      "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/US.png",
+      "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/icons/flags/US.png",
       "united state",
     ],
     sales: 2500,
@@ -24,7 +24,7 @@ const salesTableData = [
   },
   {
     country: [
-      "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/DE.png",
+      "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/icons/flags/DE.png",
       "germany",
     ],
     sales: "3.900",
@@ -32,7 +32,7 @@ const salesTableData = [
   },
   {
     country: [
-      "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/GB.png",
+      "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/icons/flags/GB.png",
       "great britain",
     ],
     sales: "1.400",
@@ -40,7 +40,7 @@ const salesTableData = [
   },
   {
     country: [
-      "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/BR.png",
+      "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/icons/flags/BR.png",
       "brasil",
     ],
     sales: 562,
@@ -48,7 +48,7 @@ const salesTableData = [
   },
   {
     country: [
-      "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/icons/flags/AU.png",
+      "https://pub-6281c5e736e844ed8315dabb4b6de38f.r2.dev/images/icons/flags/AU.png",
       "australia",
     ],
     sales: 400,
