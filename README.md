@@ -8,56 +8,103 @@ If you want to get inspiration or just show something directly to your clients, 
 
 View [example pages here](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics).
 
-## Configuração do Ambiente e Variáveis
+---
 
-Para que a aplicação funcione corretamente, seja em ambiente de desenvolvimento local ou em produção, é crucial configurar as variáveis de ambiente necessárias. Essas variáveis contêm chaves de API, endpoints de serviços e outras informações sensíveis ou de configuração que não devem estar fixas no código-fonte.
+## 🚀 Guia de Setup e Execução
 
-A configuração é gerenciada através da interface do Cloudflare Pages, na seção "Configurações" > "Variáveis e segredos".
+Esta seção descreve como configurar e executar a aplicação, tanto em um ambiente de desenvolvimento local quanto em produção.
 
-### Integrações de Back-end
+### 1. Pré-requisitos
 
-A aplicação possui duas integrações principais de back-end que precisam ser configuradas:
+- **Node.js**: Versão LTS. Baixe em [nodejs.org](https://nodejs.org/en/download/).
+- **Yarn ou npm**: Gerenciador de pacotes.
+- **Conta na Cloudflare**: Com acesso aos serviços R2 (armazenamento) e D1 (banco de dados).
 
-1.  **Banco de Dados (Cloudflare D1)**: A conexão com o banco de dados principal.
-2.  **Armazenamento de Objetos (Cloudflare R2)**: Usado para armazenar e servir imagens e outros ativos estáticos.
+### 2. Instalação
 
-### Variáveis de Ambiente Necessárias
+Navegue até a raiz do projeto e instale as dependências do front-end e do back-end:
 
-Abaixo está a lista completa de todas as variáveis de ambiente que devem ser configuradas no ambiente do Cloudflare Pages. É altamente recomendado que todas as chaves e segredos sejam cadastrados com o tipo **`Segredo`** para maior segurança.
+```bash
+# Instala as dependências do front-end (React)
+npm install
 
-#### Variáveis da API e Aplicação
+# Navega para o diretório do servidor e instala suas dependências
+cd server
+npm install
+cd ..
+```
 
-Estas variáveis são usadas pelo front-end para se comunicar com o back-end e para configurações gerais da aplicação.
+### 3. Configuração do Ambiente
 
-- `APIServer`
-  - **Descrição**: A URL base do servidor da API para onde o front-end envia as requisições.
-  - **Exemplo**: `http://201.48.119.97:10112/api`
-- `AUTHID`
-  - **Descrição**: Um ID de autenticação utilizado nas requisições para identificar a aplicação cliente.
-  - **Exemplo**: `001337BDCAF1CC5F`
+A aplicação necessita de variáveis de ambiente para se conectar aos serviços da Cloudflare.
 
-#### Variáveis do Cloudflare R2 (Armazenamento de Imagens)
+#### Desenvolvimento Local
 
-Estas variáveis são usadas pelo servidor (`server/r2.js`) para se autenticar e interagir com o bucket de armazenamento R2.
+Para o desenvolvimento local, crie um arquivo chamado `.env` dentro da pasta `server/`. Este arquivo conterá as chaves de acesso para o Cloudflare R2.
 
-- `R2_BUCKET_NAME`
-  - **Descrição**: O nome exato do bucket criado no Cloudflare R2.
-  - **Exemplo**: `governance-system-assetes`
-- `R2_ENDPOINT`
-  - **Descrição**: O endpoint público do seu bucket R2, fornecido pela Cloudflare.
-  - **Exemplo**: `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`
-- `R2_ACCESS_KEY_ID`
-  - **Descrição**: O Access Key ID para acessar o R2. Deve ser criado nas configurações do R2.
-  - **Tipo recomendado**: `Segredo`
-- `R2_SECRET_ACCESS_KEY`
-  - **Descrição**: O Secret Access Key correspondente ao Access Key ID.
-  - **Tipo recomendado**: `Segredo`
+1.  **Crie o arquivo:** `touch server/.env`
+2.  **Adicione o seguinte conteúdo ao arquivo `server/.env`**, substituindo os valores pelos seus dados do Cloudflare R2:
 
-### Integração com Banco de Dados D1
+```env
+# Cloudflare R2 - Credenciais e Configurações
+# Obtenha estes valores no seu painel da Cloudflare R2
 
-A conexão com o banco de dados D1 é configurada de forma diferente, através de um **binding**, e não por variáveis de ambiente tradicionais.
+# O ID da chave de acesso do seu token da API R2
+R2_ACCESS_KEY_ID=SEU_ACCESS_KEY_ID
 
-A configuração está no arquivo `d1-api-worker/wrangler.jsonc`:
+# A chave de acesso secreta do seu token da API R2
+R2_SECRET_ACCESS_KEY=SUA_SECRET_ACCESS_KEY
+
+# O nome exato do seu bucket no R2
+R2_BUCKET_NAME=governance-system-assets
+
+# O endpoint do S3 API do seu bucket (Encontrado nas configurações do bucket R2)
+R2_ENDPOINT=https://<ACCOUNT_ID>.r2.cloudflarestorage.com
+
+# A URL pública do seu bucket (Encontrado nas configurações do bucket R2)
+R2_PUBLIC_URL=https://pub-xxxxxxxx.r2.dev
+```
+
+#### Ambiente de Produção (Cloudflare Pages)
+
+Em produção, as variáveis devem ser configuradas na interface do Cloudflare Pages:
+- Vá para **Configurações > Variáveis e segredos**.
+- Adicione as mesmas variáveis do `.env` (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, etc.).
+- É **altamente recomendado** que as chaves de acesso (`R2_ACCESS_KEY_ID` e `R2_SECRET_ACCESS_KEY`) sejam cadastradas com o tipo **`Segredo`**.
+
+### 4. Migração de Ativos (Imagens)
+
+Antes de iniciar a aplicação pela primeira vez, você precisa enviar as imagens locais para o seu bucket no Cloudflare R2. O projeto inclui um script para automatizar isso.
+
+**Execute o comando de migração a partir da raiz do projeto:**
+
+```bash
+cd server && npm run migrate
+```
+Este comando lerá as imagens da pasta `src/assets/images` e fará o upload para o bucket R2 configurado no seu arquivo `.env`. **Este passo só precisa ser executado uma vez.**
+
+### 5. Executando a Aplicação
+
+Com tudo configurado, você pode iniciar os servidores de desenvolvimento:
+
+```bash
+# Para iniciar o servidor do back-end (API)
+# Em um terminal, navegue até a pasta 'server' e inicie
+cd server
+npm start
+
+# Para iniciar o servidor do front-end (React)
+# Em OUTRO terminal, a partir da raiz do projeto
+npm start
+```
+
+O front-end estará disponível em `http://localhost:3000` e o back-end em `http://localhost:8787` (ou na porta definida).
+
+---
+
+## Integração com Banco de Dados D1
+
+A conexão com o banco de dados D1 é configurada através de um **binding** no arquivo `d1-api-worker/wrangler.jsonc`. A plataforma Cloudflare injeta a conexão automaticamente no worker, não sendo necessário cadastrar credenciais em variáveis de ambiente.
 
 ```json
 {
@@ -70,15 +117,6 @@ A configuração está no arquivo `d1-api-worker/wrangler.jsonc`:
   ]
 }
 ```
-
-- **`binding`: "DB"**: Este é o "apelido" que o código do worker usa para se referir ao banco de dados. A plataforma Cloudflare injeta automaticamente a conexão no worker com este nome. Não é necessário cadastrar isso como uma variável de ambiente.
-
----
-
-## Terminal Commands
-
-1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
-2. Navigate to the root ./ directory of the product and run `yarn install` or `npm install` to install our local dependencies.
 
 ## Documentation
 
