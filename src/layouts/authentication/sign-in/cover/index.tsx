@@ -31,9 +31,6 @@ import MDButton from "components/MDButton";
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
 
-// Images
-import bgImage from "assets/images/bg-sign-in-cover.jpeg";
-
 function Cover(): JSX.Element {
   const [rememberMe, setRememberMe] = useState<boolean>(true);
   const [email, setEmail] = useState("");
@@ -68,7 +65,7 @@ function Cover(): JSX.Element {
   };
 
   return (
-    <CoverLayout image={bgImage}>
+    <CoverLayout image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-cover.jpeg">
       <Card>
         <MDBox
           variant="gradient"

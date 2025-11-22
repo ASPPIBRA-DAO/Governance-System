@@ -30,9 +30,6 @@ import MDButton from "components/MDButton";
 // Authentication layout components
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
 
-// Image
-import bgImage from "assets/images/illustrations/illustration-reset.jpg";
-
 function Illustration(): JSX.Element {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
@@ -42,7 +39,7 @@ function Illustration(): JSX.Element {
     <IllustrationLayout
       title="Sign In"
       description="Enter your email and password to sign in"
-      illustration={bgImage}
+      illustration="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/illustrations/illustration-reset.jpg"
     >
       <MDBox component="form" role="form">
         <MDBox mb={2}>

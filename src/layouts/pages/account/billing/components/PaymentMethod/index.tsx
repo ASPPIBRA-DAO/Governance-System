@@ -24,10 +24,6 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDButton from "components/MDButton";
 
-// Images
-import masterCardLogo from "assets/images/logos/mastercard.png";
-import visaLogo from "assets/images/logos/visa.png";
-
 // Material Dashboard 2 PRO React context
 import { useMaterialUIController } from "context";
 
@@ -60,7 +56,15 @@ function PaymentMethod(): JSX.Element {
                   `${borderWidth[1]} solid ${borderColor}`,
               }}
             >
-              <MDBox component="img" src={masterCardLogo} alt="master card" width="10%" mr={2} />
+              <MDBox
+                component="img"
+                src={
+                  "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/mastercard.png"
+                }
+                alt="master card"
+                width="10%"
+                mr={2}
+              />
               <MDTypography variant="h6" fontWeight="medium">
                 ****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;7852
               </MDTypography>
@@ -85,7 +89,13 @@ function PaymentMethod(): JSX.Element {
                   `${borderWidth[1]} solid ${borderColor}`,
               }}
             >
-              <MDBox component="img" src={visaLogo} alt="master card" width="10%" mr={2} />
+              <MDBox
+                component="img"
+                src={"https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logos/visa.png"}
+                alt="master card"
+                width="10%"
+                mr={2}
+              />
               <MDTypography variant="h6" fontWeight="medium">
                 ****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;5248
               </MDTypography>

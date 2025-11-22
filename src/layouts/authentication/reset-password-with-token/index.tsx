@@ -19,9 +19,6 @@ import MDButton from "components/MDButton";
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
 
-// Images
-import bgImage from "assets/images/bg-reset-cover.jpeg";
-
 function ResetPasswordWithToken(): JSX.Element {
   const [token, setToken] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -57,7 +54,10 @@ function ResetPasswordWithToken(): JSX.Element {
   };
 
   return (
-    <CoverLayout coverHeight="50vh" image={bgImage}>
+    <CoverLayout
+      coverHeight="50vh"
+      image={"https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-reset-cover.jpeg"}
+    >
       <Card>
         <MDBox
           variant="gradient"
@@ -96,7 +96,9 @@ function ResetPasswordWithToken(): JSX.Element {
                 variant="standard"
                 fullWidth
                 value={newPassword}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setNewPassword(e.target.value)
+                }
               />
             </MDBox>
             <MDBox mt={6} mb={1}>

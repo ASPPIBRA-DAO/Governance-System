@@ -38,16 +38,13 @@ import MDButton from "components/MDButton";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
-// Images
-import bgImage from "assets/images/bg-sign-in-basic.jpeg";
-
 function Basic(): JSX.Element {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    <BasicLayout image={bgImage}>
+    <BasicLayout image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-in-basic.jpeg">
       <Card>
         <MDBox
           variant="gradient"

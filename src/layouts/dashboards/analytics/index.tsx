@@ -38,11 +38,6 @@ import SalesByCountry from "layouts/dashboards/analytics/components/SalesByCount
 import reportsBarChartData from "layouts/dashboards/analytics/data/reportsBarChartData";
 import reportsLineChartData from "layouts/dashboards/analytics/data/reportsLineChartData";
 
-// Images
-import booking1 from "assets/images/products/product-1-min.jpg";
-import booking2 from "assets/images/products/product-2-min.jpg";
-import booking3 from "assets/images/products/product-3-min.jpg";
-
 function Analytics(): JSX.Element {
   const { sales, tasks } = reportsLineChartData;
 
@@ -66,6 +61,13 @@ function Analytics(): JSX.Element {
       </Tooltip>
     </>
   );
+
+  const booking1 =
+    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-1-min.jpg";
+  const booking2 =
+    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-2-min.jpg";
+  const booking3 =
+    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-3-min.jpg";
 
   return (
     <DashboardLayout>

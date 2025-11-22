@@ -29,12 +29,6 @@ import MDAvatar from "components/MDAvatar";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
-// Images
-import logoSlack from "assets/images/small-logos/logo-slack.svg";
-import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
-import logoAtlassian from "assets/images/small-logos/logo-atlassian.svg";
-import logoAsana from "assets/images/small-logos/logo-asana.svg";
-
 // Material Dashboard 2 PRO React TS components
 import { useMaterialUIController } from "context";
 
@@ -70,7 +64,13 @@ function Accounts(): JSX.Element {
           flexDirection={{ xs: "column", sm: "row" }}
         >
           <MDBox display="flex" alignItems="center">
-            <MDAvatar src={logoSlack} alt="Slack logo" variant="rounded" />
+            <MDAvatar
+              src={
+                "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-slack.svg"
+              }
+              alt="Slack logo"
+              variant="rounded"
+            />
             <MDBox ml={2}>
               <MDTypography variant="h5" fontWeight="medium">
                 Slack
@@ -168,7 +168,13 @@ function Accounts(): JSX.Element {
           flexDirection={{ xs: "column", sm: "row" }}
         >
           <MDBox display="flex" alignItems="center">
-            <MDAvatar src={logoSpotify} alt="Slack logo" variant="rounded" />
+            <MDAvatar
+              src={
+                "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-spotify.svg"
+              }
+              alt="Slack logo"
+              variant="rounded"
+            />
             <MDBox ml={2} lineHeight={0}>
               <MDTypography variant="h5" fontWeight="medium">
                 Spotify
@@ -203,7 +209,13 @@ function Accounts(): JSX.Element {
           flexDirection={{ xs: "column", sm: "row" }}
         >
           <MDBox display="flex" alignItems="center">
-            <MDAvatar src={logoAtlassian} alt="Slack logo" variant="rounded" />
+            <MDAvatar
+              src={
+                "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-atlassian.svg"
+              }
+              alt="Slack logo"
+              variant="rounded"
+            />
             <MDBox ml={2} lineHeight={0}>
               <MDTypography variant="h5" fontWeight="medium">
                 Atlassian
@@ -238,7 +250,13 @@ function Accounts(): JSX.Element {
           flexDirection={{ xs: "column", sm: "row" }}
         >
           <MDBox display="flex" alignItems="center">
-            <MDAvatar src={logoAsana} alt="Slack logo" variant="rounded" />
+            <MDAvatar
+              src={
+                "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/small-logos/logo-asana.svg"
+              }
+              alt="Slack logo"
+              variant="rounded"
+            />
             <MDBox ml={2} lineHeight={0}>
               <MDTypography variant="h5" fontWeight="medium">
                 Asana

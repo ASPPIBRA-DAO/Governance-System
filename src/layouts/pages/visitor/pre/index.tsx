@@ -7,7 +7,6 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import VisitorImage from "../common";
 
 // Images
-import productImage from "assets/images/products/product-11.jpg";
 import DataVisitor from "./data";
 import boxShadow from "assets/theme/functions/boxShadow";
 import { Item } from "../common/Item";
@@ -21,6 +20,8 @@ const ItemData = styled(Paper)(({ theme }) => ({
 }));
 
 function PreVisitor(): JSX.Element {
+  const productImage =
+    "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/products/product-11.jpg";
   return (
     <DashboardLayout>
       <DashboardNavbar />

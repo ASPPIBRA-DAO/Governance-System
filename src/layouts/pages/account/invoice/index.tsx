@@ -29,10 +29,6 @@ import MDButton from "components/MDButton";
 // Invoice page components
 import BaseLayout from "layouts/pages/account/components/BaseLayout";
 
-// Images
-import logoCT from "assets/images/logo-ct.png";
-import logoCTDark from "assets/images/logo-ct-dark.png";
-
 // Material Dashboard 2 PRO React context
 import { useMaterialUIController } from "context";
 
@@ -57,7 +53,11 @@ function Invoice(): JSX.Element {
                   <Grid item xs={12} md={4}>
                     <MDBox
                       component="img"
-                      src={darkMode ? logoCT : logoCTDark}
+                      src={
+                        darkMode
+                          ? "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct.png"
+                          : "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct-dark.png"
+                      }
                       width="25%"
                       p={1}
                       mb={1}

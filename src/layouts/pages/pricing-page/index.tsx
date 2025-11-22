@@ -13,7 +13,6 @@ import TrustedBrands from "layouts/pages/pricing-page/components/TrustedBrands";
 import Faq from "layouts/pages/pricing-page/components/Faq";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-import bgImage from "assets/images/bg-pricing.jpg";
 
 function PricingPage(): JSX.Element {
   const [tabValue, setTabValue] = useState<number>(0);
@@ -34,7 +33,7 @@ function PricingPage(): JSX.Element {
         minHeight="50vh"
         width="100%"
         sx={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${bgImage})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-pricing.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",

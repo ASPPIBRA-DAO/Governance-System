@@ -61,7 +61,6 @@ import MDAvatar from "components/MDAvatar";
 import Icon from "@mui/material/Icon";
 
 // Images
-import profilePicture from "assets/images/team-3.jpg";
 import PreVisitor from "layouts/pages/visitor/pre";
 import MainVisitor from "layouts/pages/visitor/main";
 
@@ -70,7 +69,13 @@ const routes = [
     type: "collapse",
     name: "Visitantes",
     key: "visitor",
-    icon: <MDAvatar src={profilePicture} alt="Brooklyn Alice" size="sm" />,
+    icon: (
+      <MDAvatar
+        src="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg"
+        alt="Brooklyn Alice"
+        size="sm"
+      />
+    ),
     collapse: [
       {
         name: "Pré-Cadastro",

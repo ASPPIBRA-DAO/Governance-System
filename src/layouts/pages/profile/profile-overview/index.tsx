@@ -41,16 +41,6 @@ import PlatformSettings from "layouts/pages/profile/profile-overview/components/
 // Data
 import profilesListData from "layouts/pages/profile/profile-overview/data/profilesListData";
 
-// Images
-import homeDecor1 from "assets/images/home-decor-1.jpg";
-import homeDecor2 from "assets/images/home-decor-2.jpg";
-import homeDecor3 from "assets/images/home-decor-3.jpg";
-import homeDecor4 from "assets/images/home-decor-4.jpeg";
-import team1 from "assets/images/team-1.jpg";
-import team2 from "assets/images/team-2.jpg";
-import team3 from "assets/images/team-3.jpg";
-import team4 from "assets/images/team-4.jpg";
-
 function Overview(): JSX.Element {
   return (
     <DashboardLayout>
@@ -114,7 +104,7 @@ function Overview(): JSX.Element {
           <Grid container spacing={6}>
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
-                image={homeDecor1}
+                image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-1.jpg"
                 label="project #2"
                 title="modern"
                 description="As Uber works through a huge amount of internal management turmoil."
@@ -125,16 +115,28 @@ function Overview(): JSX.Element {
                   label: "view project",
                 }}
                 authors={[
-                  { image: team1, name: "Elena Morison" },
-                  { image: team2, name: "Ryan Milly" },
-                  { image: team3, name: "Nick Daniel" },
-                  { image: team4, name: "Peterson" },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg",
+                    name: "Elena Morison",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg",
+                    name: "Ryan Milly",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg",
+                    name: "Nick Daniel",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg",
+                    name: "Peterson",
+                  },
                 ]}
               />
             </Grid>
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
-                image={homeDecor2}
+                image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-2.jpg"
                 label="project #1"
                 title="scandinavian"
                 description="Music is something that everyone has their own specific opinion about."
@@ -145,16 +147,28 @@ function Overview(): JSX.Element {
                   label: "view project",
                 }}
                 authors={[
-                  { image: team3, name: "Nick Daniel" },
-                  { image: team4, name: "Peterson" },
-                  { image: team1, name: "Elena Morison" },
-                  { image: team2, name: "Ryan Milly" },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg",
+                    name: "Nick Daniel",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg",
+                    name: "Peterson",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg",
+                    name: "Elena Morison",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg",
+                    name: "Ryan Milly",
+                  },
                 ]}
               />
             </Grid>
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
-                image={homeDecor3}
+                image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-3.jpg"
                 label="project #3"
                 title="minimalist"
                 description="Different people have different taste, and various types of music."
@@ -165,16 +179,28 @@ function Overview(): JSX.Element {
                   label: "view project",
                 }}
                 authors={[
-                  { image: team4, name: "Peterson" },
-                  { image: team3, name: "Nick Daniel" },
-                  { image: team2, name: "Ryan Milly" },
-                  { image: team1, name: "Elena Morison" },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg",
+                    name: "Peterson",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg",
+                    name: "Nick Daniel",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg",
+                    name: "Ryan Milly",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg",
+                    name: "Elena Morison",
+                  },
                 ]}
               />
             </Grid>
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
-                image={homeDecor4}
+                image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/home-decor-4.jpeg"
                 label="project #4"
                 title="gothic"
                 description="Why would anyone pick blue over pink? Pink is obviously a better color."
@@ -185,10 +211,22 @@ function Overview(): JSX.Element {
                   label: "view project",
                 }}
                 authors={[
-                  { image: team4, name: "Peterson" },
-                  { image: team3, name: "Nick Daniel" },
-                  { image: team2, name: "Ryan Milly" },
-                  { image: team1, name: "Elena Morison" },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg",
+                    name: "Peterson",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg",
+                    name: "Nick Daniel",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-2.jpg",
+                    name: "Ryan Milly",
+                  },
+                  {
+                    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-1.jpg",
+                    name: "Elena Morison",
+                  },
                 ]}
               />
             </Grid>

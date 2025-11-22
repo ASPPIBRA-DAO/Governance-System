@@ -13,19 +13,12 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// Images
-import kal from "assets/images/kal-visuals-square.jpg";
-import marie from "assets/images/marie.jpg";
-import ivana from "assets/images/ivana-square.jpg";
-import team3 from "assets/images/team-3.jpg";
-import team4 from "assets/images/team-4.jpg";
-
 // types
 type Types = any;
 
 const profileListData: Types = [
   {
-    image: kal,
+    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/kal-visuals-square.jpg",
     name: "Sophie B.",
     description: "Hi! I need more information..",
     action: {
@@ -36,7 +29,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: marie,
+    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/marie.jpg",
     name: "Anne Marie",
     description: "Awesome work, can you..",
     action: {
@@ -47,7 +40,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: ivana,
+    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/ivana-square.jpg",
     name: "Ivanna",
     description: "About files I can..",
     action: {
@@ -58,7 +51,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: team4,
+    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-4.jpg",
     name: "Peterson",
     description: "Have a great afternoon..",
     action: {
@@ -69,7 +62,7 @@ const profileListData: Types = [
     },
   },
   {
-    image: team3,
+    image: "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/team-3.jpg",
     name: "Nick Daniel",
     description: "Hi! I need more information..",
     action: {

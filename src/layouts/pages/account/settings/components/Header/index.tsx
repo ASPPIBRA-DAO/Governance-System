@@ -25,9 +25,6 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDAvatar from "components/MDAvatar";
 
-// Images
-import burceMars from "assets/images/bruce-mars.jpg";
-
 function Header(): JSX.Element {
   const [visible, setVisible] = useState<boolean>(true);
 
@@ -38,7 +35,12 @@ function Header(): JSX.Element {
       <MDBox p={2}>
         <Grid container spacing={3} alignItems="center">
           <Grid item>
-            <MDAvatar src={burceMars} alt="profile-image" size="xl" shadow="sm" />
+            <MDAvatar
+              src={"https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bruce-mars.jpg"}
+              alt="profile-image"
+              size="xl"
+              shadow="sm"
+            />
           </Grid>
           <Grid item>
             <MDBox height="100%" mt={0.5} lineHeight={1}>

@@ -22,7 +22,6 @@ import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 import CoverLayout from "layouts/authentication/components/CoverLayout";
-import bgImage from "assets/images/bg-sign-up-cover.jpeg";
 
 function Cover(): JSX.Element {
   const [agreed, setAgreed] = useState(false);
@@ -74,7 +73,7 @@ function Cover(): JSX.Element {
   };
 
   return (
-    <CoverLayout image={bgImage}>
+    <CoverLayout image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-sign-up-cover.jpeg">
       <Card>
         <MDBox
           variant="gradient"

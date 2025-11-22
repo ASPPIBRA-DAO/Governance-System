@@ -3,7 +3,6 @@ import Stack from "@mui/material/Stack";
 import MDBox from "components/MDBox";
 import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
-import bgImage from "assets/images/bg-pricing.jpg";
 
 function HeroSection(): JSX.Element {
   return (
@@ -18,7 +17,7 @@ function HeroSection(): JSX.Element {
               `${linearGradient(
                 rgba(black.main, 0.35), // Slightly darker gradient for better text contrast
                 rgba(black.main, 0.35)
-              )}, url(${bgImage})`,
+              )}, url(https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-pricing.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",

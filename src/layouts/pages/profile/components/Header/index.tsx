@@ -31,10 +31,6 @@ import MDAvatar from "components/MDAvatar";
 // Material Dashboard 2 PRO React TS Base Styles
 import breakpoints from "assets/theme/base/breakpoints";
 
-// Images
-import burceMars from "assets/images/bruce-mars.jpg";
-import backgroundImage from "assets/images/bg-profile.jpeg";
-
 function Header({ children }: { children?: ReactNode }): JSX.Element {
   const [tabsOrientation, setTabsOrientation] = useState<"horizontal" | "vertical">("horizontal");
   const [tabValue, setTabValue] = useState(0);
@@ -74,7 +70,7 @@ function Header({ children }: { children?: ReactNode }): JSX.Element {
             `${linearGradient(
               rgba(gradients.info.main, 0.6),
               rgba(gradients.info.state, 0.6)
-            )}, url(${backgroundImage})`,
+            )}, url(https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-profile.jpeg)`,
           backgroundSize: "cover",
           backgroundPosition: "50%",
           overflow: "hidden",
@@ -91,7 +87,12 @@ function Header({ children }: { children?: ReactNode }): JSX.Element {
       >
         <Grid container spacing={3} alignItems="center">
           <Grid item>
-            <MDAvatar src={burceMars} alt="profile-image" size="xl" shadow="sm" />
+            <MDAvatar
+              src="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bruce-mars.jpg"
+              alt="profile-image"
+              size="xl"
+              shadow="sm"
+            />
           </Grid>
           <Grid item>
             <MDBox height="100%" mt={0.5} lineHeight={1}>

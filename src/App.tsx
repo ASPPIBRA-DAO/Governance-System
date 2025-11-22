@@ -25,8 +25,6 @@ import theme from "assets/theme";
 import themeDark from "assets/theme-dark";
 import routes from "routes";
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
-import brandWhite from "assets/images/logo-ct.png";
-import brandDark from "assets/images/logo-ct-dark.png";
 import routesBIS from "routesBIS";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import pageRoutes from "./page.routes";
@@ -46,6 +44,9 @@ export default function App() {
   } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
+
+  const brandWhite = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct.png";
+  const brandDark = "https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/logo-ct-dark.png";
 
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
