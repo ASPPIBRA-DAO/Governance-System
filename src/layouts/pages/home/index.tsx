@@ -28,14 +28,12 @@ import LatestNews from "./components/LatestNews";
 import RoadmapSection from "./components/RoadmapSection";
 import FAQSection from "./components/FAQSection";
 import FinalCTA from "./components/FinalCTA";
-import Tokenomics from "./components/Tokenomics";
 
 function HomePage(): JSX.Element {
   return (
     <PageLayout>
       <Hero />
       <Ecosystem />
-      <Tokenomics />
       <Community />
       <Team />
       <LatestNews />
