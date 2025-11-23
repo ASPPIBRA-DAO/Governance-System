@@ -27,6 +27,7 @@ import TeamSection from "./components/TeamSection";
 import LatestNewsSection from "./components/LatestNewsSection";
 import RoadmapSection from "./components/RoadmapSection";
 import FAQSection from "./components/FAQSection";
+import FinalCTA from "./components/FinalCTA";
 
 function HomePage(): JSX.Element {
   return (
@@ -38,6 +39,7 @@ function HomePage(): JSX.Element {
       <LatestNewsSection />
       <RoadmapSection />
       <FAQSection />
+      <FinalCTA />
       <Footer />
     </PageLayout>
   );
