@@ -23,12 +23,13 @@ import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
 import theme from "assets/theme";
 import themeDark from "assets/theme-dark";
-import routes from "routes";
+import routes from "routes"; // Main routes file
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
-import routesBIS from "routesBIS";
+import routesBIS from "routesBIS"; // Sidenav routes
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import pageRoutes from "./page.routes";
-import ClientOnly from "components/ClientOnly"; // Importando o componente
+import ClientOnly from "components/ClientOnly";
+import HomePage from "layouts/pages/home";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -127,37 +128,50 @@ export default function App() {
     </MDBox>
   );
 
+  // Condition to avoid rendering navbars on authentication pages
+  const isAuthPage = pathname.startsWith("/authentication");
+
   return (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
       <ClientOnly />
-      {layout === "dashboard" ? (
+
+      {/* Render Sidenav only for the 'dashboard' layout and if it's not an auth page */}
+      {layout === "dashboard" && !isAuthPage && (
         <>
           <Sidenav
             color={sidenavColor}
             brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
             brandName="Portal BIS1"
-            routes={routesBIS}
+            routes={routesBIS} // Sidenav uses the simplified routes
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
           <Configurator />
           {configsButton}
         </>
-      ) : (
+      )}
+
+      {/* Render DefaultNavbar for layouts that are NOT 'dashboard' and NOT 'authentication' */}
+      {layout !== "dashboard" && !isAuthPage && (
         <DefaultNavbar
           routes={pageRoutes}
           action={{
             type: "internal",
-            route: "/authentication/sign-up/cover",
-            label: "Juntar-se",
+            route: "/authentication/sign-in/cover",
+            label: "Entrar",
             color: "info",
           }}
         />
       )}
+
       {layout === "vr" && <Configurator />}
+
       <Routes>
-        {getRoutes(routesBIS)}
+        {/* Use the main 'routes' file to register ALL application routes */}
+        {getRoutes(routes)}
+        {/* Redirects for root and unmatched paths */}
+        <Route path="/" element={<Navigate to="/pages/home" />} />
         <Route path="*" element={<Navigate to="/pages/home" />} />
       </Routes>
     </ThemeProvider>
