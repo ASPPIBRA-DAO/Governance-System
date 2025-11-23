@@ -1,276 +1,242 @@
-![version](https://img.shields.io/badge/version-1.0.1-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-material-dashboard-pro-react.svg)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-material-dashboard-pro-react.svg)](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues?q=is%3Aissue+is%3Aclosed)
 
-**Documentation built by Developers**
+# 🚀 Governance System
 
-**Example Pages**
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)
 
-If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. You will be able to quickly set up the basic structure for your web project.
-
-View [example pages here](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics).
+O Governance System é uma plataforma de gestão de governança, usando a moderna stack de Jamstack para fornecer uma experiência de usuário rápida, segura e escalável.
 
 ---
 
-## 🚀 Guia de Setup e Execução
+## 🏗️ Arquitetura
 
-Esta seção descreve como configurar e executar a aplicação, tanto em um ambiente de desenvolvimento local quanto em produção.
+O sistema é construído sobre a plataforma de edge da Cloudflare, combinando um front-end dinâmico em React com um back-end serverless robusto.
+
+- **Front-end**: Uma Single-Page Application (SPA) em **React** e **TypeScript**, utilizando **Material-UI** para uma interface rica e responsiva.
+- **Back-end (API)**: Um **Cloudflare Worker** que expõe uma API, escrito em TypeScript.
+- **Banco de Dados**: **Cloudflare D1**, um banco de dados serverless baseado em SQLite.
+- **Armazenamento de Ativos**: **Cloudflare R2** para armazenamento de imagens e outros ativos estáticos.
+
+### Diagrama de Fluxo
+
+```mermaid
+graph TD
+    subgraph "Navegador do Usuário"
+        A[React App]
+    end
+
+    subgraph "Cloudflare Edge"
+        B(Cloudflare Pages)
+        C(API Worker)
+        D(Banco de Dados D1)
+        E(Storage R2)
+    end
+
+    A -- Requisições HTTP --> C
+    C -- Consultas SQL --> D
+    C -- Upload/Download --> E
+    B -- Serve o App --> A
+```
+
+---
+
+## ⚙️ Guia de Setup e Execução
+
+Siga os passos abaixo para configurar e executar o projeto em um ambiente de desenvolvimento.
 
 ### 1. Pré-requisitos
 
-- **Node.js**: Versão LTS. Baixe em [nodejs.org](https://nodejs.org/en/download/).
-- **Yarn ou npm**: Gerenciador de pacotes.
-- **Conta na Cloudflare**: Com acesso aos serviços R2 (armazenamento) e D1 (banco de dados).
+- **Node.js**: Versão LTS (v18 ou superior).
+- **npm**: Versão 8 ou superior.
+- **Conta na Cloudflare**: Com acesso aos serviços **Workers**, **D1** e **R2**.
+- **Wrangler CLI**: `npm install -g wrangler`
 
 ### 2. Instalação
 
-Navegue até a raiz do projeto e instale as dependências do front-end e do back-end:
+Clone o repositório e instale as dependências do front-end e dos back-ends.
 
 ```bash
-# Instala as dependências do front-end (React)
+# 1. Instale as dependências do front-end (React)
 npm install
 
-# Navega para o diretório do servidor e instala suas dependências
+# 2. Navegue para o diretório do worker da API e instale suas dependências
+cd d1-api-worker
+npm install
+cd ..
+
+# 3. Instale as dependências do serviço de migração de assets
 cd server
 npm install
 cd ..
 ```
 
-### 3. Frontend (Interface do Usuário)
-O frontend é uma Single-Page Application (SPA) construída com a seguinte stack:
+### 3. Configuração do Ambiente
+As credenciais são necessárias tanto para a API (Worker) quanto para o script de migração (Node.js).
 
-| Tecnologia | Função | Pacote(s) Chave | Orientação de Uso |
-| :--- | :--- | :--- | :--- |
-| **React** | Framework Principal | `react`, `react-dom` | Use para criar componentes de UI funcionais e gerenciar o estado local. |
-| **TypeScript** | Linguagem | `typescript` | Utilize tipagem estrita para garantir a segurança e manutenibilidade do código. |
-| **Material-UI (MUI)** | Biblioteca de Componentes | `@mui/material` | A base para a UI. Utilize seus componentes (Button, TextField, etc.) para construir as telas. |
-| **React Router**| Roteamento | `react-router-dom` | Defina as páginas e a navegação da aplicação no arquivo `src/routes.tsx`.|
-| **Create React App**| Build Tool | `react-scripts` | O motor de desenvolvimento. O comando `npm start` o utiliza para compilação e hot-reload. |
-| **Axios**| Cliente HTTP | `axios` | Para fazer requisições para a API back-end. |
+#### 3.1. Configuração da API (Worker)
 
-### Back-end
+1.  **Navegue até a pasta do worker**: `cd d1-api-worker`
+2.  **Crie o arquivo de segredos**: `touch .dev.vars`
+3.  **Adicione as credenciais**:
 
-| Tecnologia | Função | Pacote(s) Chave | Orientação de Uso |
-| :--- | :--- | :--- | :--- |
-| **Node.js / Express** | Servidor de API | `express` | Fornece os endpoints da API para o front-end, rodando localmente ou em um worker. |
-| **Cloudflare Workers** | Plataforma Serverless | `@cloudflare/workers-sdk`, `wrangler` | Roda a API de back-end em um ambiente serverless na borda da Cloudflare. |
+    ```ini
+    # Arquivo: d1-api-worker/.dev.vars
+    R2_ACCESS_KEY_ID="SEU_ACCESS_KEY_ID"
+    R2_SECRET_ACCESS_KEY="SUA_SECRET_ACCESS_KEY"
+    R2_BUCKET_NAME="governance-system-assets"
+    CLOUDFLARE_ACCOUNT_ID="SEU_ACCOUNT_ID"
+    ```
 
-### Banco de Dados
+#### 3.2. Configuração do Script de Migração
 
-| Tecnologia | Função | Pacote(s) Chave | Orientação de Uso |
-| :--- | :--- | :--- | :--- |
-| **Cloudflare D1** | Banco de Dados | N/A (Binding) | Banco de dados serverless baseado em SQLite. A conexão é configurada via binding no arquivo `wrangler.jsonc`. |
+1.  **Navegue até a pasta do servidor**: `cd server`
+2.  **Crie o arquivo de variáveis**: `touch .env`
+3.  **Adicione as mesmas credenciais do R2**:
 
+    ```ini
+    # Arquivo: server/.env
+    R2_ACCESS_KEY_ID=SEU_ACCESS_KEY_ID
+    R2_SECRET_ACCESS_KEY=SUA_SECRET_ACCESS_KEY
+    R2_BUCKET_NAME=governance-system-assets
+    R2_ENDPOINT=https://<ACCOUNT_ID>.r2.cloudflarestorage.com
+    ```
 
-### 4. Configuração do Ambiente
-
-A aplicação necessita de variáveis de ambiente para se conectar aos serviços da Cloudflare.
-
-#### Desenvolvimento Local
-
-Para o desenvolvimento local, crie um arquivo chamado `.env` dentro da pasta `server/`. Este arquivo conterá as chaves de acesso para o Cloudflare R2.
-
-1.  **Crie o arquivo:** `touch server/.env`
-2.  **Adicione o seguinte conteúdo ao arquivo `server/.env`**, substituindo os valores pelos seus dados do Cloudflare R2:
-
-```env
-# Cloudflare R2 - Credenciais e Configurações
-# Obtenha estes valores no seu painel da Cloudflare R2
-
-# O ID da chave de acesso do seu token da API R2
-R2_ACCESS_KEY_ID=SEU_ACCESS_KEY_ID
-
-# A chave de acesso secreta do seu token da API R2
-R2_SECRET_ACCESS_KEY=SUA_SECRET_ACCESS_KEY
-
-# O nome exato do seu bucket no R2
-R2_BUCKET_NAME=governance-system-assets
-
-# O endpoint do S3 API do seu bucket (Encontrado nas configurações do bucket R2)
-R2_ENDPOINT=https://<ACCOUNT_ID>.r2.cloudflarestorage.com
-
-# A URL pública do seu bucket (Encontrado nas configurações do bucket R2)
-R2_PUBLIC_URL=https://pub-xxxxxxxx.r2.dev
-```
-
-#### Ambiente de Produção (Cloudflare Pages)
-
-Em produção, as variáveis devem ser configuradas na interface do Cloudflare Pages:
-- Vá para **Configurações > Variáveis e segredos**.
-- Adicione as mesmas variáveis do `.env` (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, etc.).
-- É **altamente recomendado** que as chaves de acesso (`R2_ACCESS_KEY_ID` e `R2_SECRET_ACCESS_KEY`) sejam cadastradas com o tipo **`Segredo`**.
-
-### 5. Migração de Ativos (Imagens)
+### 4. Migração de Ativos (Primeira Execução)
 
 Antes de iniciar a aplicação pela primeira vez, você precisa enviar as imagens locais para o seu bucket no Cloudflare R2. O projeto inclui um script para automatizar isso.
 
-**Execute o comando de migração a partir da raiz do projeto:**
-
 ```bash
+# Execute o comando de migração a partir da pasta 'server'
 cd server && npm run migrate
 ```
-Este comando lerá as imagens da pasta `src/assets/images` e fará o upload para o bucket R2 configurado no seu arquivo `.env`. **Este passo só precisa ser executado uma vez.**
+Este comando lerá as imagens da pasta de ativos e fará o upload para o bucket R2. **Este passo só precisa ser executado uma vez.**
 
-### 6. Executando a Aplicação
+### 5. Gestão do Banco de Dados (Migrations)
 
-Com tudo configurado, você pode iniciar os servidores de desenvolvimento:
+O schema do banco de dados D1 é gerenciado através de migrações.
 
 ```bash
-# Para iniciar o servidor do back-end (API)
-# Em um terminal, navegue até a pasta 'server' e inicie
-cd server
-npm start
+# A partir da pasta `d1-api-worker`
 
-# Para iniciar o servidor do front-end (React)
-# Em OUTRO terminal, a partir da raiz do projeto
+# 1. Crie um novo arquivo de migração (ex: adicionar_tabela_usuarios)
+npx wrangler d1 migrations create governance-system-db adicionar_tabela_usuarios
+
+# 2. Aplique as migrações no banco de dados local para desenvolvimento
+npx wrangler d1 migrations apply governance-system-db --local
+
+# 3. Aplique as migrações no banco de dados de produção
+npx wrangler d1 migrations apply governance-system-db --remote
+```
+
+### 6. Executando a Aplicação Localmente
+
+Para rodar a aplicação, você precisa iniciar o front-end e o back-end separadamente.
+
+```bash
+# Em um terminal, inicie o back-end (API Worker) a partir da pasta d1-api-worker
+cd d1-api-worker
+npm run dev
+
+# Em outro terminal, inicie o front-end (React) a partir da raiz do projeto
 npm start
 ```
 
-O front-end estará disponível em `http://localhost:3000` e o back-end em `http://localhost:8787` (ou na porta definida).
+- O front-end estará disponível em `http://localhost:3000`.
+- O back-end (worker) estará disponível em `http://localhost:8787`.
 
 ---
 
-## Integração com Banco de Dados D1
+## 🧪 Executando Testes
 
-A conexão com o banco de dados D1 é configurada através de um **binding** no arquivo `d1-api-worker/wrangler.jsonc`. A plataforma Cloudflare injeta a conexão automaticamente no worker, não sendo necessário cadastrar credenciais em variáveis de ambiente.
+Para garantir a qualidade e a estabilidade do código, execute a suíte de testes.
 
+```bash
+# (TODO: Adicionar comando de teste, ex: npm test)
+```
+
+---
+
+## 🚀 Deploy (Publicação)
+
+O deploy é feito em duas etapas: o back-end (Worker) e o front-end (Pages).
+
+### Back-end (API Worker)
+
+O deploy do worker é feito com o Wrangler a partir da sua pasta.
+
+```bash
+# 1. Navegue até a pasta do worker
+cd d1-api-worker
+
+# 2. Execute o comando de deploy
+npm run deploy
+```
+
+### Front-end (Cloudflare Pages)
+
+O deploy do front-end é feito via `git push`. A Cloudflare Pages está configurada para:
+1.  Observar o branch `main`.
+2.  Executar o comando de build: `npm run build`.
+3.  Publicar o diretório de saída: `build`.
+
+---
+
+## 📚 Referência da API (Endpoints)
+
+A seguir, um exemplo de como documentar os endpoints da API.
+
+### Exemplo: Listar Usuários
+Retorna uma lista paginada de usuários ativos.
+
+- **URL:** `/api/users`
+- **Método:** `GET`
+- **Auth:** Necessário (Bearer Token)
+
+**Resposta de Sucesso (200 OK):**
 ```json
 {
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "governance-system-db",
-      "database_id": "fbdff5ac-2fcc-4182-9cbf-be6c1d08e287"
-    }
-  ]
+  "data": [
+    { "id": 1, "name": "Admin", "role": "admin" },
+    { "id": 2, "name": "Gestor", "role": "manager" }
+  ],
+  "page": 1,
+  "total": 45
 }
 ```
 
-## Documentation
+*(TODO: Listar e documentar todos os outros endpoints da API)*
 
-The documentation for the Material Dashboard is hosted at our [website](https://www.creative-tim.com/learning-lab/react/overview/material-dashboard/?ref=readme-mdpr).
+---
 
-### What's included
-
-Within the download you'll find the following directories and files:
+## 📂 Estrutura do Projeto
 
 ```
-material-dashboard-2-pro-react-ts
-    ├── public
-    │   ├── apple-icon.png
-    │   ├── favicon.png
-    │   ├── index.html
-    │   ├── manifest.json
-    │   └── robots.txt
-    ├── src
-    │   ├── assets
-    │   │   ├── images
-    │   │   ├── theme
-    │   │   │   ├── base
-    │   │   │   ├── components
-    │   │   │   ├── functions
-    │   │   │   ├── index.ts
-    │   │   │   └── theme-rtl.ts
-    │   │   └── theme-dark
-    │   │       ├── base
-    │   │       ├── components
-    │   │       ├── functions
-    │   │       ├── index.ts
-    │   │       └── theme-rtl.ts
-    │   ├── components
-    │   │   ├── MDAlert
-    │   │   ├── MDAvatar
-    │   │   ├── MDBadge
-    │   │   ├── MDBadgeDot
-    │   │   ├── MDBox
-    │   │   ├── MDButton
-    │   │   ├── MDDatePicker
-    │   │   ├── MDDropzone
-    │   │   ├── MDEditor
-    │   │   ├── MDInput
-    │   │   ├── MDPagination
-    │   │   ├── MDProgress
-    │   │   ├── MDSnackbar
-    │   │   ├── MDSocialButton
-    │   │   └── MDTypography
-    │   ├── context
-    │   ├── examples
-    │   │   ├── Breadcrumbs
-    │   │   ├── Calendar
-    │   │   ├── Cards
-    │   │   ├── Charts
-    │   │   ├── Configurator
-    │   │   ├── Footer
-    │   │   ├── Items
-    │   │   ├── LayoutContainers
-    │   │   ├── Lists
-    │   │   ├── Navbars
-    │   │   ├── Sidenav
-    │   │   ├── Tables
-    │   │   └── Timeline
-    │   ├── layouts
-    │   │   ├── applications
-    │   │   │   ├── calendar
-    │   │   │   ├── data-tables
-    │   │   │   ├── kanban
-    │   │   │   └── wizard
-    │   │   ├── authentication
-    │   │   │   ├── components
-    │   │   │   ├── reset-password
-    │   │   │   ├── sign-in
-    │   │   │   └── sign-up
-    │   │   ├── dashboards
-    │   │   │   ├── analytics
-    │   │   │   └── sales
-    │   │   ├── ecommerce
-    │   │   │   ├── orders
-    │   │   │   └── products
-    │   │   └── pages
-    │   │       ├── account
-    │   │       ├── charts
-    │   │       ├── notifications
-    │   │       ├── pricing-page
-    │   │       ├── profile
-    │   │       ├── projects
-    │   │       ├── rtl
-    │   │       ├── users
-    │   │       └── widgets
-    │   ├── types
-    │   ├── App.tsx
-    │   ├── index.tsx
-    │   ├── page.routes.tsx
-    │   └── routes.tsx
-    ├── .eslintignore
-    ├── .eslintrc.json
-    ├── .prettierrc.json
-    ├── CHANGELOG.md
-    ├── ISSUE_TEMPLATE.md
-    ├── package.json
-    ├── README.md
-    └── tsconfig.json
+.
+├── d1-api-worker/    # Projeto do Cloudflare Worker (Back-end)
+│   ├── src/index.ts  # Ponto de entrada da API
+│   ├── wrangler.toml # Configuração do Worker e bindings D1/R2
+│   └── package.json
+│
+├── public/           # Ativos públicos do front-end
+│
+├── src/              # Código-fonte do React (Front-end)
+│   ├── assets/       # Temas, fontes e imagens
+│   ├── components/   # Componentes reutilizáveis
+│   ├── layouts/      # Estruturas de página (dashboards, auth)
+│   ├── routes.tsx    # Definição das rotas da aplicação
+│   └── App.tsx       # Componente principal
+│
+├── server/           # Scripts de suporte (ex: migração de assets)
+│
+├── package.json      # Dependências do front-end
+└── README.md         # Esta documentação
 ```
 
-## Browser Support
+---
 
-At present, we officially aim to support the last two versions of the following browsers:
+## 🔧 Resolução de Problemas Comuns
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+- **Erro `No D1 database found`**: Certifique-se de que o arquivo `wrangler.toml` tem o `database_id` correto e que você rodou `npx wrangler d1 migrations apply --local`.
 
-## Resources
+- **Erro de CORS**: Se o front-end não conseguir se comunicar com a API local, verifique se o Worker está retornando os headers `Access-Control-Allow-Origin` corretamente em suas respostas.
 
-- [Live Preview](https://demos.creative-tim.com/material-dashboard-2-pro-react-ts/#/dashboards/analytics?ref=readme-mdpr)
-- [Buy Page](https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts?ref=readme-mdpr)
-- Documentation is [here](https://www.creative-tim.com/learning-lab/react/overview/material-dashboard/?ref=readme-mdpr)
-- [License Agreement](https://www.creative-tim.com/license?ref=readme-mdpr)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-mdpr)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/ct-material-dashboard-pro-react/issues)
-
-## Reporting Issues
-
-We use GitHub Issues as the official bug tracker for the Material Dashboard 2 PRO React. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Material Dashboard 2 PRO React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts?ref=readme-mdpr).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us?ref=readme-mdpr) instead of opening an issue.
+- **Imagens não carregam**: Verifique se o bucket R2 está configurado como público ou se as credenciais no arquivo `.dev.vars` (para o worker) e `.env` (para o script de migração) estão corretas.
