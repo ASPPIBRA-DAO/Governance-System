@@ -168,12 +168,11 @@ export default function App() {
       {layout === "vr" && <Configurator />}
 
       <Routes>
-        {/* Renders all routes from the routes.tsx file. HomePage is now at '/' */}
+        {/* Use the main 'routes' file to register ALL application routes */}
         {getRoutes(routes)}
-        {/* Redirect from the old home path to the new root path for backward compatibility */}
-        <Route path="/pages/home" element={<Navigate to="/" />} />
-        {/* Redirect any unmatched paths to the root/home page */}
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* Redirects for root and unmatched paths */}
+        <Route path="/" element={<Navigate to="/pages/home" />} />
+        <Route path="*" element={<Navigate to="/pages/home" />} />
       </Routes>
     </ThemeProvider>
   );
