@@ -1,7 +1,8 @@
+
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
-function LatestNewsSection(): JSX.Element {
+function LatestNews(): JSX.Element {
   return (
     <MDBox py={6} textAlign="center">
       <MDTypography variant="h1">Latest News Section</MDTypography>
@@ -9,4 +10,4 @@ function LatestNewsSection(): JSX.Element {
   );
 }
 
-export default LatestNewsSection;
+export default LatestNews;

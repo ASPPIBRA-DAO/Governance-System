@@ -1,10 +1,11 @@
+
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import MDBox from "components/MDBox";
 import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 
-function HeroSection(): JSX.Element {
+function Hero(): JSX.Element {
   return (
     <MDBox component="section" pt={8} pb={2}>
       <Container>
@@ -64,4 +65,4 @@ function HeroSection(): JSX.Element {
   );
 }
 
-export default HeroSection;
+export default Hero;

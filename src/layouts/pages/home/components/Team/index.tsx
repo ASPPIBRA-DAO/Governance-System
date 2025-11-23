@@ -1,3 +1,4 @@
+
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import MDBox from "components/MDBox";
@@ -17,7 +18,7 @@ const teamMembers: TeamMember[] = [
   { name: "Nome do Membro", role: "Gerente de Comunidade" },
 ];
 
-function TeamSection(): JSX.Element {
+function Team(): JSX.Element {
   return (
     <MDBox component="section" py={6} id="team">
       <Container>
@@ -55,4 +56,4 @@ function TeamSection(): JSX.Element {
   );
 }
 
-export default TeamSection;
+export default Team;

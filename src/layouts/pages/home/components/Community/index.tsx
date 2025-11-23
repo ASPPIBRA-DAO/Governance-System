@@ -1,3 +1,4 @@
+
 import { ReactNode } from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
@@ -59,7 +60,7 @@ const communityData: Community[] = [
   },
 ];
 
-function CommunitySection(): JSX.Element {
+function Community(): JSX.Element {
   return (
     <MDBox component="section" py={6} id="community">
       <Container>
@@ -130,4 +131,4 @@ function CommunitySection(): JSX.Element {
   );
 }
 
-export default CommunitySection;
+export default Community;

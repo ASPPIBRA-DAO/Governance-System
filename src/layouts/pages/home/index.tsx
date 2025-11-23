@@ -20,11 +20,11 @@ import PageLayout from "examples/LayoutContainers/PageLayout";
 import Footer from "layouts/pages/pricing-page/components/Footer";
 
 // Sections
-import HeroSection from "./components/HeroSection";
-import EcosystemSection from "./components/EcosystemSection";
-import CommunitySection from "./components/CommunitySection";
-import TeamSection from "./components/TeamSection";
-import LatestNewsSection from "./components/LatestNewsSection";
+import Hero from "./components/Hero";
+import Ecosystem from "./components/Ecosystem";
+import Community from "./components/Community";
+import Team from "./components/Team";
+import LatestNews from "./components/LatestNews";
 import RoadmapSection from "./components/RoadmapSection";
 import FAQSection from "./components/FAQSection";
 import FinalCTA from "./components/FinalCTA";
@@ -32,11 +32,11 @@ import FinalCTA from "./components/FinalCTA";
 function HomePage(): JSX.Element {
   return (
     <PageLayout>
-      <HeroSection />
-      <EcosystemSection />
-      <CommunitySection />
-      <TeamSection />
-      <LatestNewsSection />
+      <Hero />
+      <Ecosystem />
+      <Community />
+      <Team />
+      <LatestNews />
       <RoadmapSection />
       <FAQSection />
       <FinalCTA />

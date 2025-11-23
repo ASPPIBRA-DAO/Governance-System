@@ -1,3 +1,4 @@
+
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import MDBox from "components/MDBox";
@@ -5,7 +6,7 @@ import MDTypography from "components/MDTypography";
 import InfoCard from "../InfoCard";
 import { Box } from "@mui/material";
 
-function EcosystemSection(): JSX.Element {
+function Ecosystem(): JSX.Element {
   return (
     <MDBox component="section" py={6} id="ecosystem">
       <Container>
@@ -56,4 +57,4 @@ function EcosystemSection(): JSX.Element {
   );
 }
 
-export default EcosystemSection;
+export default Ecosystem;
