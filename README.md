@@ -233,6 +233,78 @@ Retorna uma lista paginada de usuários ativos.
 
 ---
 
+## 🧩 Componentes de UI
+
+Esta é uma lista de todos os componentes de UI reutilizáveis no projeto.
+
+| Componente | Diretório |
+| :--- | :--- |
+| **Componentes Principais** | `src/components` |
+| MDAlert | `src/components/MDAlert/index.tsx` |
+| MDAvatar | `src/components/MDAvatar/index.tsx` |
+| MDBadge | `src/components/MDBadge/index.tsx` |
+| MDBadgeDot | `src/components/MDBadgeDot/index.tsx` |
+| MDBox | `src/components/MDBox/index.tsx` |
+| MDButton | `src/components/MDButton/index.tsx` |
+| MDDatePicker | `src/components/MDDatePicker/index.tsx` |
+| MDDropzone | `src/components/MDDropzone/index.tsx` |
+| MDEditor | `src/components/MDEditor/index.tsx` |
+| MDInput | `src/components/MDInput/index.tsx` |
+| MDPagination | `src/components/MDPagination/index.tsx` |
+| MDProgress | `src/components/MDProgress/index.tsx` |
+| MDSnackbar | `src/components/MDSnackbar/index.tsx` |
+| MDSocialButton | `src/components/MDSocialButton/index.tsx` |
+| MDTypography | `src/components/MDTypography/index.tsx` |
+| BEFormField | `src/components/BEFormField/index.tsx` |
+| ClientOnly | `src/components/ClientOnly.tsx` |
+| ConstructionPopup | `src/components/ConstructionPopup.tsx` |
+| **Componentes de Exemplos** | `src/examples` |
+| Breadcrumbs | `src/examples/Breadcrumbs/index.tsx` |
+| Calendar | `src/examples/Calendar/index.tsx` |
+| Configurator | `src/examples/Configurator/index.tsx` |
+| Footer | `src/examples/Footer/index.tsx` |
+| Sidenav | `src/examples/Sidenav/index.tsx` |
+| BookingCard | `src/examples/Cards/BookingCard/index.tsx` |
+| ControllerCard | `src/examples/Cards/ControllerCard/index.tsx` |
+| MasterCard | `src/examples/Cards/MasterCard/index.tsx` |
+| SimpleBlogCard | `src/examples/Cards/BlogCards/SimpleBlogCard/index.tsx` |
+| DefaultInfoCard | `src/examples/Cards/InfoCards/DefaultInfoCard/index.tsx` |
+| MiniInfoCard | `src/examples/Cards/InfoCards/MiniInfoCard/index.tsx` |
+| ProfileInfoCard | `src/examples/Cards/InfoCards/ProfileInfoCard/index.tsx` |
+| DefaultPricingCard | `src/examples/Cards/PricingCards/DefaultPricingCard/index.tsx` |
+| ComplexProjectCard | `src/examples/Cards/ProjectCards/ComplexProjectCard/index.tsx` |
+| DefaultProjectCard | `src/examples/Cards/ProjectCards/DefaultProjectCard/index.tsx` |
+| ComplexStatisticsCard | `src/examples/Cards/StatisticsCards/ComplexStatisticsCard/index.tsx` |
+| DefaultStatisticsCard | `src/examples/Cards/StatisticsCards/DefaultStatisticsCard/index.tsx` |
+| MiniStatisticsCard | `src/examples/Cards/StatisticsCards/MiniStatisticsCard/index.tsx` |
+| BubbleChart | `src/examples/Charts/BubbleChart/index.tsx` |
+| MixedChart | `src/examples/Charts/MixedChart/index.tsx` |
+| PieChart | `src/examples/Charts/PieChart/index.tsx` |
+| PolarChart | `src/examples/Charts/PolarChart/index.tsx` |
+| RadarChart | `src/examples/Charts/RadarChart/index.tsx` |
+| HorizontalBarChart | `src/examples/Charts/BarCharts/HorizontalBarChart/index.tsx` |
+| ReportsBarChart | `src/examples/Charts/BarCharts/ReportsBarChart/index.tsx` |
+| VerticalBarChart | `src/examples/Charts/BarCharts/VerticalBarChart/index.tsx` |
+| DefaultDoughnutChart | `src/examples/Charts/DoughnutCharts/DefaultDoughnutChart/index.tsx` |
+| DefaultLineChart | `src/examples/Charts/LineCharts/DefaultLineChart/index.tsx` |
+| GradientLineChart | `src/examples/Charts/LineCharts/GradientLineChart/index.tsx` |
+| ProgressLineChart | `src/examples/Charts/LineCharts/ProgressLineChart/index.tsx` |
+| ReportsLineChart | `src/examples/Charts/LineCharts/ReportsLineChart/index.tsx` |
+| DefaultItem | `src/examples/Items/DefaultItem/index.tsx` |
+| NotificationItem | `src/examples/Items/NotificationItem/index.tsx` |
+| DashboardLayout | `src/examples/LayoutContainers/DashboardLayout/index.tsx` |
+| PageLayout | `src/examples/LayoutContainers/PageLayout/index.tsx` |
+| CategoriesList | `src/examples/Lists/CategoriesList/index.tsx` |
+| ProfilesList | `src/examples/Lists/ProfilesList/index.tsx` |
+| DashboardNavbar | `src/examples/Navbars/DashboardNavbar/index.tsx` |
+| DefaultNavbar | `src/examples/Navbars/DefaultNavbar/index.tsx` |
+| DataTable | `src/examples/Tables/DataTable/index.tsx` |
+| SalesTable | `src/examples/Tables/SalesTable/index.tsx` |
+| TimelineItem | `src/examples/Timeline/TimelineItem/index.tsx` |
+| TimelineList | `src/examples/Timeline/TimelineList/index.tsx` |
+
+---
+
 ## 🔧 Resolução de Problemas Comuns
 
 - **Erro `No D1 database found`**: Certifique-se de que o arquivo `wrangler.toml` tem o `database_id` correto e que você rodou `npx wrangler d1 migrations apply --local`.

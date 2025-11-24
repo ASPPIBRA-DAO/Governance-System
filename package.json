@@ -63,10 +63,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node server/governance.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "governance": "node server/governance.js"
   },
   "eslintConfig": {
     "extends": [

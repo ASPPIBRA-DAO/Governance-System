@@ -1,3 +1,27 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Allow: /pages/pricing-page
+Allow: /authentication/sign-in/
+Allow: /authentication/sign-up/
+
+# ⛔ BLOQUEIOS DE SEGURANÇA
+Disallow: /api/
+Disallow: /server/
+Disallow: /d1-api-worker/
+Disallow: /dashboards/
+Disallow: /admin/
+Disallow: /pages/account/
+Disallow: /pages/profile/
+Disallow: /pages/users/
+Disallow: /pages/projects/
+
+# ⛔ BLOQUEIOS TÉCNICOS (Atualizado para JSONC)
+Disallow: /.env
+Disallow: /wrangler.toml
+Disallow: /wrangler.jsonc
+Disallow: /package.json
+Disallow: /node_modules/
+
+# 📍 SITEMAP
+Sitemap: https://www.asppibra.com.br/sitemap.xml
