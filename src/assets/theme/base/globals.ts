@@ -25,10 +25,10 @@ const globals = {
   "*, *::before, *::after": {
     margin: 0,
     padding: 0,
-    "-webkit-user-select": "none",
-    "-moz-user-select": "none",
-    "-ms-user-select": "none",
-    "user-select": "none",
+    WebkitUserSelect: "none",
+    MozUserSelect: "none",
+    msUserSelect: "none",
+    userSelect: "none",
   },
   "a, a:link, a:visited": {
     textDecoration: "none !important",

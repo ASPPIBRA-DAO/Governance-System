@@ -50,8 +50,8 @@ function TimelineCard({ item, isCentered }: Props): JSX.Element {
           color="text.secondary"
           sx={{
             display: "-webkit-box",
-            "-webkit-line-clamp": "4", // Limita o texto a 4 linhas
-            "-webkit-box-orient": "vertical",
+            WebkitLineClamp: "4", // Limita o texto a 4 linhas
+            WebkitBoxOrient: "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
           }}
