@@ -95,7 +95,9 @@ const ConstructionPopup: React.FC = () => {
           Seu Novo Painel de Decisões
         </MDTypography>
         <MDTypography variant="body1" mb={3}>
-          Estamos preparando um ambiente onde sua voz tem peso e seus dados estão seguros. Uma nova arquitetura descentralizada para gerir, votar e prosperar está sendo finalizada neste momento. Aguarde:
+          Estamos preparando um ambiente onde sua voz tem peso e seus dados estão
+          seguros. Uma nova arquitetura descentralizada para gerir, votar e
+          prosperar está sendo finalizada neste momento. Aguarde:
         </MDTypography>
         <MDBox display="flex" justifyContent="center" mb={3}>
           <MDBox textAlign="center" px={2}>
