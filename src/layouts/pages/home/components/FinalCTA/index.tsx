@@ -13,7 +13,11 @@ function FinalCTA(): JSX.Element {
           minHeight="60vh"
           borderRadius="xl"
           sx={{
-            backgroundImage: ({ functions: { linearGradient, rgba }, palette: { black } }) => `${linearGradient(rgba(black.main, 0.35), rgba(black.main, 0.35))}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`,
+            backgroundImage: ({ functions: { linearGradient, rgba }, palette: { black } }) =>
+              `${linearGradient(
+                rgba(black.main, 0.35),
+                rgba(black.main, 0.35)
+              )}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
