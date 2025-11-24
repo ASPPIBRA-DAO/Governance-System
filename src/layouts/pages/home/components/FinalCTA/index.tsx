@@ -5,6 +5,12 @@ import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 
 function FinalCTA(): JSX.Element {
+  const bgImage = ({ functions: { linearGradient, rgba }, palette: { black } }) =>
+    `${linearGradient(
+      rgba(black.main, 0.35),
+      rgba(black.main, 0.35)
+    )}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`;
+
   return (
     <MDBox component="section" pt={8} pb={2}>
       <Container>
@@ -13,11 +19,7 @@ function FinalCTA(): JSX.Element {
           minHeight="60vh"
           borderRadius="xl"
           sx={{
-            backgroundImage: ({ functions: { linearGradient, rgba }, palette: { black } }) =>
-              `${linearGradient(
-                rgba(black.main, 0.35),
-                rgba(black.main, 0.35)
-              )}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`,
+            backgroundImage: bgImage,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
