@@ -165,8 +165,7 @@ const CardWithCode = ({ title, text, fileOptions }: CardWithCodeProps) => {
       </Stack>
       <MDBox
         sx={{
-          flex: 1,
-          minHeight: 280, // Altura mínima para o visualizador de código
+          height: "400px", // Altura fixa para o visualizador de código
           borderRadius: 2,
           overflow: "hidden",
           border: (theme) => `1px solid ${theme.palette.divider}`,
