@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { Box, Card, Grid, Typography, IconButton, Tooltip, useTheme, Chip, Stack } from "@mui/material";
+import {
+  Box,
+  Card,
+  Grid,
+  Typography,
+  IconButton,
+  Tooltip,
+  useTheme,
+  Chip,
+  Stack,
+} from "@mui/material";
 import { User, Landmark, Gavel, Rocket, Repeat } from "lucide-react";
 
 import MDBox from "components/MDBox";
@@ -31,6 +41,13 @@ interface CardWithCodeProps {
 interface CardWithImageProps {
   linkUrl: string;
   imageUrl: string;
+}
+
+interface StepProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  color: string;
 }
 
 // InfoCard com fundo branco e texto escuro
@@ -258,8 +275,18 @@ const CardWithImage = ({ imageUrl, linkUrl }: CardWithImageProps) => (
 const ValueFlowDiagram = () => {
   const theme = useTheme();
 
-  const Step = ({ icon, title, description, color }) => (
-    <Grid item xs sx={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: 200 }}>
+  const Step = ({ icon, title, description, color }: StepProps) => (
+    <Grid
+      item
+      xs
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        maxWidth: 200,
+      }}
+    >
       <Box
         sx={{
           width: 64,
@@ -311,7 +338,12 @@ const ValueFlowDiagram = () => {
           Do apoio inicial ao crescimento sustentável e reinvestimento contínuo.
         </MDTypography>
       </Box>
-      <Grid container justifyContent="space-evenly" alignItems="flex-start" spacing={{ xs: 4, md: 2 }}>
+      <Grid
+        container
+        justifyContent="space-evenly"
+        alignItems="flex-start"
+        spacing={{ xs: 4, md: 2 }}
+      >
         <Step
           icon={<User color="white" size={32} />}
           title="1. Aquisição"
