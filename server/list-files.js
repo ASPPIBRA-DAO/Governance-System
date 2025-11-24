@@ -1,7 +1,6 @@
-
 // Importa o necessário do SDK da AWS e carrega as variáveis de ambiente
 const { S3Client, ListObjectsV2Command } = require("@aws-sdk/client-s3");
-require('dotenv').config();
+require("dotenv").config();
 
 // Configura o cliente S3 para se conectar ao R2
 const s3Client = new S3Client({
@@ -28,8 +27,8 @@ const listFiles = async () => {
     }
     // Monta a URL pública de cada arquivo e a imprime
     const publicUrlBase = process.env.R2_PUBLIC_URL;
-    const fileUrls = Contents.map(file => `${publicUrlBase}/${file.Key}`);
-    console.log(fileUrls.join('\n'));
+    const fileUrls = Contents.map((file) => `${publicUrlBase}/${file.Key}`);
+    console.log(fileUrls.join("\n"));
   } catch (err) {
     console.error("Erro ao listar os arquivos:", err);
   }
