@@ -94,9 +94,9 @@ const ConstructionPopup: React.FC = () => {
         <MDTypography variant="h3" fontWeight="bold" mb={2}>
           Garanta Seu Acesso Antecipado
         </MDTypography>
-        {/* eslint-disable-next-line prettier/prettier */}
         <MDTypography variant="body1" mb={3}>
-          Entre para a whitelist e teste o novo Painel de Decisões antes de todo mundo. Vagas extremamente limitadas.
+          Entre para a whitelist e teste o novo Painel de Decisões antes de todo mundo. Vagas
+          extremamente limitadas.
         </MDTypography>
         <MDBox display="flex" justifyContent="center" mb={3}>
           <MDBox textAlign="center" px={2}>

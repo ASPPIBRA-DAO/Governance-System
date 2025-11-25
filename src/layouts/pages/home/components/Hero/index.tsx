@@ -18,10 +18,9 @@ function Hero(): JSX.Element {
           borderRadius="xl"
           sx={{
             backgroundImage: ({ functions: { linearGradient, rgba }, palette: { black } }) =>
-              `${linearGradient(
-                rgba(black.main, 0.35),
-                rgba(black.main, 0.35)
-              )}, url(${process.env.REACT_APP_R2_PUBLIC_URL}/images/bg-pricing.jpg)`,
+              `${linearGradient(rgba(black.main, 0.35), rgba(black.main, 0.35))}, url(${
+                process.env.REACT_APP_R2_PUBLIC_URL
+              }/images/bg-pricing.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
@@ -40,12 +39,12 @@ function Hero(): JSX.Element {
               opacity={0.9}
               fontWeight="bold"
             >
-              🚀 INCUBANDO O FUTURO DOS NEGÓCIOS NO BRASIL
+              🚀 Transformando Negócios Tradicionais em Ativos Digitais
             </MDTypography>
             <MDTypography variant={isMobile ? "h2" : "h1"} color="white">
-              A Ponte Definitiva entre o Mundo Real e o{" "}
+              A Ponte Definitiva Entre o{" "}
               <MDTypography component="span" variant={isMobile ? "h2" : "h1"} color="primary">
-                Mundo Digital
+                Mundo Real e o Mundo Digital
               </MDTypography>
             </MDTypography>
             <MDTypography
@@ -54,9 +53,10 @@ function Hero(): JSX.Element {
               opacity={0.85}
               sx={{ textAlign: "justify" }}
             >
-              Muito mais que uma associação: somos um ecossistema de aceleração. Unimos segurança
-              jurídica, blockchain e IA para transformar propriedades e empresas tradicionais em
-              ativos do Mundo Digital.
+              Somos mais que uma associação — somos um ecossistema de aceleração que conecta
+              segurança jurídica, blockchain e inteligência artificial para transformar
+              propriedades, empresas e projetos reais em ativos digitais de alto valor. O futuro dos
+              negócios já começou. Agora é a sua vez de participar.
             </MDTypography>
             <Stack
               direction={{ xs: "column", sm: "row" }}
@@ -64,16 +64,11 @@ function Hero(): JSX.Element {
               justifyContent="center"
               sx={{ width: "100%" }}
             >
-              <MDButton
-                color="primary"
-                variant="contained"
-                size="large"
-                fullWidth={isMobile}
-              >
-                Quero Acelerar meu Negócio
+              <MDButton color="primary" variant="contained" size="large" fullWidth={isMobile}>
+                Quero Digitalizar meu Negócio
               </MDButton>
               <MDButton color="primary" variant="outlined" size="large" fullWidth={isMobile}>
-                Conhecer o Ecossistema RWA
+                Explorar o Ecossistema RWA
               </MDButton>
             </Stack>
           </Stack>
