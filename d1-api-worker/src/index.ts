@@ -18,19 +18,23 @@ async function hashPassword(password: string): Promise<string> {
 
 // Helper function to initialize the database
 async function setupDatabase(db: D1Database) {
-	await db.exec(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE NOT NULL,
-      password TEXT NOT NULL
-    );
-    CREATE TABLE IF NOT EXISTS password_resets (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT NOT NULL,
-      token TEXT UNIQUE NOT NULL,
-      expires INTEGER NOT NULL
-    );
-  `);
+	await db.batch([
+		db.prepare(`
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL
+      );
+    `),
+		db.prepare(`
+      CREATE TABLE IF NOT EXISTS password_resets (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL,
+        token TEXT UNIQUE NOT NULL,
+        expires INTEGER NOT NULL
+      );
+    `),
+	]);
 }
 
 // Main request handler logic
@@ -55,7 +59,9 @@ async function handleRequest(request: Request, env: Env, ctx: ExecutionContext):
 				if (existingUser) return new Response('User already exists', { status: 409 });
 
 				const hashedPassword = await hashPassword(password);
-				await env.DB.prepare('INSERT INTO users (email, password) VALUES (?, ?)').bind(email, hashedPassword).run();
+				await env.DB.prepare('INSERT INTO users (email, password) VALUES (?, ?)')
+					.bind(email, hashedPassword)
+					.run();
 
 				return new Response('User created successfully', { status: 201 });
 			}
@@ -66,7 +72,9 @@ async function handleRequest(request: Request, env: Env, ctx: ExecutionContext):
 				const { email, password } = await request.json();
 				if (!email || !password) return new Response('Missing email or password', { status: 400 });
 
-				const user = await env.DB.prepare('SELECT password FROM users WHERE email = ?').bind(email).first<{ password: string }>();
+				const user = await env.DB.prepare('SELECT password FROM users WHERE email = ?')
+					.bind(email)
+					.first<{ password: string }>();
 				if (!user) return new Response('Invalid credentials', { status: 401 });
 
 				const hashedPassword = await hashPassword(password);
@@ -88,7 +96,9 @@ async function handleRequest(request: Request, env: Env, ctx: ExecutionContext):
 				if (user) {
 					const token = crypto.randomUUID();
 					const expires = Date.now() + 3600000; // 1 hour
-					await env.DB.prepare('INSERT INTO password_resets (email, token, expires) VALUES (?, ?, ?)').bind(email, token, expires).run();
+					await env.DB.prepare('INSERT INTO password_resets (email, token, expires) VALUES (?, ?, ?)')
+						.bind(email, token, expires)
+						.run();
 					console.log(`Password reset token for ${email}: ${token}`);
 				}
 				return new Response('If an account with this email exists, a password reset link has been sent.', { status: 200 });
@@ -109,7 +119,9 @@ async function handleRequest(request: Request, env: Env, ctx: ExecutionContext):
 				}
 
 				const newHashedPassword = await hashPassword(newPassword);
-				await env.DB.prepare('UPDATE users SET password = ? WHERE email = ?').bind(newHashedPassword, resetRequest.email).run();
+				await env.DB.prepare('UPDATE users SET password = ? WHERE email = ?')
+					.bind(newHashedPassword, resetRequest.email)
+					.run();
 
 				await env.DB.prepare('DELETE FROM password_resets WHERE token = ?').bind(token).run();
 
