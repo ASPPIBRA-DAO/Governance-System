@@ -92,13 +92,11 @@ const ConstructionPopup: React.FC = () => {
         textAlign="center"
       >
         <MDTypography variant="h3" fontWeight="bold" mb={2}>
-          Seu Novo Painel de Decisões
+          Garanta Seu Acesso Antecipado
         </MDTypography>
         {/* eslint-disable-next-line prettier/prettier */}
         <MDTypography variant="body1" mb={3}>
-          Estamos preparando um ambiente onde sua voz tem peso e seus dados estão seguros. Uma nova
-          arquitetura descentralizada para gerir, votar e prosperar está sendo finalizada neste
-          momento. Aguarde:
+          Entre para a whitelist e teste o novo Painel de Decisões antes de todo mundo. Vagas extremamente limitadas.
         </MDTypography>
         <MDBox display="flex" justifyContent="center" mb={3}>
           <MDBox textAlign="center" px={2}>
