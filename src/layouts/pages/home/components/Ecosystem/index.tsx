@@ -106,7 +106,7 @@ const EcosystemCardBase = ({ title, text, linkUrl, children }: EcosystemCardBase
       }}
     >
       {/* Cabeçalho */}
-      <Box sx={{ flexShrink: 0 }}>
+      <Box sx={{ flexShrink: 0, textAlign: { xs: "center", md: "left" } }}>
         <MDTypography variant="h5" fontWeight="bold" mb={1.5} color="dark">
           {title}
         </MDTypography>
@@ -168,7 +168,17 @@ const CardWithCode = ({ title, text, fileOptions }: CardWithCodeProps) => {
 
   return (
     <EcosystemCardBase title={title} text={text} linkUrl={activeFile.link}>
-      <Stack direction="row" spacing={1} sx={{ mb: 2.5, flexShrink: 0 }}>
+      <Stack
+        direction="row"
+        spacing={1}
+        sx={{
+          mb: 2.5,
+          flexShrink: 0,
+          flexWrap: "wrap",
+          gap: 1,
+          justifyContent: { xs: "center", md: "flex-start" },
+        }}
+      >
         {fileOptions.map((option) => (
           <Chip
             key={option.label}
@@ -386,12 +396,12 @@ const ValueFlowDiagram = () => {
 const EcosystemSection = () => {
   const contractOptions = [
     {
-      label: "ERC20 v1 (Original)",
+      label: "ERC20 v1",
       path: "/ERC20_v1.sol",
       link: "https://bscscan.com/token/0x0697ab2b003fd2cbaea2df1ef9b404e45be59d4c#code#L1",
     },
     {
-      label: "ERC20 v2 (Padrão)",
+      label: "ERC20 v2",
       path: "/ERC20_v2.sol",
       link: "#",
     },

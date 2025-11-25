@@ -16,10 +16,12 @@ function DefaultNavbarMobile({ open, onClose, routes }: Props): JSX.Element {
   const renderMobileNavbarItems = routes.map(({ name, route }) => {
     const isAnchor = route.startsWith("#");
     const commonSx = {
-      py: 1.5,
+      py: 0.8,
+      my: 0.2,
       display: "block",
       textDecoration: "none",
       color: "text.primary",
+      fontSize: "1rem",
     };
 
     if (isAnchor) {
@@ -28,7 +30,6 @@ function DefaultNavbarMobile({ open, onClose, routes }: Props): JSX.Element {
           key={name}
           component="a"
           href={route}
-          variant="button"
           fontWeight="regular"
           onClick={onClose}
           sx={commonSx}
@@ -43,7 +44,6 @@ function DefaultNavbarMobile({ open, onClose, routes }: Props): JSX.Element {
         key={name}
         component={Link}
         to={route || "#"}
-        variant="button"
         fontWeight="regular"
         onClick={onClose}
         sx={commonSx}
@@ -60,12 +60,12 @@ function DefaultNavbarMobile({ open, onClose, routes }: Props): JSX.Element {
       onClose={onClose}
       PaperProps={{
         sx: {
-          width: 250,
+          width: 180,
           backgroundColor: (theme) => theme.palette.background.paper,
         },
       }}
     >
-      <MDBox p={2} mt={6} display="flex" flexDirection="column">
+      <MDBox p={1} mt={1} display="flex" flexDirection="column">
         {renderMobileNavbarItems}
       </MDBox>
     </Drawer>

@@ -17,7 +17,6 @@ interface Props {
 function TimelineCard({ item, isCentered }: Props): JSX.Element {
   return (
     <Card
-      elevation={isCentered ? 6 : 1}
       sx={{
         height: "280px", // Altura fixa para todos os cards
         borderRadius: "1rem",
@@ -27,6 +26,9 @@ function TimelineCard({ item, isCentered }: Props): JSX.Element {
         opacity: isCentered ? 1 : 0.7,
         display: "flex",
         flexDirection: "column", // Organiza o conteúdo verticalmente
+        bgcolor: "white.main",
+        border: (theme) => `1px solid ${theme.palette.divider}`,
+        boxShadow: (theme) => (isCentered ? theme.shadows[6] : theme.shadows[1]),
       }}
     >
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
