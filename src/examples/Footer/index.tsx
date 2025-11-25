@@ -3,8 +3,8 @@
 * Material Dashboard 2 PRO React TS - v1.0.1
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Product Page: 
+* Copyright 2022 Creative Tim 
 
 Coded by www.creative-tim.com
 
@@ -83,12 +83,12 @@ function Footer({ company, links }: Props): JSX.Element {
 
 // Declaring default props for Footer
 Footer.defaultProps = {
-  company: { href: "http://www.grupoorion.com.br/", name: "GrupoOrion" },
+  company: { href: "http://", name: "GrupoOrion" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "https://", name: "Creative Tim" },
+    { href: "https://", name: "About Us" },
+    { href: "https://www", name: "Blog" },
+    { href: "https://www", name: "License" },
   ],
 };
 
