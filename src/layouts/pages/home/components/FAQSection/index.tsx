@@ -111,9 +111,7 @@ const faqData = [
 // Função para dividir em 3 colunas
 function splitIntoColumns(data: any[], columns = 3) {
   const perColumn = Math.ceil(data.length / columns);
-  return Array.from({ length: columns }, (_, i) =>
-    data.slice(i * perColumn, (i + 1) * perColumn)
-  );
+  return Array.from({ length: columns }, (_, i) => data.slice(i * perColumn, (i + 1) * perColumn));
 }
 
 function FAQSection(): JSX.Element {
@@ -121,7 +119,6 @@ function FAQSection(): JSX.Element {
   const columns = splitIntoColumns(faqData, 3);
 
   return (
-    // CORREÇÃO: Removido o bgColor="white" para herdar o fundo da página
     <MDBox component="section" py={10} id="faq">
       <Container>
         <Grid container justifyContent="center">
@@ -160,7 +157,12 @@ function FAQSection(): JSX.Element {
                     </AccordionSummary>
 
                     <AccordionDetails>
-                      <MDTypography variant="body2" color="text" lineHeight={1.5} fontSize="0.85rem">
+                      <MDTypography
+                        variant="body2"
+                        color="text"
+                        lineHeight={1.5}
+                        fontSize="0.85rem"
+                      >
                         {item.answer}
                       </MDTypography>
                     </AccordionDetails>
