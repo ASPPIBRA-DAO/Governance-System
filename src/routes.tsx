@@ -47,9 +47,7 @@ import Invoice from "layouts/pages/account/invoice";
 import Timeline from "layouts/pages/projects/timeline";
 import PricingPage from "layouts/pages/pricing-page";
 import HomePage from "layouts/pages/home";
-import SignInBasic from "layouts/authentication/sign-in/basic";
 import SignInCover from "layouts/authentication/sign-in/cover";
-import SignInIllustration from "layouts/authentication/sign-in/illustration";
 import SignUpCover from "layouts/authentication/sign-up/cover";
 import ResetCover from "layouts/authentication/reset-password/cover";
 import ResetPasswordWithToken from "layouts/authentication/reset-password-with-token";
@@ -210,22 +208,10 @@ const routes = [
         key: "sign-in",
         collapse: [
           {
-            name: "Basic",
-            key: "basic",
-            route: "/authentication/sign-in/basic",
-            component: <SignInBasic />,
-          },
-          {
             name: "Cover",
             key: "cover",
             route: "/authentication/sign-in/cover",
             component: <SignInCover />,
-          },
-          {
-            name: "Illustration",
-            key: "illustration",
-            route: "/authentication/sign-in/illustration",
-            component: <SignInIllustration />,
           },
         ],
       },
