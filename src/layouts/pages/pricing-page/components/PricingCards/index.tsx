@@ -1,28 +1,6 @@
-/**
-=========================================================
-* Material Dashboard 2 PRO React TS - v1.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
 import Grid from "@mui/material/Grid";
-
-// Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
-
-// Material Dashboard 2 PRO React TS examples components
 import DefaultPricingCard from "examples/Cards/PricingCards/DefaultPricingCard";
-
-// Material Dashboard 2 PRO React context
 import { useMaterialUIController } from "context";
 
 function PricingCards({ prices }: { prices: string[] }): JSX.Element {
@@ -46,21 +24,23 @@ function PricingCards({ prices }: { prices: string[] }): JSX.Element {
           >
             <DefaultPricingCard
               color={darkMode ? "dark" : "white"}
-              badge={{ color: darkMode ? "warning" : "light", label: "starter" }}
-              price={{ currency: "$", value: starter, type: "mo" }}
+              badge={{ color: darkMode ? "warning" : "light", label: "Starter" }}
+              title="Acesso & Governança"
+              description="A porta de entrada. Ideal para garantir sua identidade na DAO e armazenamento descentralizado básico."
+              price={{ currency: "R$", value: starter, type: "" }}
               specifications={[
-                { label: "2 team members", includes: true },
-                { label: "20GB Cloud storage", includes: true },
-                { label: "Integration help", includes: false },
-                { label: "Sketch Files", includes: false },
-                { label: "API Access", includes: false },
-                { label: "Complete documentation", includes: false },
+                { label: "Conta Digital em Blockchain", includes: true },
+                { label: "10GB de Armazenamento IPFS", includes: true },
+                { label: "Voto na Governança (DAO)", includes: true },
+                { label: "Acesso Básico ao Ecossistema", includes: true },
+                { label: "Relatórios de Análise Global", includes: false },
+                { label: "Acesso a Projetos Incubados", includes: false },
               ]}
               action={{
                 type: "internal",
                 route: "/",
                 color: darkMode ? "warning" : "dark",
-                label: "join",
+                label: "Criar Conta Agora",
               }}
               shadow={false}
             />
@@ -78,21 +58,23 @@ function PricingCards({ prices }: { prices: string[] }): JSX.Element {
           >
             <DefaultPricingCard
               color="dark"
-              badge={{ color: "info", label: "premium" }}
-              price={{ currency: "$", value: premium, type: "mo" }}
+              badge={{ color: "info", label: "Premium" }}
+              title="Investidor & Inteligência"
+              description="O plano recomendado. Focado em quem busca informação privilegiada (Alpha) e oportunidades de negócio."
+              price={{ currency: "R$", value: premium, type: "" }}
               specifications={[
-                { label: "10 team members", includes: true },
-                { label: "40GB Cloud storage", includes: true },
-                { label: "Integration help", includes: true },
-                { label: "Sketch Files", includes: true },
-                { label: "API Access", includes: false },
-                { label: "Complete documentation", includes: false },
+                { label: "Tudo do plano Starter incluso", includes: true },
+                { label: "50GB de Armazenamento IPFS", includes: true },
+                { label: "Relatórios de Mercado Global", includes: true },
+                { label: "Acesso a Projetos Incubados", includes: true },
+                { label: "Integração Blockchain Nível 1", includes: true },
+                { label: "API de Integração Avançada", includes: false },
               ]}
               action={{
                 type: "internal",
                 route: "/",
                 color: "info",
-                label: "try premium",
+                label: "Assinar Premium",
               }}
             />
           </MDBox>
@@ -111,21 +93,23 @@ function PricingCards({ prices }: { prices: string[] }): JSX.Element {
           >
             <DefaultPricingCard
               color={darkMode ? "dark" : "white"}
-              badge={{ color: darkMode ? "warning" : "light", label: "enterprise" }}
-              price={{ currency: "$", value: enterprise, type: "mo" }}
+              badge={{ color: darkMode ? "warning" : "light", label: "Enterprise" }}
+              title="Infraestrutura & Pioneirismo"
+              description='Para "Whales", empresas ou quem precisa de infraestrutura pesada e prioridade máxima.'
+              price={{ currency: "R$", value: enterprise, type: "" }}
               specifications={[
-                { label: "Unlimited team members", includes: true },
-                { label: "100GB Cloud storage", includes: true },
-                { label: "Integration help", includes: true },
-                { label: "Sketch Files", includes: true },
-                { label: "API Access", includes: true },
-                { label: "Complete documentation", includes: true },
+                { label: "Acesso Ilimitado", includes: true },
+                { label: "200GB+ Armazenamento IPFS", includes: true },
+                { label: "Early Access (Projetos Incubados)", includes: true },
+                { label: "Integração Completa (API/Web3)", includes: true },
+                { label: "Certificação NFT de Mantenedor", includes: true },
+                { label: "Suporte Técnico Dedicado", includes: true },
               ]}
               action={{
                 type: "internal",
                 route: "/",
                 color: darkMode ? "warning" : "dark",
-                label: "join",
+                label: "Acesso Total",
               }}
               shadow={false}
             />

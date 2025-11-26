@@ -9,21 +9,19 @@ import Stack from "@mui/material/Stack";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 import Footer from "layouts/pages/pricing-page/components/Footer";
 import PricingCards from "layouts/pages/pricing-page/components/PricingCards";
-import TrustedBrands from "layouts/pages/pricing-page/components/TrustedBrands";
-import Faq from "layouts/pages/pricing-page/components/Faq";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
 function PricingPage(): JSX.Element {
   const [tabValue, setTabValue] = useState<number>(0);
-  const [prices, setPrices] = useState<string[]>(["59", "89", "99"]);
+  const [prices, setPrices] = useState<string[]>(["29,90", "89,90", "199,90"]);
 
   const handleSetTabValue = (event: any, newValue: any) => {
     setTabValue(newValue);
     if (event.currentTarget.id === "annual") {
-      setPrices(["119", "159", "399"]);
+      setPrices(["299,00", "890,00", "1.990,00"]);
     } else {
-      setPrices(["59", "89", "99"]);
+      setPrices(["29,90", "89,90", "199,90"]);
     }
   };
 
@@ -55,7 +53,7 @@ function PricingPage(): JSX.Element {
         </Container>
       </MDBox>
 
-      <Container sx={{ mt: -10, pb: 12 }}>
+      <Container sx={{ mt: -5, pb: 12 }}>
         <Grid container>
           <Grid item xs={12}>
             <Card>
@@ -83,8 +81,6 @@ function PricingPage(): JSX.Element {
               </MDBox>
               <MDBox pt={6} pb={3} px={3}>
                 <PricingCards prices={prices} />
-                <TrustedBrands />
-                <Faq />
               </MDBox>
             </Card>
           </Grid>
