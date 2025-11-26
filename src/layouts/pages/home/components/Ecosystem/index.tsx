@@ -11,12 +11,12 @@ import {
   useTheme,
   Chip,
   Stack,
+  Container,
 } from "@mui/material";
 import { User, Landmark, Gavel, Rocket, Repeat } from "lucide-react";
 
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-import Container from "@mui/material/Container";
 
 // Interfaces
 interface CardProps {
@@ -392,7 +392,6 @@ const ValueFlowDiagram = () => {
     </MDBox>
   );
 };
-
 const EcosystemSection = () => {
   const contractOptions = [
     {
