@@ -4,6 +4,7 @@ import MDBox from "components/MDBox";
 import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Hero(): JSX.Element {
   const theme = useTheme();
@@ -64,7 +65,14 @@ function Hero(): JSX.Element {
               justifyContent="center"
               sx={{ width: "100%" }}
             >
-              <MDButton color="primary" variant="contained" size="large" fullWidth={isMobile}>
+              <MDButton
+                component={Link}
+                to="/pages/pricing-page"
+                color="primary"
+                variant="contained"
+                size="large"
+                fullWidth={isMobile}
+              >
                 Quero Digitalizar meu Negócio
               </MDButton>
               <MDButton color="primary" variant="outlined" size="large" fullWidth={isMobile}>
