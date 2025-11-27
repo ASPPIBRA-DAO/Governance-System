@@ -77,6 +77,25 @@ function Footer({ company, links }: Props): JSX.Element {
           </MDTypography>
         </Link>
       </MDBox>
+      <MDBox
+        component="ul"
+        sx={({ breakpoints }) => ({
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+          listStyle: "none",
+          mt: 3,
+          mb: 0,
+          p: 0,
+
+          [breakpoints.up("lg")]: {
+            mt: 0,
+          },
+        })}
+      >
+        {renderLinks()}
+      </MDBox>
     </MDBox>
   );
 }
@@ -85,10 +104,12 @@ function Footer({ company, links }: Props): JSX.Element {
 Footer.defaultProps = {
   company: { href: "http://", name: "GrupoOrion" },
   links: [
-    { href: "https://", name: "Creative Tim" },
-    { href: "https://", name: "About Us" },
-    { href: "https://www", name: "Blog" },
-    { href: "https://www", name: "License" },
+    { href: "https://x.com/ASPPIBRA_ORG", name: "Twitter" },
+    { href: "https://www.linkedin.com/company/asppibra-dao/", name: "LinkedIn" },
+    { href: "https://www.instagram.com/asppibra", name: "Instagram" },
+    { href: "https://github.com/ASPPIBRA-DAO", name: "GitHub" },
+    { href: "https://t.me/Mundo_Digital_BR", name: "Telegram" },
+    { href: "https://chat.whatsapp.com/FF6cs4zKS6BGxhLOyaNgu1", name: "WhatsApp" },
   ],
 };
 
