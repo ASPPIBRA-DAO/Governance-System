@@ -1,53 +1,246 @@
+# 📘 Arquitetura de Autenticação – Versão 2.0 (Revisada e Ampliada)
 
-# Arquitetura de Autenticação
+Esta documentação descreve a arquitetura completa de autenticação da aplicação, que utiliza:
 
-Este documento detalha a arquitetura de autenticação da aplicação, que utiliza um frontend em React com um backend serverless (`worker-auth.js`) em Cloudflare Workers. A estratégia é baseada em JWT, com um `accessToken` de curta duração e um `refreshToken` de longa duração, persistido no banco de dados.
+*   Frontend em React
+*   Backend serverless em Cloudflare Workers
+*   Banco de dados Cloudflare D1
+*   Tokens JWT + Refresh Token persistido
 
-## Visão Geral do Fluxo
+O objetivo é garantir segurança, baixa latência, compatibilidade, escalabilidade e simplicidade operacional.
 
-### 1. Cadastro (Sign Up)
+## 🎯 Visão Geral da Arquitetura
 
--   **Frontend**: O usuário preenche o formulário de cadastro.
--   **Backend (`POST /auth/signup`)**: O worker normaliza o e-mail (`trim`, `lowercase`), verifica se o e-mail já existe no D1 para evitar duplicidade (`409 Conflict`), hasheia a senha com `bcrypt` e insere o novo usuário no banco de dados.
+A autenticação segue o padrão moderno Access Token + Refresh Token, onde:
 
-### 2. Login (Sign In)
+*   O **Access Token (JWT)** tem curta duração (15 minutos).
+*   O **Refresh Token** tem longa duração (30 dias), é armazenado no banco somente em forma de hash SHA-256, e enviado ao cliente via cookie `HttpOnly` + `Secure` + `SameSite=Strict`.
 
--   **Frontend**: O usuário insere suas credenciais.
--   **Backend (`POST /auth/signin`)**: O worker normaliza o e-mail, busca o usuário no D1 e compara a senha enviada com o hash armazenado usando `bcrypt.compare()`.
--   **Geração de Tokens**: Se as credenciais forem válidas, o worker gera:
-    -   Um `accessToken` (JWT assinado com `jose`, validade de 15 minutos) retornado no corpo.
-    -   Um `refreshToken` (string segura e aleatória) cujo hash (`SHA-256`) é persistido na tabela `refresh_tokens` do D1 com validade de 30 dias.
--   **Cookie**: O `refreshToken` original é enviado ao cliente em um cookie `HttpOnly; Secure; Path=/; SameSite=Strict;`.
+## 🧩 Diagrama Geral da Arquitetura
 
-### 3. Refresh de Token
+Aqui está o diagrama visual usando Mermaid, podendo ser renderizado no GitHub, Notion, GitLab ou VSCode:
 
--   **Frontend**: Quando uma chamada à API falha com `401 Unauthorized`, um interceptor do `axios` envia o `refreshToken` (via cookie) para a rota de refresh.
--   **Backend (`POST /auth/refresh`)**:
-    -   Lê o `refreshToken` do cookie.
-    -   Gera um hash do token e verifica se ele existe e é válido na tabela `refresh_tokens`.
-    -   Se válido, gera e retorna um novo `accessToken` de 15 minutos.
+```mermaid
+sequenceDiagram
+    autonumber
+    participant U as Usuário (Frontend React)
+    participant F as Frontend (React)
+    participant W as Worker API
+    participant D as Banco D1
+    participant E as Serviço de E-mail
 
-### 4. Redefinição de Senha (Ciclo Completo)
+    %% SIGN UP
+    U->>F: Preenche formulário de cadastro
+    F->>W: POST /auth/signup
+    W->>D: Verifica email, insere usuário
+    W-->>F: Usuário criado
 
-#### Etapa A: Solicitação de Redefinição
+    %% SIGN IN
+    U->>F: Envia email/senha
+    F->>W: POST /auth/signin
+    W->>D: Busca usuário, valida senha
+    W->>W: Gera Access Token (JWT)
+    W->>D: Armazena hash do refresh token
+    W-->>F: JWT + Cookie HttpOnly com refresh token
 
--   **Frontend**: O usuário insere seu e-mail.
--   **Backend (`POST /auth/request-password-reset`)**:
-    -   O e-mail é normalizado. Somente se o usuário existir no D1, o fluxo prossegue internamente.
-    -   Um token de redefinição seguro e de uso único é gerado. Seu hash `SHA-256` é armazenado na tabela `password_reset_tokens` com expiração de 30 minutos.
-    -   Usando `ctx.waitUntil`, o worker dispara de forma assíncrona o envio do e-mail (via um serviço externo), contendo o link com o token original.
--   **Resposta Genérica**: Independentemente de o e-mail ter sido encontrado, o backend responde imediatamente com uma mensagem genérica para evitar enumeração de contas.
+    %% REFRESH
+    F->>W: POST /auth/refresh (via cookie)
+    W->>D: Valida refresh token
+    W->>W: Gera novo JWT
+    W-->>F: Retorna novo access token
 
-#### Etapa B: Definição da Nova Senha
+    %% RESET PASSWORD
+    U->>F: Solicita redefinição
+    F->>W: POST /auth/request-password-reset
+    W->>D: Cria token hash
+    W->>E: Envia email async
+    W-->>F: Resposta genérica
 
--   **Frontend**: O usuário clica no link recebido e preenche o formulário com a nova senha.
--   **Backend (`POST /auth/reset-password`)**:
-    -   Gera um hash `SHA-256` do token recebido.
-    -   Verifica se o hash existe no D1 e não expirou.
-    -   Hasheia a nova senha com `bcrypt` e atualiza o usuário.
-    -   Exclui o token de redefinição da tabela para garantir o uso único.
+    %% DEFINE NOVA SENHA
+    U->>F: Preenche nova senha
+    F->>W: POST /auth/reset-password
+    W->>D: Valida hash, atualiza senha
+    W-->>F: Confirmado
 
-### 5. Logout
+    %% LOGOUT
+    F->>W: POST /auth/logout
+    W->>D: Remove refresh token
+    W-->>F: Sessão encerrada
+```
 
--   **Frontend**: O `accessToken` é removido do `localStorage`.
--   **Backend (`POST /auth/logout`)**: **A ser implementado.** O `refreshToken` correspondente deve ser removido do banco de dados para invalidar a sessão por completo.
+## 🏗️ Componentes da Arquitetura
+
+### 1. Frontend (React)
+
+Responsável por:
+*   Fluxos de UI de login, signup, reset password.
+*   Armazenar apenas o **Access Token**.
+*   Usar `axios` + interceptors para:
+    *   Gerenciar expiração.
+    *   Renovar tokens automaticamente.
+    *   Evitar "refresh storm" (lock + fila).
+*   Não armazena Refresh Token (apenas cookie `HttpOnly`).
+
+### 2. Backend: Cloudflare Worker (`worker-auth.js`)
+
+Responsável por:
+*   Criptografar dados sensíveis.
+*   Consultar e atualizar o banco D1.
+*   Gerar tokens JWT.
+*   Gerar refresh tokens e armazenar hashes.
+*   Validar tokens.
+*   Enviar e-mails via providers externos.
+*   Garantir segurança e proteção contra ataques.
+
+### 3. Banco de Dados: Cloudflare D1
+
+Tabelas recomendadas:
+
+| Tabela: `users` | | |
+| :--- | :--- | :--- |
+| **coluna** | **tipo** | **descrição** |
+| `id` | `TEXT (UUID)` | PK |
+| `email` | `TEXT` | único, lowercase |
+| `password_hash` | `TEXT` | hash bcrypt |
+| `created_at` | `TEXT` | timestamp |
+
+| Tabela: `refresh_tokens` | | |
+| :--- | :--- | :--- |
+| **coluna** | **tipo** | **descrição** |
+| `id` | `TEXT (UUID)` | PK |
+| `user_id` | `TEXT` | FK `users` |
+| `token_hash` | `TEXT` | hash SHA-256 do refresh token |
+| `created_at` | `TEXT` | timestamp |
+| `expires_at` | `TEXT` | 30 dias |
+| `user_agent` | `TEXT` | opcional |
+| `ip` | `TEXT` | opcional |
+
+| Tabela: `password_reset_tokens` | | |
+| :--- | :--- | :--- |
+| **coluna** | **tipo** | **descrição** |
+| `token_hash` | `TEXT` | hash SHA-256 |
+| `user_id` | `TEXT` | FK `users` |
+| `expires_at` | `TEXT` | 30 min |
+
+> Todas as tabelas devem ter índices nos campos usados em busca.
+
+## 🔐 Fluxo Completo de Autenticação
+
+### 1. Cadastro (`POST /auth/signup`)
+*   **Processo:**
+    1.  Normalizar e-mail (`trim`, `lowercase`).
+    2.  Verificar duplicidade (`409`).
+    3.  Gerar `bcrypt.hash`.
+    4.  Criar usuário no D1.
+
+### 2. Login (`POST /auth/signin`)
+*   **Processo:**
+    1.  Normalizar e-mail.
+    2.  Buscar usuário.
+    3.  Validar senha com `bcrypt.compare`.
+    4.  Gerar:
+        *   `accessToken` (JWT).
+        *   `refreshToken` (string aleatória).
+    5.  Salvar hash SHA-256 do `refreshToken` no D1.
+    6.  Enviar cookie `HttpOnly; Secure; SameSite=Strict`.
+
+#### 🎫 Formato do Access Token (JWT Claims)
+```json
+{
+  "sub": "USER_ID",
+  "email": "email@example.com",
+  "iat": 123456789,
+  "exp": 123456789
+}
+```
+
+### 3. Refresh de Token (`POST /auth/refresh`)
+O frontend dispara automaticamente usando `axios` interceptor.
+*   **Processo:**
+    1.  Ler `refreshToken` do cookie.
+    2.  Hash SHA-256.
+    3.  Verificar hash no D1.
+    4.  Gerar novo `accessToken`.
+    5.  Atualizar `expires_at` (opcional).
+
+#### 🔁 Rotação opcional de refresh token (melhor segurança)
+Pode ser ativada:
+*   Novo `refreshToken` é emitido a cada refresh.
+*   O antigo é invalidado.
+*   Proteção contra "refresh token reuse detection".
+
+### 4. Recuperação de Senha
+#### Etapa A – Solicitar Reset (`POST /auth/request-password-reset`)
+*   **Processo:**
+    1.  Normalizar email.
+    2.  Se existir: gerar token seguro.
+    3.  Armazenar SHA-256 hash + expiração 30min.
+    4.  Enviar link via email (assíncrono com `ctx.waitUntil`).
+    5.  Responder mensagem genérica independente do resultado.
+
+#### Etapa B – Redefinir Senha (`POST /auth/reset-password`)
+*   **Processo:**
+    1.  Hash SHA-256 do token recebido.
+    2.  Validar no banco.
+    3.  Criar novo hash `bcrypt`.
+    4.  Atualizar usuário.
+    5.  Remover token da tabela.
+
+### 5. Logout (`POST /auth/logout`)
+*   **Responsável por:**
+    1.  Remover `refreshToken` do banco.
+    2.  Invalidar a sessão atual.
+    3.  Opcional: remover todas as sessões do usuário.
+
+## ⚙️ Padrão de Respostas da API
+Todas as rotas de sucesso retornam JSON:
+```json
+{
+  "success": true,
+  "message": "Descrição...",
+  "data": { }
+}
+```
+
+Erros:
+```json
+{
+  "error": "INVALID_CREDENTIALS",
+  "message": "Email ou senha incorretos"
+}
+```
+
+## 🛡️ Segurança – Checklist
+- [x] Hash de tokens sensíveis (SHA-256).
+- [x] Senhas com `bcrypt` (custo 10–12).
+- [x] Refresh token em cookie `HttpOnly` + `Secure` + `Strict`.
+- [x] Anti-enumeração de contas.
+- [ ] Rate limiting em:
+    *   login
+    *   refresh
+    *   reset password
+- [x] CORS restrito ao domínio do frontend.
+- [ ] Limpeza automática de tokens expirados.
+- [ ] Registros de auditoria (opcional).
+- [x] Não expor `stack trace` ao cliente.
+
+## 🧪 Testes Recomendados
+*   Login com senha incorreta.
+*   Refresh expirado.
+*   Refresh token inválido.
+*   Fluxo completo de reset password.
+*   Reutilização de token inválida.
+*   Logout cancela a sessão.
+*   **Ataques comuns:**
+    *   brute force
+    *   replay
+    *   CSRF (protegido por `SameSite`)
+
+## 🏁 Conclusão
+Esta nova versão da documentação:
+✓ Está mais clara.
+✓ Tem diagrama visual.
+✓ Tem detalhes técnicos que antes faltavam.
+✓ Segue padrões profissionais modernos.
+✓ Pode ser usada como referência para todo o time.
+✓ Previne ambiguidades durante o desenvolvimento.
