@@ -44,7 +44,6 @@ import NewUser from "layouts/pages/users/new-user";
 import Settings from "layouts/pages/account/settings";
 import Billing from "layouts/pages/account/billing";
 import Invoice from "layouts/pages/account/invoice";
-import Timeline from "layouts/pages/projects/timeline";
 import PricingPage from "layouts/pages/pricing-page";
 import HomePage from "layouts/pages/home";
 import SignInCover from "layouts/authentication/sign-in/cover";
@@ -174,18 +173,6 @@ const routes = [
             key: "invoice",
             route: "/pages/account/invoice",
             component: <Invoice />,
-          },
-        ],
-      },
-      {
-        name: "Projects",
-        key: "projects",
-        collapse: [
-          {
-            name: "Timeline",
-            key: "timeline",
-            route: "/pages/projects/timeline",
-            component: <Timeline />,
           },
         ],
       },
