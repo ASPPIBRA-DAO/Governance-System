@@ -1,53 +1,58 @@
-/**
-=========================================================
-* Material Dashboard 2 PRO React TS - v1.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-2-pro-react-ts
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-// @mui material components
 import Card from "@mui/material/Card";
+import CircularProgress from "@mui/material/CircularProgress";
 
-// Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
-// Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
+import api from "api/axios";
+
+type FormData = {
+  email: string;
+};
+
+const schema = yup
+  .object({
+    email: yup.string().required("O e-mail é obrigatório").email("Formato de e-mail inválido"),
+  })
+  .required();
 
 function Cover(): JSX.Element {
-  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
-  const handleRequestReset = async () => {
-    const apiBaseUrl = "/api"; // Using a relative path
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = async (data: FormData) => {
+    setMessage("");
+    setIsError(false);
 
     try {
-      const response = await fetch(`${apiBaseUrl}/request-password-reset`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      // Always show a generic message to prevent email enumeration
-      const message = await response.text();
-      alert(message);
+      // A requisição é enviada, mas não esperamos pela resposta para evitar
+      // qualquer análise de tempo que possa vazar informação.
+      api.post("/auth/request-password-reset", { email: data.email });
     } catch (error) {
+      // Erros de rede ou do servidor são capturados aqui, mas não são expostos ao usuário.
+      // O erro pode ser logado em um serviço de monitoramento.
       console.error("Request password reset error:", error);
-      alert("An error occurred. Please try again.");
     }
+
+    // Para evitar a enumeração de e-mails, sempre mostramos a mesma mensagem de sucesso.
+    setMessage("Se o e-mail pertencer a uma conta registrada, um link de redefinição foi enviado.");
+    setIsError(false);
   };
 
   return (
@@ -71,24 +76,47 @@ function Cover(): JSX.Element {
             Reset Password
           </MDTypography>
           <MDTypography display="block" variant="button" color="white" my={1}>
-            You will receive an e-mail in maximum 60 seconds
+            Você receberá um e-mail em breve
           </MDTypography>
         </MDBox>
+
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
+          <MDBox component="form" role="form" onSubmit={handleSubmit(onSubmit)}>
+            {message && (
+              <MDBox
+                mb={3}
+                p={1.5}
+                borderRadius="md"
+                bgColor={isError ? "error" : "success"}
+                sx={{ opacity: 0.9 }}
+              >
+                <MDTypography variant="button" color="white">
+                  {message}
+                </MDTypography>
+              </MDBox>
+            )}
+
             <MDBox mb={4}>
               <MDInput
+                {...register("email")}
                 type="email"
                 label="Email"
                 variant="standard"
                 fullWidth
-                value={email}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                error={!!errors.email}
+                helperText={errors.email?.message}
               />
             </MDBox>
+
             <MDBox mt={6} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth onClick={handleRequestReset}>
-                reset
+              <MDButton
+                variant="gradient"
+                color="info"
+                fullWidth
+                type="submit"
+                disabled={isSubmitting || !!message} // Desabilita após o envio
+              >
+                {isSubmitting ? <CircularProgress size={20} color="inherit" /> : "Resetar Senha"}
               </MDButton>
             </MDBox>
           </MDBox>

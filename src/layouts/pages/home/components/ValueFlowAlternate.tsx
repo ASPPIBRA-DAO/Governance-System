@@ -13,11 +13,41 @@ type Step = {
 };
 
 const defaultSteps: Step[] = [
-  { id: 1, title: "Aquisição", description: "Associados contribuem e adquirem a Credencial de Governança (CAD).", color: "#1976d2", Icon: <User size={20} /> },
-  { id: 2, title: "Tesouro", description: "Recursos são alocados no Tesouro seguro e auditável da DAO.", color: "#ff9800", Icon: <Landmark size={20} /> },
-  { id: 3, title: "Votação", description: "Detentores da CAD votam para aprovar projetos financiáveis.", color: "#8e24aa", Icon: <Gavel size={20} /> },
-  { id: 4, title: "Aceleração", description: "Financiamento de REURB e startups da economia real selecionadas.", color: "#43a047", Icon: <Rocket size={20} /> },
-  { id: 5, title: "Reinvestimento", description: "O sucesso dos projetos retorna valor ao Tesouro, fortalecendo o ciclo.", color: "#e91e63", Icon: <Repeat size={20} /> },
+  {
+    id: 1,
+    title: "Aquisição",
+    description: "Associados contribuem e adquirem a Credencial de Governança (CAD).",
+    color: "#1976d2",
+    Icon: <User size={20} />,
+  },
+  {
+    id: 2,
+    title: "Tesouro",
+    description: "Recursos são alocados no Tesouro seguro e auditável da DAO.",
+    color: "#ff9800",
+    Icon: <Landmark size={20} />,
+  },
+  {
+    id: 3,
+    title: "Votação",
+    description: "Detentores da CAD votam para aprovar projetos financiáveis.",
+    color: "#8e24aa",
+    Icon: <Gavel size={20} />,
+  },
+  {
+    id: 4,
+    title: "Aceleração",
+    description: "Financiamento de REURB e startups da economia real selecionadas.",
+    color: "#43a047",
+    Icon: <Rocket size={20} />,
+  },
+  {
+    id: 5,
+    title: "Reinvestimento",
+    description: "O sucesso dos projetos retorna valor ao Tesouro, fortalecendo o ciclo.",
+    color: "#e91e63",
+    Icon: <Repeat size={20} />,
+  },
 ];
 
 type Props = {
@@ -76,8 +106,12 @@ const StepItem: React.FC<{ step: Step; side: "left" | "right" }> = ({ step, side
           {/* Text */}
           <Box sx={{ flex: 1, minWidth: 0 }}>
             <Typography component="div" sx={{ display: "flex", alignItems: "baseline", gap: 1 }}>
-              <Typography sx={{ fontWeight: 700, color: "#111", mr: 1, fontSize: "1rem" }}>{`${step.id}.`}</Typography>
-              <Typography sx={{ fontWeight: 700, color: "#111", fontSize: "1rem" }}>{step.title}</Typography>
+              <Typography
+                sx={{ fontWeight: 700, color: "#111", mr: 1, fontSize: "1rem" }}
+              >{`${step.id}.`}</Typography>
+              <Typography sx={{ fontWeight: 700, color: "#111", fontSize: "1rem" }}>
+                {step.title}
+              </Typography>
             </Typography>
 
             <Typography sx={{ color: "#444", mt: 1, lineHeight: 1.5, fontSize: "0.92rem" }}>
@@ -107,16 +141,31 @@ const StepItem: React.FC<{ step: Step; side: "left" | "right" }> = ({ step, side
   );
 };
 
-const ValueFlowAlternate: React.FC<Props> = ({ steps = defaultSteps, title = "O Ciclo de Valor do Ecossistema", subtitle = "Do apoio inicial ao crescimento sustentável e reinvestimento contínuo." }) => {
+const ValueFlowAlternate: React.FC<Props> = ({
+  steps = defaultSteps,
+  title = "O Ciclo de Valor do Ecossistema",
+  subtitle = "Do apoio inicial ao crescimento sustentável e reinvestimento contínuo.",
+}) => {
   return (
     <MDBox sx={{ width: "100%", py: { xs: 6, md: 8 } }}>
       <Box sx={{ maxWidth: 1100, mx: "auto", px: { xs: 3, md: 0 } }}>
         <Box sx={{ textAlign: "center", mb: 4 }}>
-          <MDTypography variant="h5" fontWeight="bold" color="dark">{title}</MDTypography>
-          <MDTypography variant="body2" color="text.secondary" sx={{ mt: 1 }}>{subtitle}</MDTypography>
+          <MDTypography variant="h5" fontWeight="bold" color="dark">
+            {title}
+          </MDTypography>
+          <MDTypography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            {subtitle}
+          </MDTypography>
         </Box>
 
-        <Box sx={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <Box
+          sx={{
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Box
             sx={{
               position: "absolute",

@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState, useEffect, useMemo, JSXElementConstructor, Key, ReactElement } from "react";
+import { useState, useEffect, JSXElementConstructor, Key, ReactElement } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -23,13 +23,13 @@ import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
 import theme from "assets/theme";
 import themeDark from "assets/theme-dark";
-import routes from "routes"; // Main routes file
+import routes from "routes";
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
-import routesBIS from "routesBIS"; // Sidenav routes
+import routesBIS from "routesBIS";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import pageRoutes from "./page.routes";
 import ClientOnly from "components/ClientOnly";
-import HomePage from "layouts/pages/home";
+import { AuthProvider } from "contexts/AuthContext";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -43,6 +43,7 @@ export default function App() {
     whiteSidenav,
     darkMode,
   } = controller;
+
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
 
@@ -71,7 +72,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
-    document.scrollingElement.scrollTop = 0;
+    document.scrollingElement?.scrollTo(0, 0);
   }, [pathname]);
 
   useEffect(() => {
@@ -79,6 +80,7 @@ export default function App() {
       e.preventDefault();
     };
     document.addEventListener("contextmenu", handleContextmenu);
+
     return () => {
       document.removeEventListener("contextmenu", handleContextmenu);
     };
@@ -92,13 +94,10 @@ export default function App() {
         component: ReactElement<any, string | JSXElementConstructor<any>>;
         key: Key;
       }) => {
-        if (route.collapse) {
-          return getRoutes(route.collapse);
-        }
+        if (route.collapse) return getRoutes(route.collapse);
 
-        if (route.route) {
+        if (route.route)
           return <Route path={route.route} element={route.component} key={route.key} />;
-        }
 
         return null;
       }
@@ -128,52 +127,51 @@ export default function App() {
     </MDBox>
   );
 
-  // Condition to avoid rendering navbars on authentication pages
   const isAuthPage = pathname.startsWith("/authentication");
 
   return (
-    <ThemeProvider theme={darkMode ? themeDark : theme}>
-      <CssBaseline />
-      <ClientOnly />
+    <AuthProvider>
+      <ThemeProvider theme={darkMode ? themeDark : theme}>
+        <CssBaseline />
+        <ClientOnly />
 
-      {/* Render Sidenav only for the 'dashboard' layout and if it's not an auth page */}
-      {layout === "dashboard" && !isAuthPage && (
-        <>
-          <Sidenav
-            color={sidenavColor}
-            brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
-            brandName="Portal BIS1"
-            routes={routesBIS} // Sidenav uses the simplified routes
-            onMouseEnter={handleOnMouseEnter}
-            onMouseLeave={handleOnMouseLeave}
+        {layout === "dashboard" && !isAuthPage && (
+          <>
+            <Sidenav
+              color={sidenavColor}
+              brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+              brandName="Portal BIS1"
+              routes={routesBIS}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
+
+            <Configurator />
+
+            {configsButton}
+          </>
+        )}
+
+        {layout !== "dashboard" && !isAuthPage && (
+          <DefaultNavbar
+            routes={pageRoutes}
+            action={{
+              type: "internal",
+              route: "/authentication/sign-in/cover",
+              label: "Entrar",
+              color: "info",
+            }}
           />
-          <Configurator />
-          {configsButton}
-        </>
-      )}
+        )}
 
-      {/* Render DefaultNavbar for layouts that are NOT 'dashboard' and NOT 'authentication' */}
-      {layout !== "dashboard" && !isAuthPage && (
-        <DefaultNavbar
-          routes={pageRoutes}
-          action={{
-            type: "internal",
-            route: "/authentication/sign-in/cover",
-            label: "Entrar",
-            color: "info",
-          }}
-        />
-      )}
+        {layout === "vr" && <Configurator />}
 
-      {layout === "vr" && <Configurator />}
-
-      <Routes>
-        {/* Use the main 'routes' file to register ALL application routes */}
-        {getRoutes(routes)}
-        {/* Redirects for root and unmatched paths */}
-        <Route path="/" element={<Navigate to="/pages/home" />} />
-        <Route path="*" element={<Navigate to="/pages/home" />} />
-      </Routes>
-    </ThemeProvider>
+        <Routes>
+          {getRoutes(routes)}
+          <Route path="/" element={<Navigate to="/pages/home" />} />
+          <Route path="*" element={<Navigate to="/pages/home" />} />
+        </Routes>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

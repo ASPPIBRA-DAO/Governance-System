@@ -1,62 +1,96 @@
-/**
-=========================================================
-* New Page for Resetting Password with Token
-=========================================================
-*/
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-// @mui material components
 import Card from "@mui/material/Card";
+import CircularProgress from "@mui/material/CircularProgress";
 
-// Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
 
-// Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
+import api from "api/axios";
+
+type FormData = {
+  token: string;
+  newPassword: string;
+  confirmPassword: string;
+};
+
+const schema: yup.SchemaOf<FormData> = yup.object({
+  token: yup.string().required("O token é obrigatório"),
+  newPassword: yup
+    .string()
+    .required("A nova senha é obrigatória")
+    .min(6, "A senha deve ter pelo menos 6 caracteres"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("newPassword")], "As senhas não conferem")
+    .required("A confirmação de senha é obrigatória"),
+});
 
 function ResetPasswordWithToken(): JSX.Element {
-  const [token, setToken] = useState("");
-  const [newPassword, setNewPassword] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleResetPassword = async () => {
-    const apiBaseUrl = "/api";
+  const [serverMessage, setServerMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
-    if (!token || !newPassword) {
-      alert("Please provide both the token and a new password.");
-      return;
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+    defaultValues: { token: "", newPassword: "", confirmPassword: "" },
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const urlToken = params.get("token");
+
+    if (urlToken) {
+      setValue("token", urlToken);
     }
+  }, [location, setValue]);
+
+  const onSubmit = async (data: FormData) => {
+    setServerMessage("");
+    setIsError(false);
 
     try {
-      const response = await fetch(`${apiBaseUrl}/reset-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token, newPassword }),
+      const response = await api.post("/auth/reset-password", {
+        token: data.token,
+        newPassword: data.newPassword,
       });
 
-      const message = await response.text();
-      alert(message);
+      setServerMessage(
+        response.data.message || "Senha atualizada com sucesso! Redirecionando para o login..."
+      );
 
-      if (response.status === 200) {
+      setTimeout(() => {
         navigate("/authentication/sign-in/cover");
+      }, 2000);
+    } catch (err: any) {
+      setIsError(true);
+
+      if (err.response?.data?.message) {
+        setServerMessage(err.response.data.message);
+      } else {
+        setServerMessage("Erro desconhecido. Tente novamente.");
       }
-    } catch (error) {
-      console.error("Reset password error:", error);
-      alert("An error occurred. Please try again.");
     }
   };
 
   return (
     <CoverLayout
       coverHeight="50vh"
-      image={"https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-reset-cover.jpeg"}
+      image="https://pub-e76a89eaf4914341b899a2d3d623545b.r2.dev/images/bg-reset-cover.jpeg"
     >
       <Card>
         <MDBox
@@ -71,39 +105,79 @@ function ResetPasswordWithToken(): JSX.Element {
           textAlign="center"
         >
           <MDTypography variant="h3" fontWeight="medium" color="white" mt={1}>
-            Set New Password
+            Definir Nova Senha
           </MDTypography>
+
           <MDTypography display="block" variant="button" color="white" my={1}>
-            Enter the token from your email and your new password.
+            Crie sua nova senha abaixo.
           </MDTypography>
         </MDBox>
+
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
+          <MDBox component="form" role="form" onSubmit={handleSubmit(onSubmit)}>
+            {serverMessage && (
+              <MDBox
+                mb={3}
+                p={1.5}
+                borderRadius="md"
+                bgColor={isError ? "error" : "success"}
+                sx={{ opacity: 0.9 }}
+              >
+                <MDTypography variant="button" color="white">
+                  {serverMessage}
+                </MDTypography>
+              </MDBox>
+            )}
+
             <MDBox mb={2}>
               <MDInput
+                {...register("token")}
                 type="text"
-                label="Reset Token"
+                label="Token de Redefinição"
                 variant="standard"
                 fullWidth
-                value={token}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToken(e.target.value)}
+                error={!!errors.token}
+                helperText={errors.token?.message}
               />
             </MDBox>
+
+            <MDBox mb={2}>
+              <MDInput
+                {...register("newPassword")}
+                type="password"
+                label="Nova Senha"
+                variant="standard"
+                fullWidth
+                error={!!errors.newPassword}
+                helperText={errors.newPassword?.message}
+              />
+            </MDBox>
+
             <MDBox mb={4}>
               <MDInput
+                {...register("confirmPassword")}
                 type="password"
-                label="New Password"
+                label="Confirmar Nova Senha"
                 variant="standard"
                 fullWidth
-                value={newPassword}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setNewPassword(e.target.value)
-                }
+                error={!!errors.confirmPassword}
+                helperText={errors.confirmPassword?.message}
               />
             </MDBox>
+
             <MDBox mt={6} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth onClick={handleResetPassword}>
-                Set New Password
+              <MDButton
+                variant="gradient"
+                color="info"
+                fullWidth
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <CircularProgress size={20} color="inherit" />
+                ) : (
+                  "Definir Nova Senha"
+                )}
               </MDButton>
             </MDBox>
           </MDBox>
