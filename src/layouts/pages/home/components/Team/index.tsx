@@ -5,15 +5,12 @@ import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import Fade from "@mui/material/Fade";
 
-
-// Estrutura de dados para cada membro da equipe
 interface TeamMember {
   name: string;
   role: string;
   image?: string;
 }
 
-// Dados da equipe
 const teamMembers: TeamMember[] = [
   {
     name: "Nome do Fundador",
@@ -75,10 +72,10 @@ function Team(): JSX.Element {
           </Grid>
         </Grid>
 
-        <Grid container spacing={3} justifyContent="center" sx={{ alignItems: 'stretch' }}>
+        <Grid container spacing={3} justifyContent="center" sx={{ alignItems: "stretch" }}>
           {teamMembers.map((member, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex' }}>
-              <Fade in={loaded} style={{ transitionDelay: `${index * 150}ms`, width: '100%' }}>
+            <Grid item key={index} xs={12} sm={6} md={4} lg={3} sx={{ display: "flex" }}>
+              <Fade in={loaded} style={{ transitionDelay: `${index * 150}ms`, width: "100%" }}>
                 <MDBox
                   display="flex"
                   flexDirection="column"
@@ -92,8 +89,8 @@ function Team(): JSX.Element {
                     boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
                     height: "100%",
                     ":hover": {
-                        transform: "translateY(-8px)",
-                        boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
                     },
                   }}
                 >
@@ -108,12 +105,8 @@ function Team(): JSX.Element {
                       border: "4px solid #2196f3",
                       transition: "transform 0.3s ease",
                     }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.transform = "scale(1.05)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.transform = "scale(1)")
-                    }
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                   />
 
                   <MDTypography variant="h5" fontWeight="bold" mt={2}>
