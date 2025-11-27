@@ -35,6 +35,26 @@ const teamMembers: TeamMember[] = [
     role: "Gerente de Comunidade",
     image: "https://i.postimg.cc/Hk47hRS7/github.png",
   },
+  {
+    name: "Nome do Membro",
+    role: "Designer",
+    image: "https://i.postimg.cc/Hk47hRS7/github.png",
+  },
+  {
+    name: "Nome do Membro",
+    role: "Desenvolvedor",
+    image: "https://i.postimg.cc/Hk47hRS7/github.png",
+  },
+  {
+    name: "Nome do Membro",
+    role: "Marketing",
+    image: "https://i.postimg.cc/Hk47hRS7/github.png",
+  },
+  {
+    name: "Nome do Membro",
+    role: "Suporte",
+    image: "https://i.postimg.cc/Hk47hRS7/github.png",
+  },
 ];
 
 function Team(): JSX.Element {
